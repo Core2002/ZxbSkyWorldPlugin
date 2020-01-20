@@ -14,7 +14,7 @@ public class Main extends JavaPlugin {
     /**
      * 配置文件
      */
-    public static final String CONFIGPATH = "./plugins/config.json";
+    public static final String CONFIGPATH = "./plugins/ZxbSkyWorld/config.json";
     public static final String COMMAND = "s";
     public static JSONObject jsonObject = null;
 

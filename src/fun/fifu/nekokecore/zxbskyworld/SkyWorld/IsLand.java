@@ -16,7 +16,7 @@ public class IsLand extends IsLandNorm {
         Main.initJson(Main.CONFIGPATH);
         IsLand isLand = new IsLand("NekokeCore");
         System.out.println(isLand.SkyX + "," + isLand.SkyY);
-        System.out.println(isLand.getxxCentered()+",,"+isLand.getyyCentered());
+        System.out.println(isLand.getxxCentered() + ",," + isLand.getyyCentered());
     }
 
     @Override
@@ -26,7 +26,10 @@ public class IsLand extends IsLandNorm {
 
     @Override
     public void addSkyWorld(String Loc) {
-
+        if (!jsonArray.contains(Loc)) {
+            jsonArray.add(Loc);
+            trim();
+        }
     }
 
     @Override
@@ -35,6 +38,8 @@ public class IsLand extends IsLandNorm {
     }
 
     public IsLand(String UUID) {
+        //分配UUID
+        this.UUID = UUID;
         //初始化JSON配置文件
         if (jsonObject == null) {
             throw new RuntimeException("配置文件异常，请仔细检查！！！");
@@ -69,24 +74,31 @@ public class IsLand extends IsLandNorm {
         SkyX = getSkyX(temp);
         SkyY = getSkyY(temp);
         //整理并存档
-        trim(UUID);
+        trim();
     }
 
-    public int getSkyX(String SkyLoc) {
+    public static int getSkyX(String SkyLoc) {
         return Integer.parseInt(SkyLoc.substring(SkyLoc.indexOf('(') + 1, SkyLoc.indexOf(',')));
     }
 
-    public int getSkyY(String SkyLoc) {
+    public static int getSkyY(String SkyLoc) {
         return Integer.parseInt(SkyLoc.substring(SkyLoc.indexOf(',') + 1, SkyLoc.indexOf(')')));
     }
 
+    /**
+     * 分配岛屿_SkyLoc
+     *
+     * @return
+     */
     public String allocationIsLand() {
         String temp = jsonArray.toJSONString();
         Random random = new Random(System.currentTimeMillis());
         String tempSkyLoc = "Error";
+        int tempxx;
+        int tempyy;
         do {
-            int tempxx = random.nextInt(MAXSKYLOC);
-            int tempyy = random.nextInt(MAXSKYLOC);
+            tempxx = random.nextInt(MAXSKYLOC) - random.nextInt(MAXSKYLOC);
+            tempyy = random.nextInt(MAXSKYLOC) - random.nextInt(MAXSKYLOC);
             tempSkyLoc = "(" + tempxx + "," + tempyy + ")";
         } while (temp.contains(tempSkyLoc));
         return tempSkyLoc;

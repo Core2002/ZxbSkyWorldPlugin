@@ -2,6 +2,7 @@ package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.SkyWorld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -26,14 +27,15 @@ public class CommandLitener implements CommandExecutor {
             }
             // 如果我们已经判断好sender是一名玩家之后,我们就可以将其强转为Player对象,把它作为一个"玩家"来处理
             Player player = (Player) commandSender;
-            player.sendMessage("你成功的执行了指令/" + Main.COMMAND);
+
 
 
             //获取UUID
             String UUID = player.getUniqueId().toString();
             IsLand isLand=new IsLand(UUID);
             String SkyLoc= isLand.getSkyLoc();
-
+            Helper.tpSkyLoc(player,SkyLoc);
+            player.sendMessage(player.getName()+"欢迎回家!" + isLand.getSkyLoc());
 
 
 

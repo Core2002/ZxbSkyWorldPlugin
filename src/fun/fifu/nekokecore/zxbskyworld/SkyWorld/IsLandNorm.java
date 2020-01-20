@@ -18,22 +18,23 @@ public abstract class IsLandNorm {
 
     public static final int SIDE = 1024;
     public static final int MAXSKYLOC = 29296;
+    public static String UUID = "Error UUID";
 
     public JSONArray jsonArray;
 
-    public int getxxForm(int SkyX) {
+    public static int getxxForm(int SkyX) {
         return SIDE * SkyX;
     }
 
-    public int getxxEnd(int SkyX) {
+    public static int getxxEnd(int SkyX) {
         return (SIDE * (SkyX + 1)) - 1;
     }
 
-    public int getyyForm(int SkyY) {
+    public static int getyyForm(int SkyY) {
         return SIDE * SkyY;
     }
 
-    public int getyyEnd(int SkyY) {
+    public static int getyyEnd(int SkyY) {
         return (SIDE * (SkyY + 1)) - 1;
     }
 
@@ -60,7 +61,7 @@ public abstract class IsLandNorm {
         return in(xx, getxxForm(SkyX), getxxEnd(SkyX)) && in(yy, getyyForm(SkyY), getyyEnd(SkyY));
     }
 
-    public void trim(String UUID) {
+    public void trim() {
         //去重、添加、保存
         IOTools.removeDuplicate(jsonArray);
         jsonObject.put(UUID, jsonArray);
