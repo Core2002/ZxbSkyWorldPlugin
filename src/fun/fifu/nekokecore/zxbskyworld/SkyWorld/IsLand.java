@@ -3,6 +3,8 @@ package fun.fifu.nekokecore.zxbskyworld.SkyWorld;
 import fun.fifu.nekokecore.zxbskyworld.Main;
 import org.json.simple.JSONArray;
 
+import java.util.Random;
+
 import static fun.fifu.nekokecore.zxbskyworld.Main.jsonObject;
 
 
@@ -14,6 +16,7 @@ public class IsLand extends IsLandNorm {
         Main.initJson(Main.CONFIGPATH);
         IsLand isLand = new IsLand("NekokeCore");
         System.out.println(isLand.SkyX + "," + isLand.SkyY);
+        System.out.println(isLand.getxxCentered()+",,"+isLand.getyyCentered());
     }
 
     @Override
@@ -53,8 +56,12 @@ public class IsLand extends IsLandNorm {
             temp = (String) jsonArray.get(0);
             temp = String.format("M%s", temp);
         }
-        //如果没有主岛，把第一个当成主岛
-        if (!jsonArray.contains(temp)){
+        //如果没有主岛，把第一个当成主岛,如果没有岛，就自动分配
+        if (!jsonArray.contains(temp)) {
+            if (jsonArray.size() == 0) {
+                temp = "M" + allocationIsLand();
+                jsonArray.add(0, temp);
+            }
             jsonArray.remove(0);
             jsonArray.add(0, temp);
         }
@@ -65,12 +72,23 @@ public class IsLand extends IsLandNorm {
         trim(UUID);
     }
 
-    public int getSkyX(String str) {
-        return Integer.parseInt(str.substring(str.indexOf('(') + 1, str.indexOf(',')));
+    public int getSkyX(String SkyLoc) {
+        return Integer.parseInt(SkyLoc.substring(SkyLoc.indexOf('(') + 1, SkyLoc.indexOf(',')));
     }
 
-    public int getSkyY(String str) {
-        return Integer.parseInt(str.substring(str.indexOf(',') + 1, str.indexOf(')')));
+    public int getSkyY(String SkyLoc) {
+        return Integer.parseInt(SkyLoc.substring(SkyLoc.indexOf(',') + 1, SkyLoc.indexOf(')')));
     }
 
+    public String allocationIsLand() {
+        String temp = jsonArray.toJSONString();
+        Random random = new Random(System.currentTimeMillis());
+        String tempSkyLoc = "Error";
+        do {
+            int tempxx = random.nextInt(MAXSKYLOC);
+            int tempyy = random.nextInt(MAXSKYLOC);
+            tempSkyLoc = "(" + tempxx + "," + tempyy + ")";
+        } while (temp.contains(tempSkyLoc));
+        return tempSkyLoc;
+    }
 }

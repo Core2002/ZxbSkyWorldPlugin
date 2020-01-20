@@ -2,6 +2,7 @@ package fun.fifu.nekokecore.zxbskyworld.SkyWorld;
 
 import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.IOTools;
+import org.bukkit.block.Skull;
 import org.json.simple.JSONArray;
 
 import static fun.fifu.nekokecore.zxbskyworld.Main.jsonObject;
@@ -16,6 +17,7 @@ public abstract class IsLandNorm {
     public abstract String getSkyLoc();
 
     public static final int SIDE = 1024;
+    public static final int MAXSKYLOC = 29296;
 
     public JSONArray jsonArray;
 
@@ -24,7 +26,7 @@ public abstract class IsLandNorm {
     }
 
     public int getxxEnd(int SkyX) {
-        return SIDE * (SkyX + 1) - 1;
+        return (SIDE * (SkyX + 1)) - 1;
     }
 
     public int getyyForm(int SkyY) {
@@ -32,7 +34,15 @@ public abstract class IsLandNorm {
     }
 
     public int getyyEnd(int SkyY) {
-        return SIDE * (SkyY + 1) - 1;
+        return (SIDE * (SkyY + 1)) - 1;
+    }
+
+    public int getxxCentered() {
+        return (getxxEnd(SkyX) - getxxForm(SkyX)) / 2 + getxxForm(SkyX);
+    }
+
+    public int getyyCentered() {
+        return (getyyEnd(SkyY) - getyyForm(SkyY)) / 2 + getyyForm(SkyY);
     }
 
     /**

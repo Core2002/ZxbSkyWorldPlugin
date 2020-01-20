@@ -1,6 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.Main;
+import fun.fifu.nekokecore.zxbskyworld.SkyWorld.IsLand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,7 +16,6 @@ public class CommandLitener implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        System.out.println(commandSender.toString() + command.toString() + s + Arrays.toString(strings));
         // 判断输入的指令是否是 /s
         if (Main.COMMAND.equalsIgnoreCase(command.getName())) {
             // 判断输入者的类型 为了防止出现 控制台或命令方块 输入的情况
@@ -26,7 +26,18 @@ public class CommandLitener implements CommandExecutor {
             }
             // 如果我们已经判断好sender是一名玩家之后,我们就可以将其强转为Player对象,把它作为一个"玩家"来处理
             Player player = (Player) commandSender;
-            player.sendMessage("你成功的执行了指令/demo");
+            player.sendMessage("你成功的执行了指令/" + Main.COMMAND);
+
+
+            //获取UUID
+            String UUID = player.getUniqueId().toString();
+            IsLand isLand=new IsLand(UUID);
+            String SkyLoc= isLand.getSkyLoc();
+
+
+
+
+
             // 返回true防止返回指令的usage信息
             return true;
         }
