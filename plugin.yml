@@ -1,0 +1,8 @@
+main: fun.fifu.nekokecore.zxbskyworld
+version: 1.0
+name: ZxbSkyWorld
+author: NekokeCore
+commands:
+    s:
+      description: "回到自己的岛"
+      usage: /s <玩家名>
