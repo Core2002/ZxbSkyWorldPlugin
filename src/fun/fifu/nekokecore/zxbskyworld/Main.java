@@ -3,6 +3,7 @@ package fun.fifu.nekokecore.zxbskyworld;
 import fun.fifu.nekokecore.zxbskyworld.command.CommandLitener;
 import fun.fifu.nekokecore.zxbskyworld.utils.IOTools;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -17,6 +18,7 @@ public class Main extends JavaPlugin {
     public static final String CONFIGPATH = "./plugins/ZxbSkyWorld/config.json";
     public static final String COMMAND = "s";
     public static JSONObject jsonObject = null;
+    public static Plugin plugin = null;
 
 
     @Override
@@ -34,8 +36,14 @@ public class Main extends JavaPlugin {
         getLogger().info("完毕。");
     }
 
+    @Override
+    public void onLoad() {
+        plugin=this;
+    }
+
     /**
      * 初始化JSON文件，确保能用
+     *
      * @param configpath
      */
     public static void initJson(String configpath) {

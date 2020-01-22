@@ -20,7 +20,7 @@ public class Helper {
         Location location = new Location(world, getxxCentered(IsLand.getSkyX(SkyLoc)), 64, getyyCentered(IsLand.getSkyY(SkyLoc)));
         Location location1 = new Location(location.getWorld(), location.getX(), location.getY() - 4, location.getZ());
         Block block = location1.getBlock();
-        block.setType(Material.GLASS);
+        block.setType(Material.BEDROCK);
         player.teleport(location);
 
     }
