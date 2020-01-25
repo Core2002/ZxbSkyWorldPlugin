@@ -2,14 +2,12 @@ package fun.fifu.nekokecore.zxbskyworld.SkyWorld;
 
 import fun.fifu.nekokecore.zxbskyworld.Main;
 import org.bukkit.Bukkit;
-import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.json.simple.JSONArray;
 
 import java.util.Random;
 
-import static fun.fifu.nekokecore.zxbskyworld.Main.jsonObject;
 
 
 /**
@@ -17,7 +15,7 @@ import static fun.fifu.nekokecore.zxbskyworld.Main.jsonObject;
  */
 public class IsLand extends IsLandNorm {
     public static void main(String[] args) {
-        Main.initJson(Main.CONFIGPATH);
+        Main.jsonObject = Main.initJson(Main.CONFIGPATH, "{}");
         IsLand isLand = new IsLand("NekokeCore");
         System.out.println(isLand.SkyX + "," + isLand.SkyY);
         System.out.println(isLand.getxxCentered() + ",," + isLand.getyyCentered());
@@ -49,13 +47,13 @@ public class IsLand extends IsLandNorm {
         //分配UUID
         this.UUID = UUID;
         //初始化JSON配置文件
-        if (jsonObject == null) {
+        if (Main.jsonObject == null) {
             throw new RuntimeException("配置文件异常，请仔细检查！！！");
         }
-        if ((jsonArray = (JSONArray) jsonObject.get(UUID)) == null) {
+        if ((jsonArray = (JSONArray) Main.jsonObject.get(UUID)) == null) {
             jsonArray = new JSONArray();
         } else {
-            jsonArray = (JSONArray) jsonObject.get(UUID);
+            jsonArray = (JSONArray) Main.jsonObject.get(UUID);
         }
 
         //初始化主岛坐标

@@ -2,10 +2,7 @@ package fun.fifu.nekokecore.zxbskyworld.SkyWorld;
 
 import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.IOTools;
-import org.bukkit.block.Skull;
 import org.json.simple.JSONArray;
-
-import static fun.fifu.nekokecore.zxbskyworld.Main.jsonObject;
 
 /**
  * @author NekokeCore
@@ -57,15 +54,15 @@ public abstract class IsLandNorm {
         return tmp >= from && tmp <= end;
     }
 
-    public boolean inSkyWorld(int xx, int yy) {
-        return in(xx, getxxForm(SkyX), getxxEnd(SkyX)) && in(yy, getyyForm(SkyY), getyyEnd(SkyY));
+    public boolean inSkyWorld(int xx, int zz) {
+        return in(xx, getxxForm(SkyX), getxxEnd(SkyX)) && in(zz, getyyForm(SkyY), getyyEnd(SkyY));
     }
 
     public void trim() {
         //去重、添加、保存
         IOTools.removeDuplicate(jsonArray);
-        jsonObject.put(UUID, jsonArray);
-        IOTools.writeJsonFile(jsonObject, Main.CONFIGPATH);
+        Main.jsonObject.put(UUID, jsonArray);
+        IOTools.writeJsonFile(Main.jsonObject, Main.CONFIGPATH);
     }
 
     int SkyX;

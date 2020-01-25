@@ -1,5 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld;
 
+import fun.fifu.nekokecore.zxbskyworld.Listener.PlayerJoin;
 import fun.fifu.nekokecore.zxbskyworld.command.CommandLitener;
 import fun.fifu.nekokecore.zxbskyworld.utils.IOTools;
 import org.bukkit.Bukkit;
@@ -16,8 +17,10 @@ public class Main extends JavaPlugin {
      * 配置文件
      */
     public static final String CONFIGPATH = "./plugins/ZxbSkyWorld/config.json";
+    public static final String UTILCONFIGPATH = "./plugins/ZxbSkyWorld/util_config.json";
     public static final String COMMAND = "s";
     public static JSONObject jsonObject = null;
+    public static JSONObject util_jsonObject = null;
     public static Plugin plugin = null;
 
 
@@ -29,16 +32,22 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         //配置文件不存在就创建
-        initJson(CONFIGPATH);
+        jsonObject = initJson(CONFIGPATH, "{}");
+        String util_initStr = "{\"spawn_world\":\"world\",\"spawn_xx\":\"53\",\"spawn_yy\":\"5\",\"spawn_zz\":\"40\"}";
+        util_jsonObject = initJson(UTILCONFIGPATH, util_initStr);
         getLogger().info("开始注册命令。");
         //注册命令
         Bukkit.getPluginCommand(COMMAND).setExecutor(new CommandLitener());
+        getLogger().info("完毕。");
+        getLogger().info("开始注册监听器。");
+        //注册监听器
+        getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
         getLogger().info("完毕。");
     }
 
     @Override
     public void onLoad() {
-        plugin=this;
+        plugin = this;
     }
 
     /**
@@ -46,30 +55,28 @@ public class Main extends JavaPlugin {
      *
      * @param configpath
      */
-    public static void initJson(String configpath) {
+    public static JSONObject initJson(String configpath, String initStr) {
         int temp = 0;
         System.out.println("正在加载json文件：" + configpath);
         while (!new File(configpath).exists()) {
+            //尝试试探json文件
             try {
                 System.out.println("文件不存在，尝试生成。" + configpath);
                 new File(new File(configpath).getParent()).mkdirs();
                 new File(configpath).createNewFile();
-                IOTools.writeTextFile("{}", "UTF-8", configpath);
-                jsonObject = IOTools.getJSONObject(CONFIGPATH);
+                IOTools.writeTextFile(initStr, "UTF-8", configpath);
             } catch (IOException e) {
                 System.out.println("尝试生成。" + temp);
-                e.printStackTrace();
-            } catch (ParseException e) {
-                System.out.println("Json文件加载失败，请检查文件格式，然后在尝试。" + configpath);
                 e.printStackTrace();
             }
             temp++;
         }
         try {
-            jsonObject = IOTools.getJSONObject(CONFIGPATH);
+            return IOTools.getJSONObject(configpath);
         } catch (ParseException e) {
             System.out.println("Json文件加载失败，请检查文件格式，然后在尝试。" + configpath);
             e.printStackTrace();
         }
+        return null;
     }
 }

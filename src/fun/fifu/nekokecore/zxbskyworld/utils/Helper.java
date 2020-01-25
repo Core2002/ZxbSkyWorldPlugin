@@ -8,6 +8,8 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
+import static fun.fifu.nekokecore.zxbskyworld.Main.util_jsonObject;
+
 public class Helper {
     /**
      * 把玩家传送到岛上，脚下第四格永远是玻璃
@@ -31,6 +33,18 @@ public class Helper {
 
     public static int getyyCentered(int SkyY) {
         return (IsLand.getyyEnd(SkyY) - IsLand.getyyForm(SkyY)) / 2 + IsLand.getyyForm(SkyY);
+    }
+
+    public static void goSpawn(Player player) {
+        if (util_jsonObject == null) {
+            throw new RuntimeException("配置文件异常，请仔细检查！！！");
+        }
+        String world_str = util_jsonObject.get("spawn_world").toString();
+        int xx = Integer.parseInt(util_jsonObject.get("spawn_xx").toString());
+        int yy = Integer.parseInt(util_jsonObject.get("spawn_yy").toString());
+        int zz = Integer.parseInt(util_jsonObject.get("spawn_zz").toString());
+        World world = Bukkit.getWorld(world_str);
+        player.teleport(new Location(world, xx, yy, zz));
     }
 
 }
