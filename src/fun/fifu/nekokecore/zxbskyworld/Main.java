@@ -1,5 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld;
 
+import fun.fifu.nekokecore.permission.BlockDispose;
+import fun.fifu.nekokecore.permission.EntityDispose;
 import fun.fifu.nekokecore.zxbskyworld.Listener.PlayerJoin;
 import fun.fifu.nekokecore.zxbskyworld.command.CommandLitener;
 import fun.fifu.nekokecore.zxbskyworld.utils.IOTools;
@@ -42,6 +44,8 @@ public class Main extends JavaPlugin {
         getLogger().info("开始注册监听器。");
         //注册监听器
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
+        getServer().getPluginManager().registerEvents(new EntityDispose(), this);
+        getServer().getPluginManager().registerEvents(new BlockDispose(), this);
         getLogger().info("完毕。");
     }
 

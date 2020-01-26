@@ -47,4 +47,11 @@ public class Helper {
         player.teleport(new Location(world, xx, yy, zz));
     }
 
+    public static boolean inSpawn(int xx, int zz) {
+        return in(xx, 0, 1023) && in(zz, 0, 1023);
+    }
+
+    public static boolean in(int tmp, int from, int end) {
+        return tmp >= from && tmp <= end;
+    }
 }
