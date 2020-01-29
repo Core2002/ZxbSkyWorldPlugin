@@ -36,6 +36,10 @@ public class Helper {
     }
 
     public static void goSpawn(Player player) {
+        player.teleport(getSpawnLocation());
+    }
+
+    public static Location getSpawnLocation() {
         if (util_jsonObject == null) {
             throw new RuntimeException("配置文件异常，请仔细检查！！！");
         }
@@ -44,7 +48,7 @@ public class Helper {
         int yy = Integer.parseInt(util_jsonObject.get("spawn_yy").toString());
         int zz = Integer.parseInt(util_jsonObject.get("spawn_zz").toString());
         World world = Bukkit.getWorld(world_str);
-        player.teleport(new Location(world, xx, yy, zz));
+        return new Location(world, xx, yy, zz);
     }
 
     public static boolean inSpawn(int xx, int zz) {

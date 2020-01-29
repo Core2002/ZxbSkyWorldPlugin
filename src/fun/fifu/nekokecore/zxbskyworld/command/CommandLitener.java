@@ -3,6 +3,7 @@ package fun.fifu.nekokecore.zxbskyworld.command;
 import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.SkyWorld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
+import fun.fifu.nekokecore.zxbskyworld.utils.SoundPlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -25,6 +26,7 @@ public class CommandLitener implements CommandExecutor {
             }
             // 如果我们已经判断好sender是一名玩家之后,我们就可以将其强转为Player对象,把它作为一个"玩家"来处理
             Player player = (Player) commandSender;
+            new SoundPlayer().playCat(player);
             //获取UUID
             String UUID = player.getUniqueId().toString();
             IsLand isLand = new IsLand(UUID);
@@ -32,10 +34,12 @@ public class CommandLitener implements CommandExecutor {
             if (isLand.inSkyWorld((int) player.getLocation().getX(), (int) player.getLocation().getZ())) {
                 Helper.goSpawn(player);
                 player.sendMessage(player.getName() + "欢迎来到主城!" + isLand.getSkyLoc());
+                new SoundPlayer().playCat(player);
                 return true;
             }
             Helper.tpSkyLoc(player, SkyLoc);
             player.sendMessage(player.getName() + "欢迎回家!" + isLand.getSkyLoc());
+            new SoundPlayer().playCat(player);
 
             // 返回true防止返回指令的usage信息
             return true;
