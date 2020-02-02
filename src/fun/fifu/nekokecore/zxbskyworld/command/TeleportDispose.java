@@ -1,5 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
+import fun.fifu.nekokecore.zxbskyworld.SkyWorld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -25,8 +26,13 @@ public class TeleportDispose implements CommandExecutor {
                 return false;
             }
             try {
+                if (IsLand.getSkyX(strings[0]) == 0 && IsLand.getSkyY(strings[0]) == 0 && !player.isOp()) {
+                    player.sendMessage("权限不足！");
+                    return true;
+                }
+
                 Helper.tpSkyLoc(player, strings[0]);
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.out.println(e.toString());
                 return false;
             }
