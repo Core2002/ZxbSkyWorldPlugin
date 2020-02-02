@@ -6,3 +6,6 @@ commands:
     s:
       description: "回到自己的岛"
       usage: /s <玩家名>
+    goto:
+      description: "去某个岛"
+      usage: /goto <SkyLoc>

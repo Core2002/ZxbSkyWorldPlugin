@@ -34,7 +34,7 @@ public class PlayerDispose implements Listener {
     @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent event) {
         event.setRespawnLocation(Helper.getSpawnLocation());
-        new SoundPlayer().playCat(event.getPlayer());
+
     }
 
 

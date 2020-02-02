@@ -10,9 +10,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 /**
+ * Commain "s"
  * @author NekokeCore
  */
-public class CommandLitener implements CommandExecutor {
+public class MainDispose implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {

@@ -24,6 +24,7 @@ public class Helper {
         Block block = location1.getBlock();
         block.setType(Material.BEDROCK);
         player.teleport(location);
+        new SoundPlayer().playCat(player);
 
     }
 
