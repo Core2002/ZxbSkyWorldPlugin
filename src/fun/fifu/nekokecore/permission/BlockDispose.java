@@ -19,6 +19,9 @@ public class BlockDispose implements Listener {
         if (event.getPlayer().isOp()) {
             return;
         }
+        if (Helper.havePermission(event.getPlayer())) {
+            return;
+        }
         int xx = (int) event.getBlock().getLocation().getX();
         int zz = (int) event.getBlock().getLocation().getZ();
         if (Helper.inSpawn(xx, zz)) {

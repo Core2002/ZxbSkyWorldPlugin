@@ -1,5 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.utils;
 
+import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.SkyWorld.IsLand;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -7,6 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.json.simple.JSONArray;
 
 import static fun.fifu.nekokecore.zxbskyworld.Main.util_jsonObject;
 
@@ -58,5 +60,27 @@ public class Helper {
 
     public static boolean in(int tmp, int from, int end) {
         return tmp >= from && tmp <= end;
+    }
+
+    public static boolean havePermission(Player player) {
+        String UUID = player.getUniqueId().toString();
+        JSONArray jsonArray = null;
+        //初始化JSON配置文件
+        if (Main.jsonObject == null) {
+            throw new RuntimeException("配置文件异常，请仔细检查！！！");
+        }
+        if ((jsonArray = (JSONArray) Main.jsonObject.get(UUID)) == null) {
+            jsonArray = new JSONArray();
+        } else {
+            jsonArray = (JSONArray) Main.jsonObject.get(UUID);
+        }
+        for (Object x : jsonArray) {
+            if (x instanceof String) {
+                System.out.println(player.getName() + "__" + x);
+
+
+            }
+        }
+        return false;
     }
 }
