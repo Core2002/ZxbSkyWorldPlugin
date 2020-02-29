@@ -3,6 +3,8 @@ package fun.fifu.nekokecore.zxbskyworld;
 import fun.fifu.nekokecore.permission.BlockDispose;
 import fun.fifu.nekokecore.permission.EntityDispose;
 import fun.fifu.nekokecore.zxbskyworld.Listener.PlayerDispose;
+import fun.fifu.nekokecore.zxbskyworld.command.ExpleDispose;
+import fun.fifu.nekokecore.zxbskyworld.command.HelpDispose;
 import fun.fifu.nekokecore.zxbskyworld.command.MainDispose;
 import fun.fifu.nekokecore.zxbskyworld.command.TeleportDispose;
 import fun.fifu.nekokecore.zxbskyworld.utils.IOTools;
@@ -42,6 +44,8 @@ public class Main extends JavaPlugin {
         //注册命令
         Bukkit.getPluginCommand(COMMAND).setExecutor(new MainDispose());
         Bukkit.getPluginCommand("goto").setExecutor(new TeleportDispose());
+        Bukkit.getPluginCommand("help").setExecutor(new HelpDispose());
+        Bukkit.getPluginCommand("exple").setExecutor(new ExpleDispose());
         getLogger().info("完毕。");
         getLogger().info("开始注册监听器。");
         //注册监听器

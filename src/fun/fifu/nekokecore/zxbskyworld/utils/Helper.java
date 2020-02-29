@@ -58,8 +58,30 @@ public class Helper {
         return in(xx, 0, 1023) && in(zz, 0, 1023);
     }
 
-    public static boolean in(int tmp, int from, int end) {
-        return tmp >= from && tmp <= end;
+    public static boolean in(int now, int from, int end) {
+        return now >= from && now <= end;
+    }
+
+    public static boolean inSkyWrold(int xx, int zz, String SkyLoc) {
+        int SkyX = IsLand.getSkyX(SkyLoc);
+        int SkyY = IsLand.getSkyY(SkyLoc);
+        //System.out.println("Debug:xx_" + xx + "  zz_" + zz + "是否在SkyLoc:" + SkyLoc + ":" + (in(xx, IsLand.getxxForm(SkyX), IsLand.getxxEnd(SkyX)) && in(zz, IsLand.getyyForm(SkyY), IsLand.getyyEnd(SkyY))));
+        //System.out.println("SkyX的Form是：" + IsLand.getxxForm(SkyX) + "\tSkyX的xxEnd是：" + IsLand.getxxEnd(SkyX) + "\nSkyY的yyForm是：" + IsLand.getyyForm(SkyY) + "\tSkyY的yyEnd是：" + IsLand.getyyEnd(SkyY));
+        return in(xx, IsLand.getxxForm(SkyX), IsLand.getxxEnd(SkyX)) && in(zz, IsLand.getyyForm(SkyY), IsLand.getyyEnd(SkyY));
+    }
+
+    public static boolean inSkyWrold(int xx, int zz, int SkyX, int SkyY) {
+        return in(xx, IsLand.getxxForm(SkyX), IsLand.getxxEnd(SkyX)) && in(zz, IsLand.getyyForm(SkyY), IsLand.getyyEnd(SkyY));
+    }
+
+    public static String simplify(String SkyLoc) {
+        SkyLoc = SkyLoc.replace("（", "(");
+        SkyLoc = SkyLoc.replace("）", ")");
+        SkyLoc = SkyLoc.replace("，", ",");
+        SkyLoc = SkyLoc.replace(" ", "");
+        int SkyX = IsLand.getSkyX(SkyLoc);
+        int SkyY = IsLand.getSkyY(SkyLoc);
+        return "(" + SkyX + "," + SkyY + ")";
     }
 
     public static boolean havePermission(Player player) {

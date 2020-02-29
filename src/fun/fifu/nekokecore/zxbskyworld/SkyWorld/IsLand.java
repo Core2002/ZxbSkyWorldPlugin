@@ -6,8 +6,8 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.json.simple.JSONArray;
 
+import java.util.ArrayList;
 import java.util.Random;
-
 
 
 /**
@@ -41,6 +41,15 @@ public class IsLand extends IsLandNorm {
     @Override
     public String getMainIsland() {
         return "M(" + SkyX + "," + SkyY + ")";
+    }
+
+    public ArrayList<String> getIslandList() {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        for (Object obj : jsonArray) {
+            String str = (String) obj;
+            arrayList.add(str);
+        }
+        return arrayList;
     }
 
     public IsLand(String UUID) {

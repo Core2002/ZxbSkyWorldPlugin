@@ -1,5 +1,5 @@
 main: fun.fifu.nekokecore.zxbskyworld.Main
-version: 1.0
+version: 1.1
 name: ZxbSkyWorld
 author: NekokeCore
 commands:
@@ -9,3 +9,9 @@ commands:
     goto:
       description: "去某个岛"
       usage: /goto <SkyLoc>
+    help:
+      description: "帮助"
+      usage: /help
+    exple:
+      description: "把玩家从你的岛踢出"
+      usage: /exple <Player>
