@@ -1,6 +1,5 @@
-package fun.fifu.nekokecore.zxbskyworld.SkyWorld;
+package fun.fifu.nekokecore.zxbskyworld;
 
-import fun.fifu.nekokecore.zxbskyworld.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -13,7 +12,7 @@ import java.util.Random;
 /**
  * @author NekokeCore
  */
-public class IsLand extends IsLandNorm {
+public class IsLand extends BaseIsLand {
     public static void main(String[] args) {
         Main.jsonObject = Main.initJson(Main.CONFIGPATH, "{}");
         IsLand isLand = new IsLand("NekokeCore");

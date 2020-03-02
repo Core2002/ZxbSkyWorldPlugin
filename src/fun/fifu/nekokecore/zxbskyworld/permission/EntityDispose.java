@@ -1,4 +1,4 @@
-package fun.fifu.nekokecore.permission;
+package fun.fifu.nekokecore.zxbskyworld.permission;
 
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.event.EventHandler;

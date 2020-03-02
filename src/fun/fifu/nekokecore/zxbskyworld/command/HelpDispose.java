@@ -1,6 +1,5 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
-import fun.fifu.nekokecore.zxbskyworld.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

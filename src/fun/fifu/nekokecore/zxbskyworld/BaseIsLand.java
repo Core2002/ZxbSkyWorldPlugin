@@ -1,4 +1,4 @@
-package fun.fifu.nekokecore.zxbskyworld.SkyWorld;
+package fun.fifu.nekokecore.zxbskyworld;
 
 import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.IOTools;
@@ -7,7 +7,7 @@ import org.json.simple.JSONArray;
 /**
  * @author NekokeCore
  */
-public abstract class IsLandNorm {
+public abstract class BaseIsLand {
     /**
      * @return 岛的坐标的字符串
      */

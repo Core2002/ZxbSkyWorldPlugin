@@ -1,8 +1,8 @@
 package fun.fifu.nekokecore.zxbskyworld;
 
-import fun.fifu.nekokecore.permission.BlockDispose;
-import fun.fifu.nekokecore.permission.EntityDispose;
-import fun.fifu.nekokecore.zxbskyworld.Listener.PlayerDispose;
+import fun.fifu.nekokecore.zxbskyworld.permission.BlockDispose;
+import fun.fifu.nekokecore.zxbskyworld.permission.EntityDispose;
+import fun.fifu.nekokecore.zxbskyworld.listener.PlayerDispose;
 import fun.fifu.nekokecore.zxbskyworld.command.ExpleDispose;
 import fun.fifu.nekokecore.zxbskyworld.command.HelpDispose;
 import fun.fifu.nekokecore.zxbskyworld.command.MainDispose;

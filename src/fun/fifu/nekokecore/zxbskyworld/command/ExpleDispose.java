@@ -1,7 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.Main;
-import fun.fifu.nekokecore.zxbskyworld.SkyWorld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
