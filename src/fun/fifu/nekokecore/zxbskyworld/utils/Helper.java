@@ -65,8 +65,6 @@ public class Helper {
     public static boolean inSkyWrold(int xx, int zz, String SkyLoc) {
         int SkyX = IsLand.getSkyX(SkyLoc);
         int SkyY = IsLand.getSkyY(SkyLoc);
-        //System.out.println("Debug:xx_" + xx + "  zz_" + zz + "是否在SkyLoc:" + SkyLoc + ":" + (in(xx, IsLand.getxxForm(SkyX), IsLand.getxxEnd(SkyX)) && in(zz, IsLand.getyyForm(SkyY), IsLand.getyyEnd(SkyY))));
-        //System.out.println("SkyX的Form是：" + IsLand.getxxForm(SkyX) + "\tSkyX的xxEnd是：" + IsLand.getxxEnd(SkyX) + "\nSkyY的yyForm是：" + IsLand.getyyForm(SkyY) + "\tSkyY的yyEnd是：" + IsLand.getyyEnd(SkyY));
         return in(xx, IsLand.getxxForm(SkyX), IsLand.getxxEnd(SkyX)) && in(zz, IsLand.getyyForm(SkyY), IsLand.getyyEnd(SkyY));
     }
 
@@ -86,21 +84,25 @@ public class Helper {
 
     public static boolean havePermission(Player player) {
         String UUID = player.getUniqueId().toString();
-        JSONArray jsonArray = null;
+        JSONArray jsonArray;
         //初始化JSON配置文件
         if (Main.jsonObject == null) {
             throw new RuntimeException("配置文件异常，请仔细检查！！！");
         }
-        if ((jsonArray = (JSONArray) Main.jsonObject.get(UUID)) == null) {
+        if (Main.jsonObject.get(UUID) == null) {
             jsonArray = new JSONArray();
         } else {
             jsonArray = (JSONArray) Main.jsonObject.get(UUID);
         }
+        Location location = player.getLocation();
+        int xx = location.getBlockX();
+        int zz = location.getBlockZ();
+        String SkyLoc;
         for (Object x : jsonArray) {
-            if (x instanceof String) {
-                System.out.println(player.getName() + "__" + x);
-
-
+            SkyLoc = (String) x;
+            System.out.println(player.getName() + "__" + SkyLoc);
+            if (inSkyWrold(xx, zz, SkyLoc)) {
+                return true;
             }
         }
         return false;

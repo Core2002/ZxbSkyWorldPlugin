@@ -1,12 +1,14 @@
 package fun.fifu.nekokecore.zxbskyworld.permission;
 
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.inventory.InventoryType;
 
-import java.util.List;
 
 public class EntityDispose implements Listener {
     /**
@@ -32,6 +34,28 @@ public class EntityDispose implements Listener {
     @EventHandler(ignoreCancelled = true)
     public void onEntityExplode(EntityExplodeEvent explodeEvent) {
         explodeEvent.blockList().clear();
+    }
+
+    /**
+     * 容器被打开事件
+     *
+     * @param event
+     */
+    public void onOpen(InventoryOpenEvent event) {
+        InventoryType inventoryType = event.getInventory().getType();
+        Player player;
+        if (event.getPlayer() instanceof Player) {
+            player = (Player) event.getPlayer();
+        } else {
+            return;
+        }
+        if (event.getInventory().getType().equals(InventoryType.PLAYER)) {
+            return;
+        }
+        if (!player.isOp() && !Helper.havePermission((Player) event.getPlayer())) {
+            player.sendMessage("你没权限");
+            event.setCancelled(true);
+        }
     }
 
 }

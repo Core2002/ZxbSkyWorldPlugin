@@ -15,3 +15,6 @@ commands:
     exple:
       description: "把玩家从你的岛踢出"
       usage: /exple <Player>
+    info:
+      description: "把玩家从你的岛踢出"
+      usage: /exple <Player>
