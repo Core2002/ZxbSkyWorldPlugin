@@ -16,5 +16,5 @@ commands:
       description: "把玩家从你的岛踢出"
       usage: /exple <Player>
     info:
-      description: "把玩家从你的岛踢出"
-      usage: /exple <Player>
+      description: "查看你所在的岛屿的信息"
+      usage: /description

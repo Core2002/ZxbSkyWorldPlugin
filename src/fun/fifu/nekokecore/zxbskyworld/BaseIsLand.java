@@ -15,7 +15,7 @@ public abstract class BaseIsLand {
 
     public static final int SIDE = 1024;
     public static final int MAXSKYLOC = 29296;
-    public static String UUID = "Error UUID";
+    public String UUID = "Error UUID";
 
     public JSONArray jsonArray;
 

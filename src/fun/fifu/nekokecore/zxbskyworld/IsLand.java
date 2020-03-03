@@ -85,28 +85,28 @@ public class IsLand extends BaseIsLand {
                 //生成执行命令
                 String Command = "clone 508 60 510 515 69 516 " + xxx + " " + (64 - 4) + " " + zzz;
                 //那个区块如果不存在，就自动生成
-                System.out.println("chunk.load:" + world.getChunkAt(new Location(world, xxx, 64, zzz)).load(true));
-                System.out.println("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, 64, zzz)).load(true));
-                System.out.println("chunk.load:" + world.getChunkAt(new Location(world, xxx - 16, 64, zzz)).load(true));
-                System.out.println("chunk.load:" + world.getChunkAt(new Location(world, xxx, 64, zzz + 16)).load(true));
-                System.out.println("chunk.load:" + world.getChunkAt(new Location(world, xxx, 64, zzz - 16)).load(true));
-                System.out.println("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, 64, zzz + 16)).load(true));
-                System.out.println("chunk.load:" + world.getChunkAt(new Location(world, xxx - 16, 64, zzz - 16)).load(true));
-                System.out.println("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, 64, zzz + 16)).load(true));
-                System.out.println("chunk.load:" + world.getChunkAt(new Location(world, xxx - 16, 64, zzz - 16)).load(true));
+                Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx, 64, zzz)).load(true));
+                Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, 64, zzz)).load(true));
+                Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx - 16, 64, zzz)).load(true));
+                Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx, 64, zzz + 16)).load(true));
+                Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx, 64, zzz - 16)).load(true));
+                Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, 64, zzz + 16)).load(true));
+                Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx - 16, 64, zzz - 16)).load(true));
+                Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, 64, zzz + 16)).load(true));
+                Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx - 16, 64, zzz - 16)).load(true));
 
-                System.out.println("chunk0.load:" + world.getChunkAt(new Location(world, 511, 64, 511)).load(true));
-                System.out.println("chunk0.load:" + world.getChunkAt(new Location(world, 511 + 16, 64, 511)).load(true));
-                System.out.println("chunk0.load:" + world.getChunkAt(new Location(world, 511 - 16, 64, 511)).load(true));
-                System.out.println("chunk0.load:" + world.getChunkAt(new Location(world, 511, 64, 511 + 16)).load(true));
-                System.out.println("chunk0.load:" + world.getChunkAt(new Location(world, 511, 64, 511 - 16)).load(true));
-                System.out.println("chunk0.load:" + world.getChunkAt(new Location(world, 511 + 16, 64, 511 + 16)).load(true));
-                System.out.println("chunk0.load:" + world.getChunkAt(new Location(world, 511 - 16, 64, 511 - 16)).load(true));
-                System.out.println("chunk0.load:" + world.getChunkAt(new Location(world, 511 + 16, 64, 511 + 16)).load(true));
-                System.out.println("chunk0.load:" + world.getChunkAt(new Location(world, 511 - 16, 64, 511 - 16)).load(true));
+                Main.logger.info("chunk0.load:" + world.getChunkAt(new Location(world, 511, 64, 511)).load(true));
+                Main.logger.info("chunk0.load:" + world.getChunkAt(new Location(world, 511 + 16, 64, 511)).load(true));
+                Main.logger.info("chunk0.load:" + world.getChunkAt(new Location(world, 511 - 16, 64, 511)).load(true));
+                Main.logger.info("chunk0.load:" + world.getChunkAt(new Location(world, 511, 64, 511 + 16)).load(true));
+                Main.logger.info("chunk0.load:" + world.getChunkAt(new Location(world, 511, 64, 511 - 16)).load(true));
+                Main.logger.info("chunk0.load:" + world.getChunkAt(new Location(world, 511 + 16, 64, 511 + 16)).load(true));
+                Main.logger.info("chunk0.load:" + world.getChunkAt(new Location(world, 511 - 16, 64, 511 - 16)).load(true));
+                Main.logger.info("chunk0.load:" + world.getChunkAt(new Location(world, 511 + 16, 64, 511 + 16)).load(true));
+                Main.logger.info("chunk0.load:" + world.getChunkAt(new Location(world, 511 - 16, 64, 511 - 16)).load(true));
                 //开始拷贝初始空岛
                 Bukkit.getScheduler().runTask(Main.plugin, () -> {
-                    System.out.println(Command);
+                    Main.logger.info("开始拷贝初始空岛:" + Command);
                     Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), Command);
                 });
                 jsonArray.add(0, temp);

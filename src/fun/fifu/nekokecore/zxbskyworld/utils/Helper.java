@@ -55,7 +55,7 @@ public class Helper {
     }
 
     public static boolean inSpawn(int xx, int zz) {
-        return in(xx, 0, 1023) && in(zz, 0, 1023);
+        return in(xx, 0, IsLand.SIDE) && in(zz, 0, IsLand.SIDE);
     }
 
     public static boolean in(int now, int from, int end) {
@@ -70,6 +70,30 @@ public class Helper {
 
     public static boolean inSkyWrold(int xx, int zz, int SkyX, int SkyY) {
         return in(xx, IsLand.getxxForm(SkyX), IsLand.getxxEnd(SkyX)) && in(zz, IsLand.getyyForm(SkyY), IsLand.getyyEnd(SkyY));
+    }
+
+    public static String toSkyWorld(int xx, int zz) {
+        return "(" + getSkyR(xx) + "," + getSkyR(zz) + ")";
+    }
+
+    public static int getSkyR(int rr) {
+        int SkyR = 0;
+        if (rr > 0) {
+            while (!in(rr, IsLand.getxxForm(SkyR), IsLand.getxxEnd(SkyR))) {
+                if (SkyR > IsLand.MAXSKYLOC) {
+                    throw new RuntimeException("R轴查询SkyLoc正越界！");
+                }
+                SkyR++;
+            }
+        } else if (rr < 0) {
+            while (!in(rr, IsLand.getxxForm(SkyR), IsLand.getxxEnd(SkyR))) {
+                if (SkyR < -IsLand.MAXSKYLOC) {
+                    throw new RuntimeException("R轴查询SkyLoc负越界！");
+                }
+                SkyR--;
+            }
+        }
+        return SkyR;
     }
 
     public static String simplify(String SkyLoc) {

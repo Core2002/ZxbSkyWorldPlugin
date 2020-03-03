@@ -1,33 +1,34 @@
 package fun.fifu.nekokecore.zxbskyworld;
 
+import fun.fifu.nekokecore.zxbskyworld.command.*;
 import fun.fifu.nekokecore.zxbskyworld.permission.BlockDispose;
 import fun.fifu.nekokecore.zxbskyworld.permission.EntityDispose;
 import fun.fifu.nekokecore.zxbskyworld.listener.PlayerDispose;
-import fun.fifu.nekokecore.zxbskyworld.command.ExpleDispose;
-import fun.fifu.nekokecore.zxbskyworld.command.HelpDispose;
-import fun.fifu.nekokecore.zxbskyworld.command.MainDispose;
-import fun.fifu.nekokecore.zxbskyworld.command.TeleportDispose;
 import fun.fifu.nekokecore.zxbskyworld.utils.IOTools;
 import org.bukkit.Bukkit;
+import org.bukkit.Server;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 public class Main extends JavaPlugin {
     /**
      * 配置文件
      */
-    public static final String CONFIGPATH = "./plugins/ZxbSkyWorld/config.json";
-    public static final String UTILCONFIGPATH = "./plugins/ZxbSkyWorld/util_config.json";
+    static final String CONFIGPATH = "./plugins/ZxbSkyWorld/config.json";
+    static final String UTILCONFIGPATH = "./plugins/ZxbSkyWorld/util_config.json";
     public static final String COMMAND = "s";
     public static JSONObject jsonObject = null;
     public static JSONObject util_jsonObject = null;
-    public static Plugin plugin = null;
-
+    public static Plugin plugin;
+    private static PluginManager pluginManager;
+    static Logger logger;
 
     @Override
     public void onDisable() {
@@ -46,18 +47,21 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginCommand("goto").setExecutor(new TeleportDispose());
         Bukkit.getPluginCommand("help").setExecutor(new HelpDispose());
         Bukkit.getPluginCommand("exple").setExecutor(new ExpleDispose());
+        Bukkit.getPluginCommand("info").setExecutor(new InfoDispose());
         getLogger().info("完毕。");
         getLogger().info("开始注册监听器。");
         //注册监听器
-        getServer().getPluginManager().registerEvents(new PlayerDispose(), this);
-        getServer().getPluginManager().registerEvents(new EntityDispose(), this);
-        getServer().getPluginManager().registerEvents(new BlockDispose(), this);
+        pluginManager.registerEvents(new PlayerDispose(), this);
+        pluginManager.registerEvents(new EntityDispose(), this);
+        pluginManager.registerEvents(new BlockDispose(), this);
         getLogger().info("完毕。");
     }
 
     @Override
     public void onLoad() {
         plugin = this;
+        pluginManager = getServer().getPluginManager();
+        logger = getLogger();
     }
 
     /**
