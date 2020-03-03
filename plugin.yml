@@ -1,5 +1,5 @@
 main: fun.fifu.nekokecore.zxbskyworld.Main
-version: 1.1
+version: 1.2
 name: ZxbSkyWorld
 author: NekokeCore
 commands:
@@ -17,4 +17,4 @@ commands:
       usage: /exple <Player>
     info:
       description: "查看你所在的岛屿的信息"
-      usage: /description
+      usage: /info

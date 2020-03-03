@@ -49,10 +49,10 @@ public class EntityDispose implements Listener {
         } else {
             return;
         }
-        if (event.getInventory().getType().equals(InventoryType.PLAYER)) {
+        if (inventoryType.equals(InventoryType.PLAYER)) {
             return;
         }
-        if (!player.isOp() && !Helper.havePermission((Player) event.getPlayer())) {
+        if (!player.isOp() && !Helper.havePermission(player)) {
             player.sendMessage("你没权限");
             event.setCancelled(true);
         }

@@ -124,7 +124,6 @@ public class Helper {
         String SkyLoc;
         for (Object x : jsonArray) {
             SkyLoc = (String) x;
-            System.out.println(player.getName() + "__" + SkyLoc);
             if (inSkyWrold(xx, zz, SkyLoc)) {
                 return true;
             }

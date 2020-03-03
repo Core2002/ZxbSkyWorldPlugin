@@ -2,6 +2,7 @@ package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.Main;
+import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -31,10 +32,20 @@ public class InfoDispose implements CommandExecutor {
             player.sendMessage("||玩家" + player.getName() + "的岛屿有：");
             player.sendMessage(isLand.getIslandList().toString());
             player.sendMessage("||=================================");
-            player.sendMessage("||你所在的岛屿是：(" + xx + "," + zz + ")");
+            String SkyLoc = Helper.toSkyWorld(xx, zz);
+            player.sendMessage("||你所在的岛屿是：" + SkyLoc);
             player.sendMessage("||---------------------------------");
             player.sendMessage("||这个岛屿的范围是：");
-            player.sendMessage("||在X轴上：从");
+            player.sendMessage("||在X轴上：从" + IsLand.getxxForm(IsLand.getSkyX(SkyLoc)) + "到" + IsLand.getxxEnd(IsLand.getSkyX(SkyLoc)));
+            player.sendMessage("||在z轴上：从" + IsLand.getyyForm(IsLand.getSkyY(SkyLoc)) + "到" + IsLand.getyyEnd(IsLand.getSkyY(SkyLoc)));
+            if (Helper.havePermission(player)) {
+                player.sendMessage("||你有权限操作这个岛。");
+            } else {
+                player.sendMessage("||你没有有权限操作这个岛。");
+            }
+            player.sendMessage("||=================================");
+            return true;
+
         }
         return false;
     }

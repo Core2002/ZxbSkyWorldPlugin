@@ -21,12 +21,13 @@ public class BlockDispose implements Listener {
         if (event.getPlayer().isOp()) {
             return;
         }
-        if (Helper.havePermission(event.getPlayer())) {
-            return;
-        }
         int xx = (int) event.getBlock().getLocation().getX();
         int zz = (int) event.getBlock().getLocation().getZ();
         if (Helper.inSpawn(xx, zz)) {
+            event.setCancelled(true);
+            event.getPlayer().sendMessage(str);
+        }
+        if (!Helper.havePermission(event.getPlayer())) {
             event.setCancelled(true);
             event.getPlayer().sendMessage(str);
         }
@@ -57,9 +58,6 @@ public class BlockDispose implements Listener {
         if ((player = event.getPlayer()) != null && player.isOp()) {
             return;
         }
-        if (player != null && Helper.havePermission(player)) {
-            return;
-        }
         int xx = (int) event.getBlock().getLocation().getX();
         int zz = (int) event.getBlock().getLocation().getZ();
         if (Helper.inSpawn(xx, zz)) {
@@ -67,6 +65,10 @@ public class BlockDispose implements Listener {
             if (player != null) {
                 player.sendMessage(str);
             }
+        }
+        if (player != null && !Helper.havePermission(player)) {
+            event.setBuildable(false);
+            player.sendMessage(str);
 
         }
 
