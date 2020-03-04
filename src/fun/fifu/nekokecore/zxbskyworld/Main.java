@@ -39,7 +39,7 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         //配置文件不存在就创建
         jsonObject = initJson(CONFIGPATH, "{}");
-        String util_initStr = "{\"spawn_world\":\"world\",\"spawn_xx\":\"53\",\"spawn_yy\":\"5\",\"spawn_zz\":\"40\"}";
+        String util_initStr = "{\"spawn_world\":\"world\",\"spawn_xx\":\"359\",\"spawn_yy\":\"109\",\"spawn_zz\":\"295\",\"spawn_yaw\":\"180\",\"spawn_pitch\":\"0\"}";
         util_jsonObject = initJson(UTILCONFIGPATH, util_initStr);
         getLogger().info("开始注册命令。");
         //注册命令
@@ -47,7 +47,7 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginCommand("goto").setExecutor(new TeleportDispose());
         Bukkit.getPluginCommand("help").setExecutor(new HelpDispose());
         Bukkit.getPluginCommand("exple").setExecutor(new ExpleDispose());
-        Bukkit.getPluginCommand("info").setExecutor(new InfoDispose());
+        Bukkit.getPluginCommand("infos").setExecutor(new InfoDispose());
         getLogger().info("完毕。");
         getLogger().info("开始注册监听器。");
         //注册监听器
@@ -79,6 +79,7 @@ public class Main extends JavaPlugin {
                 new File(new File(configpath).getParent()).mkdirs();
                 new File(configpath).createNewFile();
                 IOTools.writeTextFile(initStr, "UTF-8", configpath);
+                IOTools.zhengliJsonFile(configpath);
             } catch (IOException e) {
                 System.out.println("尝试生成。" + temp);
                 e.printStackTrace();

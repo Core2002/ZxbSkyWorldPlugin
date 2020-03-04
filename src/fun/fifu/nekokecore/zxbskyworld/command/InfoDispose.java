@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 public class InfoDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if ("info".equalsIgnoreCase(command.getName())) {
+        if ("infos".equalsIgnoreCase(command.getName())) {
             Player player = ((Player) commandSender).getPlayer();
             if (player == null) {
                 commandSender.sendMessage("你必须是一名玩家!");

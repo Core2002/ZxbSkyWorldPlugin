@@ -50,8 +50,10 @@ public class Helper {
         int xx = Integer.parseInt(util_jsonObject.get("spawn_xx").toString());
         int yy = Integer.parseInt(util_jsonObject.get("spawn_yy").toString());
         int zz = Integer.parseInt(util_jsonObject.get("spawn_zz").toString());
+        int yaw = Integer.parseInt(util_jsonObject.get("spawn_yaw").toString());
+        int pitch = Integer.parseInt(util_jsonObject.get("spawn_pitch").toString());
         World world = Bukkit.getWorld(world_str);
-        return new Location(world, xx, yy, zz);
+        return new Location(world, xx, yy, zz, yaw, pitch);
     }
 
     public static boolean inSpawn(int xx, int zz) {

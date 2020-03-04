@@ -57,7 +57,7 @@ public class HelpDispose implements CommandExecutor {
                     player.sendMessage("|| /s 回到自己的岛，若没有，自动领取");
                     player.sendMessage("|| /goto 去一个岛");
                     player.sendMessage("|| /exple <Player> 把玩家从你的岛踢出");
-                    player.sendMessage("|| /info 查看你所在的岛屿的信息");
+                    player.sendMessage("|| /infos 查看你所在的岛屿的信息");
                     player.sendMessage("|| /sethome 设置你所在的岛屿的出生点");
                     player.sendMessage("|| /help 查看帮助                       [1/3]");
                     player.sendMessage("||=================================|");
