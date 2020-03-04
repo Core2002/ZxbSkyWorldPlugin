@@ -83,14 +83,14 @@ public class Helper {
         if (rr > 0) {
             while (!in(rr, IsLand.getxxForm(SkyR), IsLand.getxxEnd(SkyR))) {
                 if (SkyR > IsLand.MAXSKYLOC) {
-                    throw new RuntimeException("R轴查询SkyLoc正越界！");
+                    throw new RuntimeException("R轴SkyLoc正越界！");
                 }
                 SkyR++;
             }
         } else if (rr < 0) {
             while (!in(rr, IsLand.getxxForm(SkyR), IsLand.getxxEnd(SkyR))) {
                 if (SkyR < -IsLand.MAXSKYLOC) {
-                    throw new RuntimeException("R轴查询SkyLoc负越界！");
+                    throw new RuntimeException("R轴SkyLoc负越界！");
                 }
                 SkyR--;
             }

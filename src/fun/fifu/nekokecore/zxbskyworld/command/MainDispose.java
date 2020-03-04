@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 
 /**
  * Commain "s"
+ *
  * @author NekokeCore
  */
 public class MainDispose implements CommandExecutor {
@@ -34,12 +35,14 @@ public class MainDispose implements CommandExecutor {
             String SkyLoc = isLand.getSkyLoc();
             if (isLand.inSkyWorld((int) player.getLocation().getX(), (int) player.getLocation().getZ())) {
                 Helper.goSpawn(player);
-                player.sendMessage(player.getName() + "欢迎来到主城!" + isLand.getSkyLoc());
+                int xx = Integer.parseInt(Main.util_jsonObject.get("spawn_xx").toString());
+                int zz = Integer.parseInt(Main.util_jsonObject.get("spawn_zz").toString());
+                player.sendMessage(player.getName() + "欢迎来到主城!  " + Helper.toSkyWorld(xx, zz));
                 new SoundPlayer().playCat(player);
                 return true;
             }
             Helper.tpSkyLoc(player, SkyLoc);
-            player.sendMessage(player.getName() + "欢迎回家!" + isLand.getSkyLoc());
+            player.sendMessage(player.getName() + "欢迎回家!  " + isLand.getSkyLoc());
             new SoundPlayer().playCat(player);
 
             // 返回true防止返回指令的usage信息
