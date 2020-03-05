@@ -1,5 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.permission;
 
+import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,7 +21,7 @@ public class EntityDispose implements Listener {
     public void onCreatureSpawn(CreatureSpawnEvent creatureSpawnEvent) {
         int xx = (int) creatureSpawnEvent.getLocation().getX();
         int zz = (int) creatureSpawnEvent.getLocation().getZ();
-        if (Helper.inSpawn(xx, zz)) {
+        if (Helper.inSkyWrold(xx, zz, Main.spawnSkyLoc)) {
             creatureSpawnEvent.setCancelled(true);
         }
 

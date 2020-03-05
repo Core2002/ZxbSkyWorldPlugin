@@ -42,7 +42,7 @@ public class InfoDispose implements CommandExecutor {
             if (player.isOp() || Helper.havePermission(player)) {
                 player.sendMessage("||你有权限操作这个岛。");
             } else {
-                player.sendMessage("||你没有有权限操作这个岛。");
+                player.sendMessage("||你没有权限操作这个岛。");
             }
             player.sendMessage("||=================================");
             return true;

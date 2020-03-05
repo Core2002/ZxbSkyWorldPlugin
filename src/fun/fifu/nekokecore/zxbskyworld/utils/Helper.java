@@ -57,7 +57,7 @@ public class Helper {
     }
 
     public static boolean inSpawn(int xx, int zz) {
-        return in(xx, 0, IsLand.SIDE) && in(zz, 0, IsLand.SIDE);
+        return inSkyWrold(xx, zz, "(0,0)");
     }
 
     public static boolean in(int now, int from, int end) {

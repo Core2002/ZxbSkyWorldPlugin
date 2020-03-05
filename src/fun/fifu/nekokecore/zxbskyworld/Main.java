@@ -4,6 +4,7 @@ import fun.fifu.nekokecore.zxbskyworld.command.*;
 import fun.fifu.nekokecore.zxbskyworld.permission.BlockDispose;
 import fun.fifu.nekokecore.zxbskyworld.permission.EntityDispose;
 import fun.fifu.nekokecore.zxbskyworld.listener.PlayerDispose;
+import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.IOTools;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
@@ -15,6 +16,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.logging.Logger;
 
 public class Main extends JavaPlugin {
@@ -28,6 +30,7 @@ public class Main extends JavaPlugin {
     public static JSONObject util_jsonObject = null;
     public static Plugin plugin;
     private static PluginManager pluginManager;
+    public static String spawnSkyLoc = "(0,0)";
     static Logger logger;
 
     @Override
@@ -41,6 +44,7 @@ public class Main extends JavaPlugin {
         jsonObject = initJson(CONFIGPATH, "{}");
         String util_initStr = "{\"spawn_world\":\"world\",\"spawn_xx\":\"359\",\"spawn_yy\":\"109\",\"spawn_zz\":\"295\",\"spawn_yaw\":\"180\",\"spawn_pitch\":\"0\"}";
         util_jsonObject = initJson(UTILCONFIGPATH, util_initStr);
+        spawnSkyLoc = Helper.toSkyWorld(Integer.parseInt(Objects.requireNonNull(util_jsonObject).get("spawn_xx").toString()), Integer.parseInt(util_jsonObject.get("spawn_yy").toString()));
         getLogger().info("开始注册命令。");
         //注册命令
         Bukkit.getPluginCommand(COMMAND).setExecutor(new MainDispose());
