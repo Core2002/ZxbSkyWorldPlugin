@@ -31,11 +31,11 @@ public class Helper {
     }
 
     public static int getxxCentered(int SkyX) {
-        return (IsLand.getxxEnd(SkyX) - IsLand.getxxForm(SkyX)) / 2 + IsLand.getxxForm(SkyX);
+        return (IsLand.getrrEnd(SkyX) - IsLand.getrrForm(SkyX)) / 2 + IsLand.getrrForm(SkyX);
     }
 
     public static int getyyCentered(int SkyY) {
-        return (IsLand.getyyEnd(SkyY) - IsLand.getyyForm(SkyY)) / 2 + IsLand.getyyForm(SkyY);
+        return (IsLand.getrrEnd(SkyY) - IsLand.getrrForm(SkyY)) / 2 + IsLand.getrrForm(SkyY);
     }
 
     public static void goSpawn(Player player) {
@@ -67,28 +67,28 @@ public class Helper {
     public static boolean inSkyWrold(int xx, int zz, String SkyLoc) {
         int SkyX = IsLand.getSkyX(SkyLoc);
         int SkyY = IsLand.getSkyY(SkyLoc);
-        return in(xx, IsLand.getxxForm(SkyX), IsLand.getxxEnd(SkyX)) && in(zz, IsLand.getyyForm(SkyY), IsLand.getyyEnd(SkyY));
+        return in(xx, IsLand.getrrForm(SkyX), IsLand.getrrEnd(SkyX)) && in(zz, IsLand.getrrForm(SkyY), IsLand.getrrEnd(SkyY));
     }
 
     public static boolean inSkyWrold(int xx, int zz, int SkyX, int SkyY) {
-        return in(xx, IsLand.getxxForm(SkyX), IsLand.getxxEnd(SkyX)) && in(zz, IsLand.getyyForm(SkyY), IsLand.getyyEnd(SkyY));
+        return in(xx, IsLand.getrrForm(SkyX), IsLand.getrrEnd(SkyX)) && in(zz, IsLand.getrrForm(SkyY), IsLand.getrrEnd(SkyY));
     }
 
-    public static String toSkyWorld(int xx, int zz) {
+    public static String toSkyLoc(int xx, int zz) {
         return "(" + getSkyR(xx) + "," + getSkyR(zz) + ")";
     }
 
     public static int getSkyR(int rr) {
         int SkyR = 0;
         if (rr > 0) {
-            while (!in(rr, IsLand.getxxForm(SkyR), IsLand.getxxEnd(SkyR))) {
+            while (!in(rr, IsLand.getrrForm(SkyR), IsLand.getrrEnd(SkyR))) {
                 if (SkyR > IsLand.MAXSKYLOC) {
                     throw new RuntimeException("R轴SkyLoc正越界！");
                 }
                 SkyR++;
             }
         } else if (rr < 0) {
-            while (!in(rr, IsLand.getxxForm(SkyR), IsLand.getxxEnd(SkyR))) {
+            while (!in(rr, IsLand.getrrForm(SkyR), IsLand.getrrEnd(SkyR))) {
                 if (SkyR < -IsLand.MAXSKYLOC) {
                     throw new RuntimeException("R轴SkyLoc负越界！");
                 }
@@ -114,6 +114,9 @@ public class Helper {
         //初始化JSON配置文件
         if (Main.jsonObject == null) {
             throw new RuntimeException("配置文件异常，请仔细检查！！！");
+        }
+        if (player.isOp()) {
+            return true;
         }
         if (Main.jsonObject.get(UUID) == null) {
             jsonArray = new JSONArray();

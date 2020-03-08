@@ -37,7 +37,7 @@ public class MainDispose implements CommandExecutor {
                 Helper.goSpawn(player);
                 int xx = Integer.parseInt(Main.util_jsonObject.get("spawn_xx").toString());
                 int zz = Integer.parseInt(Main.util_jsonObject.get("spawn_zz").toString());
-                player.sendMessage(player.getName() + "欢迎来到主城!  " + Helper.toSkyWorld(xx, zz));
+                player.sendMessage(player.getName() + "欢迎来到主城!  " + Helper.toSkyLoc(xx, zz));
                 new SoundPlayer().playCat(player);
                 return true;
             }

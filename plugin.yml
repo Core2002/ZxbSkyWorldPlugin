@@ -18,3 +18,9 @@ commands:
     infos:
       description: "查看你所在的岛屿的信息"
       usage: /infos
+    uuid:
+      description: "查询UUID"
+      usage: /uuid
+    biome:
+      description: "更改当前岛屿的生物群系"
+      usage: /biome <biome>

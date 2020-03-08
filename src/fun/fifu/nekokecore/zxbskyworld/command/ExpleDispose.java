@@ -18,34 +18,6 @@ import java.util.HashMap;
  */
 public class ExpleDispose implements CommandExecutor, Runnable {
 
-    public static void main(String[] args) throws InterruptedException {
-        System.out.println(IsLand.getxxForm(1));
-        System.out.println(IsLand.getxxEnd(1));
-        System.out.println(IsLand.getxxForm(2));
-        System.out.println(IsLand.getxxEnd(2));
-        System.out.println(Helper.toSkyWorld(0,2047));
-        //Thread.sleep(4000);
-
-
-        //Thread.sleep(4000);
-        int MAX = IsLand.MAXSKYLOC * IsLand.SIDE;
-        for (int xx = 0; xx <= MAX; xx++) {
-            for (int zz = 0; zz <= MAX; zz++) {
-                if (!Helper.inSkyWrold(-xx, -zz, Helper.toSkyWorld(-xx, -zz))) {
-                    throw new RuntimeException("魔镜：我扇自己一巴掌！" + xx + "xx_zz" + zz);
-                }
-            }
-            //System.out.println("\n");
-        }
-
-        int xx = 0;
-        int zz = 0;
-        System.out.println("魔镜魔镜，xx_" + xx + ",zz_" + zz + "在(1729,-17280)里吗？");
-        System.out.println("墨镜:" + Helper.inSkyWrold(1771007, -17694207, "M(1729,-17280)"));
-        System.out.println("魔镜魔镜，xx_1771007,zz_-17694207  在哪里？");
-        System.out.println("魔镜:" + Helper.toSkyWorld(1771007, -17694207));
-
-    }
 
     /**
      * "玩家UUID"，<"岛"，时间>

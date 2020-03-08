@@ -23,7 +23,7 @@ import org.bukkit.util.io.BukkitObjectOutputStream;
 
 public class PlayerDispose implements Listener {
     /**
-     * 重生点处理
+     * 玩家进入服务器事件.
      *
      * @param playerJoinEvent
      */
@@ -39,7 +39,8 @@ public class PlayerDispose implements Listener {
     }
 
     /**
-     * 重生点处理
+     *
+     * 玩家重生事件.
      */
 
     @EventHandler
@@ -99,6 +100,11 @@ public class PlayerDispose implements Listener {
         }
     }
 
+    /**
+     *
+     * 当玩家编辑或签名书与笔时触发。
+     * @param e
+     */
     @EventHandler
     public void onBookSave(PlayerEditBookEvent e) {
         List<String> pages = e.getNewBookMeta().getPages();

@@ -13,7 +13,7 @@ import org.bukkit.event.inventory.InventoryType;
 
 public class EntityDispose implements Listener {
     /**
-     * 玩家复活事件
+     * 当一个生物体在世界中出生时触发该事件.
      *
      * @param creatureSpawnEvent
      */
@@ -22,6 +22,7 @@ public class EntityDispose implements Listener {
         int xx = (int) creatureSpawnEvent.getLocation().getX();
         int zz = (int) creatureSpawnEvent.getLocation().getZ();
         if (Helper.inSkyWrold(xx, zz, Main.spawnSkyLoc)) {
+            Main.plugin.getLogger().info("事件:当一个生物体在世界中出生时触发:其坐标xx:"+xx+"，zz："+zz+"已拦截！");
             creatureSpawnEvent.setCancelled(true);
         }
 

@@ -19,28 +19,20 @@ public abstract class BaseIsLand {
 
     public JSONArray jsonArray;
 
-    public static int getxxForm(int SkyX) {
+    public static int getrrForm(int SkyX) {
         return SIDE * SkyX;
     }
 
-    public static int getxxEnd(int SkyX) {
+    public static int getrrEnd(int SkyX) {
         return (SIDE * (SkyX + 1)) - 1;
     }
 
-    public static int getyyForm(int SkyY) {
-        return SIDE * SkyY;
-    }
-
-    public static int getyyEnd(int SkyY) {
-        return (SIDE * (SkyY + 1)) - 1;
-    }
-
     public int getxxCentered() {
-        return (getxxEnd(SkyX) - getxxForm(SkyX)) / 2 + getxxForm(SkyX);
+        return (getrrEnd(SkyX) - getrrForm(SkyX)) / 2 + getrrForm(SkyX);
     }
 
     public int getyyCentered() {
-        return (getyyEnd(SkyY) - getyyForm(SkyY)) / 2 + getyyForm(SkyY);
+        return (getrrEnd(SkyY) - getrrForm(SkyY)) / 2 + getrrForm(SkyY);
     }
 
     /**
@@ -55,7 +47,7 @@ public abstract class BaseIsLand {
     }
 
     public boolean inSkyWorld(int xx, int zz) {
-        return in(xx, getxxForm(SkyX), getxxEnd(SkyX)) && in(zz, getyyForm(SkyY), getyyEnd(SkyY));
+        return in(xx, getrrForm(SkyX), getrrEnd(SkyX)) && in(zz, getrrForm(SkyY), getrrEnd(SkyY));
     }
 
     public void trim() {

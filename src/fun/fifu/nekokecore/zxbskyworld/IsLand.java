@@ -1,11 +1,13 @@
 package fun.fifu.nekokecore.zxbskyworld;
 
+import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.json.simple.JSONArray;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -14,14 +16,22 @@ import java.util.Random;
  */
 public class IsLand extends BaseIsLand {
     public static void main(String[] args) {
-        Main.jsonObject = Main.initJson(Main.CONFIGPATH, "{}");
-        IsLand isLand = new IsLand("NekokeCore");
-        System.out.println(isLand.SkyX + "," + isLand.SkyY);
-        System.out.println(isLand.getxxCentered() + ",," + isLand.getyyCentered());
-        System.out.println("xxFrom:" + IsLand.getxxForm(isLand.SkyX));
-        System.out.println("yyFrom:" + IsLand.getyyForm(isLand.SkyY));
-        System.out.println("xxEnd:" + IsLand.getxxEnd(isLand.SkyX));
-        System.out.println("yyEnd:" + IsLand.getyyEnd(isLand.SkyY));
+        String SkyLoc = "(-10,10)";
+        int SkyX = IsLand.getSkyX(SkyLoc);
+        int SkyY = IsLand.getSkyY(SkyLoc);
+        int xxfrom = IsLand.getrrForm(SkyX);
+        int zzfrom = IsLand.getrrForm(SkyY);
+        int xxend = IsLand.getrrEnd(SkyX);
+        int zzend = IsLand.getrrEnd(SkyY);
+
+        for (int zz = zzfrom; zz <= zzend; zz++) {
+            for (int xx = xxfrom; xx <= xxend; xx++) {
+
+
+                System.out.println(xx + "_" + zz);
+
+            }
+        }
     }
 
     @Override
@@ -79,13 +89,13 @@ public class IsLand extends BaseIsLand {
         if (!jsonArray.contains(temp)) {
             if (jsonArray.size() == 0) {
                 temp = "M" + allocationIsLand();
-                int xxx = getxxForm(getSkyX(temp)) + 511 - 3;
-                int zzz = getyyForm(getSkyY(temp)) + 511 - 1;
+                int xxx = getrrForm(getSkyX(temp)) + 511 - 3;
+                int zzz = getrrForm(getSkyY(temp)) + 511 - 1;
                 World world = Bukkit.getWorld("world");
                 //生成执行命令
                 String Command = "clone 508 60 510 515 69 516 " + xxx + " " + (64 - 4) + " " + zzz;
                 //那个区块如果不存在，就自动生成
-                Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx, 64, zzz)).load(true));
+                Main.logger.info("chunk.load:" + Objects.requireNonNull(world).getChunkAt(new Location(world, xxx, 64, zzz)).load(true));
                 Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, 64, zzz)).load(true));
                 Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx - 16, 64, zzz)).load(true));
                 Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx, 64, zzz + 16)).load(true));

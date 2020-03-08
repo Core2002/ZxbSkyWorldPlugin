@@ -6,8 +6,8 @@ import fun.fifu.nekokecore.zxbskyworld.permission.EntityDispose;
 import fun.fifu.nekokecore.zxbskyworld.listener.PlayerDispose;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.IOTools;
+import fun.fifu.nekokecore.zxbskyworld.utils.UUID;
 import org.bukkit.Bukkit;
-import org.bukkit.Server;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -44,7 +44,7 @@ public class Main extends JavaPlugin {
         jsonObject = initJson(CONFIGPATH, "{}");
         String util_initStr = "{\"spawn_world\":\"world\",\"spawn_xx\":\"359\",\"spawn_yy\":\"109\",\"spawn_zz\":\"295\",\"spawn_yaw\":\"180\",\"spawn_pitch\":\"0\"}";
         util_jsonObject = initJson(UTILCONFIGPATH, util_initStr);
-        spawnSkyLoc = Helper.toSkyWorld(Integer.parseInt(Objects.requireNonNull(util_jsonObject).get("spawn_xx").toString()), Integer.parseInt(util_jsonObject.get("spawn_yy").toString()));
+        spawnSkyLoc = Helper.toSkyLoc(Integer.parseInt(Objects.requireNonNull(util_jsonObject).get("spawn_xx").toString()), Integer.parseInt(util_jsonObject.get("spawn_yy").toString()));
         getLogger().info("开始注册命令。");
         //注册命令
         Bukkit.getPluginCommand(COMMAND).setExecutor(new MainDispose());
@@ -52,6 +52,8 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginCommand("help").setExecutor(new HelpDispose());
         Bukkit.getPluginCommand("exple").setExecutor(new ExpleDispose());
         Bukkit.getPluginCommand("infos").setExecutor(new InfoDispose());
+        Bukkit.getPluginCommand("uuid").setExecutor(new UUID());
+        Bukkit.getPluginCommand("biome").setExecutor(new BiomeDispose());
         getLogger().info("完毕。");
         getLogger().info("开始注册监听器。");
         //注册监听器

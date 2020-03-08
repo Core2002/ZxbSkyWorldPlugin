@@ -36,7 +36,7 @@ public class HelpDispose implements CommandExecutor {
                     player.sendMessage("|| /delete 清空你所在的岛              [危]");
                     player.sendMessage("|| /giveup 放弃你所在的岛              [危]");
                     player.sendMessage("|| /get 领取你所在的岛");
-                    player.sendMessage("|| /help 查看帮助                       [2/3]");
+                    player.sendMessage("|| /help 查看帮助                       [2/4]");
                     player.sendMessage("||=================================|");
                     break;
                 case 3:
@@ -47,7 +47,18 @@ public class HelpDispose implements CommandExecutor {
                     player.sendMessage("|| /unshareall 取消所有分享的岛");
                     player.sendMessage("|| /seclusionpuls 在你的岛的周围修一圈墙");
                     player.sendMessage("|| /unseclusionpuls 拆掉那一圈墙");
-                    player.sendMessage("|| /help 查看帮助                       [3/3]");
+                    player.sendMessage("|| /help 查看帮助                       [3/4]");
+                    player.sendMessage("||=================================|");
+                    break;
+                case 4:
+                    player.sendMessage("||=================================|");
+                    player.sendMessage("||                      -帮助-");
+                    player.sendMessage("||---------------------------------|");
+                    player.sendMessage("|| /biome <biome> 更改当前岛屿的生物群系");
+                    player.sendMessage("|| ");
+                    player.sendMessage("|| ");
+                    player.sendMessage("|| ");
+                    player.sendMessage("|| /help 查看帮助                       [4/4]");
                     player.sendMessage("||=================================|");
                     break;
                 default:
@@ -58,8 +69,8 @@ public class HelpDispose implements CommandExecutor {
                     player.sendMessage("|| /goto 去一个岛");
                     player.sendMessage("|| /exple <Player> 把玩家从你的岛踢出");
                     player.sendMessage("|| /infos 查看你所在的岛屿的信息");
-                    player.sendMessage("|| /sethome 设置你所在的岛屿的出生点");
-                    player.sendMessage("|| /help 查看帮助                       [1/3]");
+                    player.sendMessage("|| /uuid 查询UUID");
+                    player.sendMessage("|| /help 查看帮助                       [1/4]");
                     player.sendMessage("||=================================|");
             }
             return true;
