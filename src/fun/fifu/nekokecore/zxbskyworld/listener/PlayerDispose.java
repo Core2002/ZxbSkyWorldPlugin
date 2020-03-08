@@ -3,12 +3,14 @@ package fun.fifu.nekokecore.zxbskyworld.listener;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.SoundPlayer;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
 
 import java.io.ByteArrayOutputStream;
@@ -17,10 +19,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.bukkit.ChatColor;
-import org.bukkit.event.player.PlayerEditBookEvent;
 import org.bukkit.util.io.BukkitObjectOutputStream;
 
 
+/**
+ * @author NekokeCore
+ */
 public class PlayerDispose implements Listener {
     /**
      * 玩家进入服务器事件.
@@ -39,7 +43,6 @@ public class PlayerDispose implements Listener {
     }
 
     /**
-     *
      * 玩家重生事件.
      */
 
@@ -49,7 +52,7 @@ public class PlayerDispose implements Listener {
 
     }
 
-    private int inventorySize(ItemStack[] contents) {
+    public int inventorySize(ItemStack[] contents) {
         try {
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             BukkitObjectOutputStream data = new BukkitObjectOutputStream(os);
@@ -101,8 +104,8 @@ public class PlayerDispose implements Listener {
     }
 
     /**
-     *
      * 当玩家编辑或签名书与笔时触发。
+     *
      * @param e
      */
     @EventHandler
@@ -116,5 +119,27 @@ public class PlayerDispose implements Listener {
             e.setCancelled(true);
         }
     }
+
+    /**
+     * 当玩家使用桶时触发本事件.
+     */
+    @EventHandler
+    public void onBucket(PlayerSwapHandItemsEvent event) {
+        Player player = event.getPlayer();
+        if (event.getOffHandItem().getType().equals(Material.BUCKET) || player.isSneaking()) {
+            if (Helper.havePermission(player)) {
+                Location l = player.getLocation();
+                Location location = new Location(player.getWorld(), l.getBlockX(), l.getBlockY() - 1, l.getBlockZ());
+                Block block = location.getBlock();
+                if (block.getType().equals(Material.OBSIDIAN)) {
+                    block.setType(Material.LAVA);
+                    player.sendMessage("你成功将黑曜石转化成了岩浆！");
+                }
+            } else {
+                player.sendMessage("你没权限");
+            }
+        }
+    }
+
 
 }
