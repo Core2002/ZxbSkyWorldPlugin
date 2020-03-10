@@ -1,7 +1,9 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
+import com.sun.xml.internal.ws.spi.db.DatabindingException;
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.Main;
+import fun.fifu.nekokecore.zxbskyworld.utils.DateAdmin;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -18,21 +20,15 @@ public class InfoDispose implements CommandExecutor {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
-            String UUID = player.getUniqueId().toString();
-            //初始化JSON配置文件
-            if (Main.jsonObject == null) {
-                throw new RuntimeException("配置文件异常，请仔细检查！！！");
-            }
-
-            IsLand isLand = new IsLand(UUID);
             Location location = player.getLocation();
             int xx = location.getBlockX();
             int zz = location.getBlockZ();
-            player.sendMessage("||=================================");
-            player.sendMessage("||玩家" + player.getName() + "的岛屿有：");
-            player.sendMessage(isLand.getIslandList().toString());
-            player.sendMessage("||=================================");
             String SkyLoc = Helper.toSkyLoc(xx, zz);
+            player.sendMessage("||=================================");
+            player.sendMessage("||玩家" + player.getName() + "的岛屿信息：");
+            player.sendMessage("||主人：" + Main.dateAdmin.getOwnersList(SkyLoc));
+            player.sendMessage("||好友：" + Main.dateAdmin.getMembersList(SkyLoc));
+            player.sendMessage("||=================================");
             player.sendMessage("||你所在的岛屿是：" + SkyLoc);
             player.sendMessage("||---------------------------------");
             player.sendMessage("||这个岛屿的范围是：");

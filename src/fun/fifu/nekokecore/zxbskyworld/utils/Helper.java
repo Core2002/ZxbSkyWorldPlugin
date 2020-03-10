@@ -10,7 +10,6 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.json.simple.JSONArray;
 
-import static fun.fifu.nekokecore.zxbskyworld.Main.util_jsonObject;
 
 public class Helper {
     /**
@@ -43,15 +42,12 @@ public class Helper {
     }
 
     public static Location getSpawnLocation() {
-        if (util_jsonObject == null) {
-            throw new RuntimeException("配置文件异常，请仔细检查！！！");
-        }
-        String world_str = util_jsonObject.get("spawn_world").toString();
-        int xx = Integer.parseInt(util_jsonObject.get("spawn_xx").toString());
-        int yy = Integer.parseInt(util_jsonObject.get("spawn_yy").toString());
-        int zz = Integer.parseInt(util_jsonObject.get("spawn_zz").toString());
-        int yaw = Integer.parseInt(util_jsonObject.get("spawn_yaw").toString());
-        int pitch = Integer.parseInt(util_jsonObject.get("spawn_pitch").toString());
+        String world_str = DateAdmin.util_jsonObject.get("spawn_world").toString();
+        int xx = Integer.parseInt(DateAdmin.util_jsonObject.get("spawn_xx").toString());
+        int yy = Integer.parseInt(DateAdmin.util_jsonObject.get("spawn_yy").toString());
+        int zz = Integer.parseInt(DateAdmin.util_jsonObject.get("spawn_zz").toString());
+        int yaw = Integer.parseInt(DateAdmin.util_jsonObject.get("spawn_yaw").toString());
+        int pitch = Integer.parseInt(DateAdmin.util_jsonObject.get("spawn_pitch").toString());
         World world = Bukkit.getWorld(world_str);
         return new Location(world, xx, yy, zz, yaw, pitch);
     }
@@ -111,12 +107,6 @@ public class Helper {
     public static boolean havePermission(Player player) {
         String UUID = player.getUniqueId().toString();
         JSONArray jsonArray;
-        //初始化JSON配置文件
-        if (Main.jsonObject == null) {
-            Main.plugin.getLogger().warning("配置文件异常！");
-            player.sendMessage("配置文件异常，请告知腐竹！");
-            return false;
-        }
         Location location = player.getLocation();
         int xx = location.getBlockX();
         int zz = location.getBlockZ();
@@ -125,18 +115,20 @@ public class Helper {
         } else if (inSpawn(xx, zz)) {
             return false;
         }
-        if (Main.jsonObject.get(UUID) == null) {
-            jsonArray = new JSONArray();
-        } else {
-            jsonArray = (JSONArray) Main.jsonObject.get(UUID);
-        }
-        String SkyLoc;
-        for (Object x : jsonArray) {
-            SkyLoc = (String) x;
-            if (inSkyWrold(xx, zz, SkyLoc)) {
+        String SkyLoc = Helper.toSkyLoc(xx, zz);
+        for (Object obj : Main.dateAdmin.getOwnersList(SkyLoc)) {
+            String uuid = (String) obj;
+            if (UUID.equalsIgnoreCase(uuid)) {
                 return true;
             }
         }
+        for (Object obj : Main.dateAdmin.getMembersList(SkyLoc)) {
+            String uuid = (String) obj;
+            if (UUID.equalsIgnoreCase(uuid)) {
+                return true;
+            }
+        }
+
         return false;
     }
 }

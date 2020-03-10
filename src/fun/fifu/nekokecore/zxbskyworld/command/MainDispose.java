@@ -19,7 +19,7 @@ public class MainDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         // 判断输入的指令是否是 /s ,不区分大小写
-        if (Main.COMMAND.equalsIgnoreCase(command.getName())) {
+        if ("s".equalsIgnoreCase(command.getName())) {
             // 判断输入者的类型 为了防止出现 控制台或命令方块 输入的情况
             if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
