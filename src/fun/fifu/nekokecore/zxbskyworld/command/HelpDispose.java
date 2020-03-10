@@ -54,7 +54,7 @@ public class HelpDispose implements CommandExecutor {
                     player.sendMessage("||=================================|");
                     player.sendMessage("||                      -帮助-");
                     player.sendMessage("||---------------------------------|");
-                    player.sendMessage("|| /biome <biome> 更改当前岛屿的生物群系");
+                    player.sendMessage("|| /biome <biome> 更改当前区块的生物群系");
                     player.sendMessage("|| ");
                     player.sendMessage("|| ");
                     player.sendMessage("|| ");

@@ -3,16 +3,16 @@ package fun.fifu.nekokecore.zxbskyworld.command;
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
+import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Biome;
+import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.Arrays;
-import java.util.logging.Logger;
 
 public class BiomeDispose implements CommandExecutor {
     @Override
@@ -24,35 +24,43 @@ public class BiomeDispose implements CommandExecutor {
                 // 这里返回true只是因为该输入者不是玩家,并不是输入错指令,所以我们直接返回true即可
                 return true;
             }
-            if (strings == null || strings.length == 0) {
-                commandSender.sendMessage("生物群系表：" + Arrays.toString(Biome.values()));
-                return false;
-            }
-            String bio = strings[0];
-            Biome biome = Biome.valueOf(bio);
             Player player = (Player) commandSender;
             World world = player.getWorld();
+            if (strings == null || strings.length == 0) {
+                Biome[] biomes = Biome.values();
+                for (int i = 0; i < biomes.length; i++) {
+                    player.sendMessage("可用" + i + "：" + biomes[i].name());
+                }
+                Location location = player.getLocation();
+                int tempy = location.getBlockY() - 1;
+                Block block = world.getBlockAt(new Location(world, location.getBlockX(), tempy, location.getBlockZ()));
+                player.sendMessage("你脚下方块的生物群系是：" + block.getBiome().name());
+                player.sendMessage("使用/biome <biome> 来修改当前区块生物群系");
+                player.sendMessage("按F3+G查看区块范围");
+                return true;
+            }
+            String bio;
+            Biome biome;
+            try {
+                bio = strings[0];
+                biome = Biome.valueOf(bio);
+            } catch (Exception e) {
+                player.sendMessage("输入有误!");
+                return false;
+            }
+
             if (Helper.havePermission(player)) {
                 Location location = player.getLocation();
-                String SkyLoc = Helper.toSkyLoc(location.getBlockX(), location.getBlockZ());
-                player.sendMessage("开始任务！把" + SkyLoc + "的生物群系换成" + biome.name());
-                int SkyX = IsLand.getSkyX(SkyLoc);
-                int SkyY = IsLand.getSkyY(SkyLoc);
-                int xxfrom = IsLand.getrrForm(SkyX);
-                int zzfrom = IsLand.getrrForm(SkyY);
-                int xxend = IsLand.getrrEnd(SkyX);
-                int zzend = IsLand.getrrEnd(SkyY);
-                Logger logger = Main.plugin.getLogger();
-                for (int zz = zzfrom; zz <= zzend; zz++) {
-                    for (int xx = xxfrom; xx <= xxend; xx++) {
-                        if (!world.getChunkAt(xx, zz).isLoaded()) {
-                            logger.info("加载区块" + xx + "," + zz + ":" + world.getChunkAt(xx, zz).load(true));
+                Chunk chunk = location.getChunk();
+                player.sendMessage("开始任务！把区块" + chunk.getX() + "," + chunk.getZ() + "的生物群系换成" + biome.name());
+                for (int i = 0; i < 16; i++) {
+                    for (int j = 0; j < 256; j++) {
+                        for (int k = 0; k < 16; k++) {
+                            chunk.getBlock(i, j, k).setBiome(biome);
                         }
-                        world.setBiome(xx, zz, biome);
-                        world.getChunkAt(xx, zz).unload(true);
                     }
                 }
-                player.sendMessage("搞完了，已经把岛" + SkyLoc + "的生物群系换成了" + biome.name());
+                player.sendMessage("搞完了，已经把区块" + chunk.getX() + "," + chunk.getZ() + "的生物群系换成了" + biome.name());
             } else {
                 commandSender.sendMessage("你没权限");
             }

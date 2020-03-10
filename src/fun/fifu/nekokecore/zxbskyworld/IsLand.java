@@ -1,37 +1,100 @@
 package fun.fifu.nekokecore.zxbskyworld;
 
-import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.json.simple.JSONArray;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
+
+import static com.google.common.collect.ComparisonChain.start;
 
 
 /**
  * @author NekokeCore
  */
 public class IsLand extends BaseIsLand {
+
     public static void main(String[] args) {
-        String SkyLoc = "(-10,10)";
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 16; j++) {
+                System.out.println(i + "," + j);
+            }
+        }
+    }
+
+    public static void mainll(String[] args) {
+        String SkyLoc = "(0,0)";
         int SkyX = IsLand.getSkyX(SkyLoc);
         int SkyY = IsLand.getSkyY(SkyLoc);
         int xxfrom = IsLand.getrrForm(SkyX);
         int zzfrom = IsLand.getrrForm(SkyY);
         int xxend = IsLand.getrrEnd(SkyX);
         int zzend = IsLand.getrrEnd(SkyY);
-
+        List<int[]> dataList = new ArrayList<>();
+        //遍历岛的所有坐标
         for (int zz = zzfrom; zz <= zzend; zz++) {
             for (int xx = xxfrom; xx <= xxend; xx++) {
-
-
-                System.out.println(xx + "_" + zz);
-
+                dataList.add(new int[]{xx, zz});
+                //System.out.println(xx + "_" + zz);
             }
         }
+        //限制条数
+        int pointsDataLimit = 16;
+        int size = dataList.size();
+        //判断是否有必要分批
+        if (pointsDataLimit < size) {
+            //分批数
+            int part = size / pointsDataLimit;
+            System.out.println("共有 ： " + size + "条，！" + pointsDataLimit + "为一批" + " 分为 ：" + part + "批");
+            for (int i = 0; i < part; i++) {
+                List<int[]> listPage = dataList.subList(0, pointsDataLimit);
+                for (int[] li : listPage) {
+                    new Thread() {
+
+                        int[] temp = li;
+
+                        @Override
+                        public void run() {
+                            System.out.println("处理完毕" + temp[0] + "," + temp[1]);
+
+                        }
+                    }.start();
+
+                }
+
+
+                //剔除
+                dataList.subList(0, pointsDataLimit).clear();
+            }
+
+            if (!dataList.isEmpty()) {
+                for (int[] li : dataList) {
+                    new Thread() {
+                        int[] temp = li;
+
+                        @Override
+                        public void run() {
+                            System.out.println("处理完毕" + temp[0] + "," + temp[1]);
+                        }
+                    }.start();
+
+                }
+
+
+                //表示最后剩下的数据
+
+            }
+        } else {
+            for (int[] i : dataList) {
+                System.out.println("处理完毕" + i[0] + "," + i[1]);
+            }
+
+        }
+
     }
 
     @Override

@@ -22,7 +22,7 @@ public class EntityDispose implements Listener {
         int xx = (int) creatureSpawnEvent.getLocation().getX();
         int zz = (int) creatureSpawnEvent.getLocation().getZ();
         if (Helper.inSkyWrold(xx, zz, Main.spawnSkyLoc)) {
-            Main.plugin.getLogger().info("事件:当一个生物体在世界中出生时触发:其坐标xx:"+xx+"，zz："+zz+"已拦截！");
+            Main.plugin.getLogger().info("事件:当一个生物体在世界中出生时触发:其坐标xx:" + xx + "，zz：" + zz + "已拦截！");
             creatureSpawnEvent.setCancelled(true);
         }
 
@@ -51,10 +51,7 @@ public class EntityDispose implements Listener {
         } else {
             return;
         }
-        if (inventoryType.equals(InventoryType.PLAYER)) {
-            return;
-        }
-        if (!player.isOp() && !Helper.havePermission(player)) {
+        if (!Helper.havePermission(player)) {
             player.sendMessage("你没权限");
             event.setCancelled(true);
         }

@@ -113,19 +113,23 @@ public class Helper {
         JSONArray jsonArray;
         //初始化JSON配置文件
         if (Main.jsonObject == null) {
-            throw new RuntimeException("配置文件异常，请仔细检查！！！");
+            Main.plugin.getLogger().warning("配置文件异常！");
+            player.sendMessage("配置文件异常，请告知腐竹！");
+            return false;
         }
+        Location location = player.getLocation();
+        int xx = location.getBlockX();
+        int zz = location.getBlockZ();
         if (player.isOp()) {
             return true;
+        } else if (inSpawn(xx, zz)) {
+            return false;
         }
         if (Main.jsonObject.get(UUID) == null) {
             jsonArray = new JSONArray();
         } else {
             jsonArray = (JSONArray) Main.jsonObject.get(UUID);
         }
-        Location location = player.getLocation();
-        int xx = location.getBlockX();
-        int zz = location.getBlockZ();
         String SkyLoc;
         for (Object x : jsonArray) {
             SkyLoc = (String) x;

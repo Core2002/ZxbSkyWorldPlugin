@@ -22,5 +22,5 @@ commands:
       description: "查询UUID"
       usage: /uuid
     biome:
-      description: "更改当前岛屿的生物群系"
+      description: "更改当前区块的生物群系"
       usage: /biome <biome>
