@@ -12,21 +12,25 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class DateAdmin {
-    static final String DatePATH = "./plugins/ZxbSkyWorld/date/";
-    static final String UTILCONFIGPATH = "./plugins/ZxbSkyWorld/util_config.json";
+    static final String datePATH = "./plugins/ZxbSkyWorld/date/";
+    static final String utilConfigPATH = "./plugins/ZxbSkyWorld/util_config.json";
+    static final String indexInfosPATH = "./plugins/ZxbSkyWorld/index.json";
     public static JSONObject util_jsonObject = null;
     public static String spawnSkyLoc = "(0,0)";
-    public static String defaultJsonStr = "{\"Owners\":[\"null\"],\"Members\":[\"null\"],\"Others\":{}}";
+    public static String defaultJsonStr = "{\"Owners\":[],\"Members\":[],\"Others\":{}}";
 
     public DateAdmin() {
         try {
             String util_initStr = "{\"spawn_world\":\"world\",\"spawn_xx\":\"359\",\"spawn_yy\":\"109\",\"spawn_zz\":\"295\",\"spawn_yaw\":\"180\",\"spawn_pitch\":\"0\"}";
-            util_jsonObject = initJson(UTILCONFIGPATH, util_initStr);
+            util_jsonObject = initJson(utilConfigPATH, util_initStr);
             spawnSkyLoc = Helper.toSkyLoc(Integer.parseInt(Objects.requireNonNull(util_jsonObject).get("spawn_xx").toString()), Integer.parseInt(util_jsonObject.get("spawn_yy").toString()));
             spawnSkyLoc = Helper.simplify(spawnSkyLoc);
+            initJson(indexInfosPATH, "{}");
+            initJson(datePATH + spawnSkyLoc + ".json", defaultJsonStr);
         } catch (Exception e) {
             Main.plugin.getLogger().info("配置文件加载错误！为了数据安全！服务器无法启动！" + e);
             try {
+                Main.plugin.getLogger().info("傻眼儿了吧？谁***叫你乱改配置文件的？改坏了吧？这下没得玩儿了吧？**玩意儿！");
                 Thread.sleep(999999999);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
@@ -37,19 +41,34 @@ public class DateAdmin {
     //查询
     public JSONObject getJSONObject(String SkyLoc) {
         try {
-            return IOTools.getJSONObject(DatePATH + Helper.simplify(SkyLoc) + ".json");
+            return IOTools.getJSONObject(datePATH + Helper.simplify(SkyLoc) + ".json");
         } catch (ParseException e) {
             Main.plugin.getLogger().warning("getJSONObject:" + SkyLoc + ":" + e);
             return null;
         }
     }
 
+    public String getDefaultSkyLoc(String uuid) {
+        JSONObject jsonObject = getIndexInfos();
+        String SkyLoc = (String) jsonObject.get(uuid);
+        return SkyLoc;
+    }
+
+    public JSONObject getIndexInfos() {
+        try {
+            return IOTools.getJSONObject(indexInfosPATH);
+        } catch (ParseException e) {
+            Main.plugin.getLogger().warning("getIndexInfos:" + ":" + e);
+            return null;
+        }
+    }
+
     public ArrayList<String> getAllSkyLoc() {
         ArrayList<String> SkyLocs = new ArrayList<String>();
-        File file = new File(DatePATH);        //获取其file对象
-        File[] fs = file.listFiles();    //遍历path下的文件和目录，放在File数组中
-        for (File f : fs) {                    //遍历File[]数组
-            if (!f.isDirectory())        //若非目录(即文件)，则打印
+        File file = new File(datePATH);
+        File[] fs = file.listFiles();
+        for (File f : fs) {
+            if (!f.isDirectory())
                 SkyLocs.add(f.getName());
         }
         return SkyLocs;
@@ -71,8 +90,14 @@ public class DateAdmin {
     }
 
     //存储
+    public void saveDefaultSkyLoc(String uuid, String SkyLoc) {
+        JSONObject jsonObject = getIndexInfos();
+        jsonObject.put(uuid, SkyLoc);
+        IOTools.writeJsonFile(jsonObject, indexInfosPATH);
+    }
+
     public void saveJSONObject(JSONObject jsonObject, String SkyLoc) {
-        IOTools.writeJsonFile(jsonObject, DatePATH + Helper.simplify(SkyLoc) + ".json");
+        IOTools.writeJsonFile(jsonObject, datePATH + Helper.simplify(SkyLoc) + ".json");
     }
 
     public void saveOwnerslist(JSONArray jsonArray, String SkyLoc) {

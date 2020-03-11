@@ -13,12 +13,16 @@ import org.json.simple.JSONArray;
 
 public class Helper {
     /**
-     * 把玩家传送到岛上，脚下第四格永远是玻璃
+     * 把玩家传送到岛上，脚下第四格永远是基岩
      *
      * @param player
      * @param SkyLoc
      */
     public static void tpSkyLoc(Player player, String SkyLoc) {
+        if (!skyLocValidity(SkyLoc)) {
+            player.sendMessage("坐标" + SkyLoc + "不合法！最大边界为+-" + IsLand.MAXSKYLOC + "，若有疑问，请联系服务器管理员。");
+            return;
+        }
         World world = Bukkit.getWorld("world");
         Location location = new Location(world, getxxCentered(IsLand.getSkyX(SkyLoc)), 64, getyyCentered(IsLand.getSkyY(SkyLoc)));
         Location location1 = new Location(location.getWorld(), location.getX(), location.getY() - 4, location.getZ());
@@ -26,7 +30,15 @@ public class Helper {
         block.setType(Material.BEDROCK);
         player.teleport(location);
         new SoundPlayer().playCat(player);
+    }
 
+    public static boolean skyLocValidity(String SkyLoc) {
+        if (SkyLoc.equals("Error")) {
+            return false;
+        }
+        int SkyX = IsLand.getSkyX(SkyLoc);
+        int SkyY = IsLand.getSkyY(SkyLoc);
+        return Math.abs(SkyX) < IsLand.MAXSKYLOC && Math.abs(SkyY) < IsLand.MAXSKYLOC;
     }
 
     public static int getxxCentered(int SkyX) {
@@ -74,19 +86,25 @@ public class Helper {
         return "(" + getSkyR(xx) + "," + getSkyR(zz) + ")";
     }
 
+    public static String toSkyLoc(Location location) {
+        int xx = location.getBlockX();
+        int zz = location.getBlockZ();
+        return "(" + getSkyR(xx) + "," + getSkyR(zz) + ")";
+    }
+
     public static int getSkyR(int rr) {
         int SkyR = 0;
         if (rr > 0) {
             while (!in(rr, IsLand.getrrForm(SkyR), IsLand.getrrEnd(SkyR))) {
-                if (SkyR > IsLand.MAXSKYLOC) {
-                    throw new RuntimeException("R轴SkyLoc正越界！");
+                if (Math.abs(SkyR) > IsLand.MAXSKYLOC) {
+                    throw new RuntimeException("R轴SkyLoc正越界！rr=" + rr);
                 }
                 SkyR++;
             }
         } else if (rr < 0) {
             while (!in(rr, IsLand.getrrForm(SkyR), IsLand.getrrEnd(SkyR))) {
-                if (SkyR < -IsLand.MAXSKYLOC) {
-                    throw new RuntimeException("R轴SkyLoc负越界！");
+                if (Math.abs(SkyR) > IsLand.MAXSKYLOC) {
+                    throw new RuntimeException("R轴SkyLoc负越界！rr=" + rr);
                 }
                 SkyR--;
             }
@@ -110,12 +128,18 @@ public class Helper {
         Location location = player.getLocation();
         int xx = location.getBlockX();
         int zz = location.getBlockZ();
-        if (player.isOp()) {
-            return true;
-        } else if (inSpawn(xx, zz)) {
+        if (inSpawn(xx, zz)) {
             return false;
         }
+        if (player.isOp()) {
+            return true;
+        }
         String SkyLoc = Helper.toSkyLoc(xx, zz);
+        try {
+            Main.dateAdmin.getJSONObject(SkyLoc);
+        } catch (Exception e) {
+            return false;
+        }
         for (Object obj : Main.dateAdmin.getOwnersList(SkyLoc)) {
             String uuid = (String) obj;
             if (UUID.equalsIgnoreCase(uuid)) {

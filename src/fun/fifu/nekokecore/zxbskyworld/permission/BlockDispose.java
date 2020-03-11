@@ -5,8 +5,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.*;
-import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.inventory.InventoryType;
 
 public class BlockDispose implements Listener {
     String str = "你没权限";
@@ -45,14 +43,10 @@ public class BlockDispose implements Listener {
      */
     @EventHandler
     public void onBlockCanBuild(BlockCanBuildEvent event) {
-        Player player;
-        if ((player = event.getPlayer()) != null && player.isOp()) {
-            return;
-        }
-        if (player != null && !Helper.havePermission(player)) {
+        Player player = event.getPlayer();
+        if (!Helper.havePermission(player)) {
             event.setBuildable(false);
             player.sendMessage(str);
-
         }
 
     }

@@ -20,7 +20,7 @@ public class Main extends JavaPlugin {
 
     public static Plugin plugin;
     private static PluginManager pluginManager;
-    public static final DateAdmin dateAdmin = new DateAdmin();
+    public static DateAdmin dateAdmin;
     static Logger logger;
 
     @Override
@@ -30,9 +30,6 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        //配置文件不存在就创建
-        //jsonObject = initJson(CONFIGPATH, "{}");
-
         getLogger().info("开始注册命令。");
         //注册命令
         Bukkit.getPluginCommand("s").setExecutor(new MainDispose());
@@ -56,6 +53,7 @@ public class Main extends JavaPlugin {
         plugin = this;
         pluginManager = getServer().getPluginManager();
         logger = getLogger();
+        dateAdmin = new DateAdmin();
     }
 
 

@@ -1,7 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.Main;
-import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -9,6 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -84,9 +84,8 @@ public class ExpleDispose implements CommandExecutor, Runnable {
                 Location loc = explePlayer.getLocation();
                 int xx = loc.getBlockX();
                 int zz = loc.getBlockZ();
-                IsLand isLand = new IsLand(player.getUniqueId().toString());
-                for (String SkyLoc : isLand.getIslandList()) {
-                    //System.out.println("Debug:遍历的" + player.getName() + "的SkyLoc:" + SkyLoc);
+                ArrayList<String> arrayList = Main.dateAdmin.getOwnersList(Helper.toSkyLoc(player.getLocation()));
+                for (String SkyLoc : arrayList) {
                     if (Helper.inSkyWrold(xx, zz, SkyLoc)) {
                         HashMap<String, Integer> temp = new HashMap<String, Integer>();
                         SkyLoc = Helper.simplify(SkyLoc);
@@ -105,7 +104,6 @@ public class ExpleDispose implements CommandExecutor, Runnable {
                     }
                 }
                 player.sendMessage("玩家" + explePlayerName + "不在你的岛里。");
-
             }
             return true;
         }

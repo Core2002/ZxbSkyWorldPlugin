@@ -16,19 +16,21 @@ public class TeleportDispose implements CommandExecutor {
      */
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        // 判断输入的指令是否是 /s ,不区分大小写
         if ("goto".equalsIgnoreCase(command.getName())) {
-            // 判断输入者的类型 为了防止出现 控制台或命令方块 输入的情况
             if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
-                // 这里返回true只是因为该输入者不是玩家,并不是输入错指令,所以我们直接返回true即可
                 return true;
             }
             if (strings == null) {
                 return false;
             }
-            String SkyLoc = strings[0];
-            SkyLoc = Helper.simplify(SkyLoc);
+            String SkyLoc;
+            try{
+                SkyLoc = strings[0];
+                SkyLoc = Helper.simplify(SkyLoc);
+            }catch (Exception e){
+                return false;
+            }
             Player player = (Player) commandSender;
             String UUID = player.getUniqueId().toString();
             try {
@@ -45,28 +47,21 @@ public class TeleportDispose implements CommandExecutor {
                 tempmap = ExpleDispose.map;
             } else {
                 Helper.tpSkyLoc(player, SkyLoc);
-                //System.out.println("debug001_map为空");
                 return true;
             }
             if (tempmap.get(UUID) != null) {
                 if (!tempmap.get(UUID).isEmpty()) {
-                    if (tempmap.get(UUID).keySet().contains(Helper.simplify(SkyLoc))) {
-                        player.sendMessage("你被踢出岛" + SkyLoc + "," + tempmap.get(UUID).get(SkyLoc) + "秒之后解除！");
-                        return true;
-                    } else {
+                    if (!tempmap.get(UUID).keySet().contains(Helper.simplify(SkyLoc))) {
                         Helper.tpSkyLoc(player, SkyLoc);
-                        //System.out.println("debug002_查了，无名"+SkyLoc);
-                        //System.out.println(tempmap);
-                        return true;
+                    } else {
+                        player.sendMessage("你被踢出岛" + SkyLoc + "," + tempmap.get(UUID).get(SkyLoc) + "秒之后解除！");
                     }
                 } else {
                     Helper.tpSkyLoc(player, SkyLoc);
-                    //System.out.println("debug003_map.get(UUID)为空");
-                    return true;
                 }
+                return true;
             }
             Helper.tpSkyLoc(player, SkyLoc);
-            //System.out.println("debug004_正常情况");
             return true;
         }
         return false;

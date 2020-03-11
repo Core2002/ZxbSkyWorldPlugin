@@ -126,7 +126,7 @@ public class PlayerDispose implements Listener {
     @EventHandler
     public void onSwapHand(PlayerSwapHandItemsEvent event) {
         Player player = event.getPlayer();
-        if (event.getOffHandItem().getType().equals(Material.BUCKET) || player.isSneaking()) {
+        if (event.getOffHandItem().getType().equals(Material.BUCKET) && player.isSneaking()) {
             if (Helper.havePermission(player)) {
                 Location l = player.getLocation();
                 Location location = new Location(player.getWorld(), l.getBlockX(), l.getBlockY() - 1, l.getBlockZ());

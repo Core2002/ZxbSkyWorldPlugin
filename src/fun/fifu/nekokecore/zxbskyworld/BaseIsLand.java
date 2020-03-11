@@ -1,9 +1,5 @@
 package fun.fifu.nekokecore.zxbskyworld;
 
-import fun.fifu.nekokecore.zxbskyworld.Main;
-import fun.fifu.nekokecore.zxbskyworld.utils.IOTools;
-import org.json.simple.JSONArray;
-
 /**
  * @author NekokeCore
  */
