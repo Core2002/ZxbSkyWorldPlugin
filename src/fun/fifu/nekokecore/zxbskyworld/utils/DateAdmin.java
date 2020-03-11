@@ -39,6 +39,32 @@ public class DateAdmin {
     }
 
     //查询
+    public ArrayList<String> getAllOwnerSkyLoc(String uuid) {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> all = getAllSkyLoc();
+        for (String skyLoc : all) {
+            for (Object own : getOwnersList(skyLoc)) {
+                if (uuid.equalsIgnoreCase((String) own)) {
+                    arrayList.add((String) skyLoc);
+                }
+            }
+        }
+        return arrayList;
+    }
+
+    public ArrayList<String> getAllMembersSkyLoc(String uuid) {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> all = getAllSkyLoc();
+        for (String skyLoc : all) {
+            for (Object mem : getMembersList(skyLoc)) {
+                if (uuid.equalsIgnoreCase((String) mem)) {
+                    arrayList.add((String) skyLoc);
+                }
+            }
+        }
+        return arrayList;
+    }
+
     public JSONObject getJSONObject(String SkyLoc) {
         try {
             return IOTools.getJSONObject(datePATH + Helper.simplify(SkyLoc) + ".json");
@@ -69,7 +95,7 @@ public class DateAdmin {
         File[] fs = file.listFiles();
         for (File f : fs) {
             if (!f.isDirectory())
-                SkyLocs.add(f.getName());
+                SkyLocs.add(f.getName().substring(0, f.getName().lastIndexOf(".")));
         }
         return SkyLocs;
     }

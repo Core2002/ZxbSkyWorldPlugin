@@ -21,11 +21,9 @@ import java.util.Random;
 public class IsLand extends BaseIsLand {
 
     public static void main(String[] args) {
-        for (int i = 0; i < 16; i++) {
-            for (int j = 0; j < 16; j++) {
-                System.out.println(i + "," + j);
-            }
-        }
+        DateAdmin dateAdmin=new DateAdmin();
+        //System.out.println(dateAdmin.getAllOwnerSkyLoc("3e79580d-cfdb-4b80-999c-99bc2740d194"));
+        //System.out.println(dateAdmin.getAllSkyLoc());
     }
 
     public IsLand(String uuid) {

@@ -39,6 +39,9 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginCommand("infos").setExecutor(new InfoDispose());
         Bukkit.getPluginCommand("uuid").setExecutor(new UUID());
         Bukkit.getPluginCommand("biome").setExecutor(new BiomeDispose());
+        Bukkit.getPluginCommand("seclusion").setExecutor(new SeclusionDispose());
+        Bukkit.getPluginCommand("homes").setExecutor(new HomesDispose());
+        Bukkit.getPluginCommand("share").setExecutor(new SeclusionDispose());
         getLogger().info("完毕。");
         getLogger().info("开始注册监听器。");
         //注册监听器

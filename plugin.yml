@@ -4,23 +4,32 @@ name: ZxbSkyWorld
 author: NekokeCore
 commands:
     s:
-      description: "回到自己的岛"
-      usage: /s <玩家名>
+        description: "回到自己的岛"
+        usage: /s <玩家名>
     goto:
-      description: "去某个岛"
-      usage: /goto <SkyLoc>
+        description: "去某个岛"
+        usage: /goto <SkyLoc>
     help:
-      description: "帮助"
-      usage: /help
+        description: "帮助"
+        usage: /help
     exple:
-      description: "把玩家从你的岛踢出"
-      usage: /exple <Player>
+        description: "把玩家从你的岛踢出"
+        usage: /exple <Player>
     infos:
-      description: "查看你所在的岛屿的信息"
-      usage: /infos
+        description: "查看你所在的岛屿的信息"
+        usage: /infos
     uuid:
-      description: "查询UUID"
-      usage: /uuid
+        description: "查询UUID"
+        usage: /uuid
     biome:
-      description: "更改当前区块的生物群系"
-      usage: /biome <biome>
+        description: "更改当前区块的生物群系"
+        usage: /biome <biome>
+    seclusion:
+        description: "使你所在的岛不能被他人传送"
+        usage: /seclusion <args>
+    homes:
+        description: "显示包括分享给你的岛"
+        usage: "homes"
+    share:
+        description: "和玩家分享你所在的岛"
+        usage: "/share <Player>"

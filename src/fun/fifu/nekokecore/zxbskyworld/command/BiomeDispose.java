@@ -16,10 +16,8 @@ public class BiomeDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if ("Biome".equalsIgnoreCase(command.getName())) {
-            // 判断输入者的类型 为了防止出现 控制台或命令方块 输入的情况
             if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
-                // 这里返回true只是因为该输入者不是玩家,并不是输入错指令,所以我们直接返回true即可
                 return true;
             }
             Player player = (Player) commandSender;
@@ -51,13 +49,7 @@ public class BiomeDispose implements CommandExecutor {
                 Location location = player.getLocation();
                 Chunk chunk = location.getChunk();
                 player.sendMessage("开始任务！把区块" + chunk.getX() + "," + chunk.getZ() + "的生物群系换成" + biome.name());
-                for (int i = 0; i < 16; i++) {
-                    for (int j = 0; j < 256; j++) {
-                        for (int k = 0; k < 16; k++) {
-                            chunk.getBlock(i, j, k).setBiome(biome);
-                        }
-                    }
-                }
+                work(chunk, biome);
                 player.sendMessage("搞完了，已经把区块" + chunk.getX() + "," + chunk.getZ() + "的生物群系换成了" + biome.name());
             } else {
                 commandSender.sendMessage("你没权限");
@@ -67,4 +59,13 @@ public class BiomeDispose implements CommandExecutor {
         return false;
     }
 
+    public void work(Chunk chunk, Biome biome) {
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 256; j++) {
+                for (int k = 0; k < 16; k++) {
+                    chunk.getBlock(i, j, k).setBiome(biome);
+                }
+            }
+        }
+    }
 }
