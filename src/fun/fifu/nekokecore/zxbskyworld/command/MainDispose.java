@@ -1,7 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
-import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.DateAdmin;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.SoundPlayer;
@@ -28,7 +27,7 @@ public class MainDispose implements CommandExecutor {
             new SoundPlayer().playCat(player);
             //获取UUID
             String UUID = player.getUniqueId().toString();
-            String SkyLoc = Main.dateAdmin.getDefaultSkyLoc(UUID);
+            String SkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(UUID);
             //如果玩家没有岛屿，就给他new一个，然后在传送
             if (SkyLoc == null) {
                 new IsLand(UUID);
@@ -41,7 +40,7 @@ public class MainDispose implements CommandExecutor {
                 return true;
             }
             Helper.tpSkyLoc(player, SkyLoc);
-            player.sendMessage(player.getName() + "欢迎回家!  " + Main.dateAdmin.getDefaultSkyLoc(UUID));
+            player.sendMessage(player.getName() + "欢迎回家!  " + IsLand.dateAdmin.getDefaultSkyLoc(UUID));
             new SoundPlayer().playCat(player);
             return true;
         }

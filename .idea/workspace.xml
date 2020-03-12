@@ -24,18 +24,29 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="">
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="加入了/seclusion 使你所在的岛不能被他人传送、/homes 显示包括分享给你的岛、/share 和玩家分享你所在的岛三个命令，并且优化了部分代码。">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/BiomeDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/BiomeDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/ExpleDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/ExpleDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/InfoDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/InfoDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/MainDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/MainDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/SeclusionDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/SeclusionDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/ZxbSkyWorld/date/(1729,-17280.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/ZxbSkyWorld/date/(0,0).json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/ZxbSkyWorld/date/(0,0).json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/BiomeDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/BiomeDispose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/ExpleDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/ExpleDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/HomesDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/HomesDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/InfoDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/InfoDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/MainDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/MainDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/SeclusionDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/SeclusionDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/ShareDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/ShareDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/Helper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,15 +294,6 @@
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="114029000" />
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -343,7 +345,8 @@
     <MESSAGE value="加入了uuid查询命令，和一些bug" />
     <MESSAGE value="加入了站在黑曜石上，拿着桶潜行和交换副手来将黑曜石变成岩浆。" />
     <MESSAGE value="加入了修改、查看当前区块的生物群系的功能/biome &lt;biome&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="加入了修改、查看当前区块的生物群系的功能/biome &lt;biome&gt;" />
+    <MESSAGE value="加入了/seclusion 使你所在的岛不能被他人传送、/homes 显示包括分享给你的岛、/share 和玩家分享你所在的岛三个命令，并且优化了部分代码。" />
+    <option name="LAST_COMMIT_MESSAGE" value="加入了/seclusion 使你所在的岛不能被他人传送、/homes 显示包括分享给你的岛、/share 和玩家分享你所在的岛三个命令，并且优化了部分代码。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="583" y="181" key="#Plugins" timestamp="1583952587081">
@@ -358,25 +361,29 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="879" y="275" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1583873027845" />
-    <state width="428" height="952" key="GridCell.Tab.0.bottom" timestamp="1583952278648">
+    <state width="428" height="952" key="GridCell.Tab.0.bottom" timestamp="1584012032237">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="428" height="952" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1583952278648" />
-    <state width="428" height="952" key="GridCell.Tab.0.center" timestamp="1583952278648">
+    <state width="428" height="952" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1584012032237" />
+    <state width="428" height="952" key="GridCell.Tab.0.center" timestamp="1584012032237">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="428" height="952" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1583952278648" />
-    <state width="428" height="952" key="GridCell.Tab.0.left" timestamp="1583952278648">
+    <state width="428" height="952" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1584012032237" />
+    <state width="428" height="952" key="GridCell.Tab.0.left" timestamp="1584012032237">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="428" height="952" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1583952278648" />
-    <state width="428" height="952" key="GridCell.Tab.0.right" timestamp="1583952278648">
+    <state width="428" height="952" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1584012032237" />
+    <state width="428" height="952" key="GridCell.Tab.0.right" timestamp="1584012032237">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="428" height="952" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1583952278648" />
+    <state width="428" height="952" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1584012032237" />
     <state x="619" y="121" key="SettingsEditor" timestamp="1583952463282">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="619" y="121" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1583952463282" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1583952783874">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1583952783874" />
   </component>
 </project>

@@ -1,6 +1,5 @@
 package fun.fifu.nekokecore.zxbskyworld.utils;
 
-import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -136,17 +135,17 @@ public class Helper {
         }
         String SkyLoc = Helper.toSkyLoc(xx, zz);
         try {
-            Main.dateAdmin.getJSONObject(SkyLoc);
+            IsLand.dateAdmin.getJSONObject(SkyLoc);
         } catch (Exception e) {
             return false;
         }
-        for (Object obj : Main.dateAdmin.getOwnersList(SkyLoc)) {
+        for (Object obj : IsLand.dateAdmin.getOwnersList(SkyLoc)) {
             String uuid = (String) obj;
             if (UUID.equalsIgnoreCase(uuid)) {
                 return true;
             }
         }
-        for (Object obj : Main.dateAdmin.getMembersList(SkyLoc)) {
+        for (Object obj : IsLand.dateAdmin.getMembersList(SkyLoc)) {
             String uuid = (String) obj;
             if (UUID.equalsIgnoreCase(uuid)) {
                 return true;

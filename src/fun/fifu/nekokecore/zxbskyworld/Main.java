@@ -20,7 +20,6 @@ public class Main extends JavaPlugin {
 
     public static Plugin plugin;
     private static PluginManager pluginManager;
-    public static DateAdmin dateAdmin;
     static Logger logger;
 
     @Override
@@ -41,7 +40,7 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginCommand("biome").setExecutor(new BiomeDispose());
         Bukkit.getPluginCommand("seclusion").setExecutor(new SeclusionDispose());
         Bukkit.getPluginCommand("homes").setExecutor(new HomesDispose());
-        Bukkit.getPluginCommand("share").setExecutor(new SeclusionDispose());
+        Bukkit.getPluginCommand("share").setExecutor(new ShareDispose());
         getLogger().info("完毕。");
         getLogger().info("开始注册监听器。");
         //注册监听器
@@ -56,7 +55,7 @@ public class Main extends JavaPlugin {
         plugin = this;
         pluginManager = getServer().getPluginManager();
         logger = getLogger();
-        dateAdmin = new DateAdmin();
+        IsLand.dateAdmin = new DateAdmin();
     }
 
 

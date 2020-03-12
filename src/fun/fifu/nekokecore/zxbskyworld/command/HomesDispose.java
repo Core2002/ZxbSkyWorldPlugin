@@ -1,6 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
-import fun.fifu.nekokecore.zxbskyworld.Main;
+import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,9 +17,9 @@ public class HomesDispose implements CommandExecutor {
             Player player = (Player) commandSender;
             String uuid = player.getUniqueId().toString();
             player.sendMessage("||=================================|");
-            player.sendMessage("||你拥有的岛有：" + Main.dateAdmin.getAllOwnerSkyLoc(uuid));
+            player.sendMessage("||你拥有的岛有：" + IsLand.dateAdmin.getAllOwnerSkyLoc(uuid));
             player.sendMessage("||---------------------------------|");
-            player.sendMessage("||你加入的岛有：" + Main.dateAdmin.getAllMembersSkyLoc(uuid));
+            player.sendMessage("||你加入的岛有：" + IsLand.dateAdmin.getAllMembersSkyLoc(uuid));
             player.sendMessage("||=================================|");
             return true;
         }

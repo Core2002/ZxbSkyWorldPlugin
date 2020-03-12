@@ -1,5 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
+import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Bukkit;
@@ -18,6 +19,7 @@ public class ShareDispose implements CommandExecutor {
                 return true;
             }
             if (strings.length != 1) {
+                Main.plugin.getLogger().info(strings + ":" + strings.length + "，!=1");
                 return false;
             }
             String sp = strings[0];
@@ -30,10 +32,7 @@ public class ShareDispose implements CommandExecutor {
                 player.sendMessage("你似乎不是这个岛的主人，不可以这么做哦");
                 return true;
             }
-            if (!isRepetition(shareUuid, SkyLoc)) {
-                JSONArray jsonArray = Main.dateAdmin.getMembersList(SkyLoc);
-                jsonArray.add(shareUuid);
-                Main.dateAdmin.saveMemberslist(jsonArray, SkyLoc);
+            if (shareSkyWorld(shareUuid, SkyLoc)) {
                 player.sendMessage("成功把玩家" + player.getName() + "作为成员添加在" + SkyLoc + "上了");
             } else {
                 player.sendMessage("这个玩家" + player.getName() + "已经在这个岛" + SkyLoc + "上了");
@@ -44,8 +43,36 @@ public class ShareDispose implements CommandExecutor {
         return false;
     }
 
+    /**
+     * 分享目标岛屿作为成员给，返回true：没有重复，false：有重复，无需再添加
+     *
+     * @param uuid
+     * @param SkyLoc
+     * @return
+     */
+    public boolean shareSkyWorld(String uuid, String SkyLoc) {
+        if (!isRepetition(uuid, SkyLoc)) {
+            JSONArray jsonArray = IsLand.dateAdmin.getMembersList(SkyLoc);
+            jsonArray.add(uuid);
+            IsLand.dateAdmin.saveMemberslist(jsonArray, SkyLoc);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 判断uuid是否与skyLoc里的成员列表重复。true：重复，false：不重复
+     *
+     * @param uuid
+     * @param SkyLoc
+     * @return
+     */
     public boolean isRepetition(String uuid, String SkyLoc) {
-        for (Object obj : Main.dateAdmin.getMembersList(SkyLoc)) {
+        JSONArray jsonArray = IsLand.dateAdmin.getMembersList(SkyLoc);
+        if (jsonArray == null) {
+            return false;
+        }
+        for (Object obj : jsonArray) {
             String uid = (String) obj;
             if (uid.equalsIgnoreCase(uuid)) {
                 return true;
@@ -54,8 +81,15 @@ public class ShareDispose implements CommandExecutor {
         return false;
     }
 
-    public boolean isOwner(String uuid, String SkyLoc) {
-        for (Object obj : Main.dateAdmin.getOwnersList(SkyLoc)) {
+    /**
+     * 判断uuid是否是skyLoc的所有者：true：是，false：不是
+     *
+     * @param uuid
+     * @param SkyLoc
+     * @return
+     */
+    public static boolean isOwner(String uuid, String SkyLoc) {
+        for (Object obj : IsLand.dateAdmin.getOwnersList(SkyLoc)) {
             String uid = (String) obj;
             if (uuid.equalsIgnoreCase(uid)) {
                 return true;

@@ -1,5 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
+import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Location;
@@ -84,7 +85,7 @@ public class ExpleDispose implements CommandExecutor, Runnable {
                 Location loc = explePlayer.getLocation();
                 int xx = loc.getBlockX();
                 int zz = loc.getBlockZ();
-                ArrayList<String> arrayList = Main.dateAdmin.getOwnersList(Helper.toSkyLoc(player.getLocation()));
+                ArrayList<String> arrayList = IsLand.dateAdmin.getOwnersList(Helper.toSkyLoc(player.getLocation()));
                 for (String SkyLoc : arrayList) {
                     if (Helper.inSkyWrold(xx, zz, SkyLoc)) {
                         HashMap<String, Integer> temp = new HashMap<String, Integer>();

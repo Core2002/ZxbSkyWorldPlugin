@@ -1,5 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld;
 
+import fun.fifu.nekokecore.zxbskyworld.command.ShareDispose;
 import fun.fifu.nekokecore.zxbskyworld.utils.DateAdmin;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Bukkit;
@@ -19,17 +20,28 @@ import java.util.Random;
  * @author NekokeCore
  */
 public class IsLand extends BaseIsLand {
-
+    public static DateAdmin dateAdmin;
     public static void main(String[] args) {
-        DateAdmin dateAdmin=new DateAdmin();
-        //System.out.println(dateAdmin.getAllOwnerSkyLoc("3e79580d-cfdb-4b80-999c-99bc2740d194"));
+        dateAdmin = new DateAdmin();
+        String uuid = "3e79580d-cfdb-4b80-999c-99bc2740d194";
+        //System.out.println(dateAdmin.getAllOwnerSkyLoc(uuid));
         //System.out.println(dateAdmin.getAllSkyLoc());
+        System.out.println(dateAdmin.getAllMembersSkyLoc(uuid));
+        ShareDispose shareDispose = new ShareDispose();
+        if (shareDispose.shareSkyWorld(uuid, "(0,0)")) {
+            System.out.println("没有重复，成功添加" + uuid + "到(0,0)");
+        } else {
+            System.out.println("重复，无需再添加");
+        }
+
+
+        System.out.println(dateAdmin.getAllMembersSkyLoc(uuid));
     }
 
     public IsLand(String uuid) {
-        String SkyLoc = allocationIsLand(Main.dateAdmin.getAllSkyLoc());
+        String SkyLoc = allocationIsLand(dateAdmin.getAllSkyLoc());
         buildSkyLoc(uuid, SkyLoc);
-        Helper.tpSkyLoc(Bukkit.getPlayer(uuid), Main.dateAdmin.getDefaultSkyLoc(uuid));
+        Helper.tpSkyLoc(Bukkit.getPlayer(uuid), dateAdmin.getDefaultSkyLoc(uuid));
     }
 
     public static void buildSkyLoc(String uuid, String SkyLoc) {
@@ -69,11 +81,11 @@ public class IsLand extends BaseIsLand {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Main.dateAdmin.saveJSONObject(jsonObject, SkyLoc);
+        dateAdmin.saveJSONObject(jsonObject, SkyLoc);
         JSONArray jsonArray = new JSONArray();
         jsonArray.add(uuid);
-        Main.dateAdmin.saveOwnerslist(jsonArray, SkyLoc);
-        Main.dateAdmin.saveDefaultSkyLoc(uuid, SkyLoc);
+        dateAdmin.saveOwnerslist(jsonArray, SkyLoc);
+        dateAdmin.saveDefaultSkyLoc(uuid, SkyLoc);
     }
 
     public static int getSkyX(String SkyLoc) {

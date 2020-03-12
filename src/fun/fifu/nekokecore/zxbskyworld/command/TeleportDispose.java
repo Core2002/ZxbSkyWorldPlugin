@@ -25,10 +25,10 @@ public class TeleportDispose implements CommandExecutor {
                 return false;
             }
             String SkyLoc;
-            try{
+            try {
                 SkyLoc = strings[0];
                 SkyLoc = Helper.simplify(SkyLoc);
-            }catch (Exception e){
+            } catch (Exception e) {
                 return false;
             }
             Player player = (Player) commandSender;
@@ -47,6 +47,10 @@ public class TeleportDispose implements CommandExecutor {
                 tempmap = ExpleDispose.map;
             } else {
                 Helper.tpSkyLoc(player, SkyLoc);
+                return true;
+            }
+            if (SeclusionDispose.getSwi(SkyLoc)) {
+                player.sendMessage("这个岛的主人设置了禁止使用/goto传送");
                 return true;
             }
             if (tempmap.get(UUID) != null) {
