@@ -1,5 +1,5 @@
 main: fun.fifu.nekokecore.zxbskyworld.Main
-version: 2.3
+version: 2.33
 name: ZxbSkyWorld
 author: NekokeCore
 commands:
@@ -33,3 +33,6 @@ commands:
     share:
         description: "和玩家分享你所在的岛"
         usage: "/share <Player>"
+    unshare:
+        description: "取消和玩家分享你所在的岛"
+        usage: "/unshare <Player>"

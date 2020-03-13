@@ -67,7 +67,7 @@ public class ShareDispose implements CommandExecutor {
      * @param SkyLoc
      * @return
      */
-    public boolean isRepetition(String uuid, String SkyLoc) {
+    public static boolean isRepetition(String uuid, String SkyLoc) {
         JSONArray jsonArray = IsLand.dateAdmin.getMembersList(SkyLoc);
         if (jsonArray == null) {
             return false;

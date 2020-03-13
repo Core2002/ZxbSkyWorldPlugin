@@ -1,6 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld;
 
 import fun.fifu.nekokecore.zxbskyworld.command.ShareDispose;
+import fun.fifu.nekokecore.zxbskyworld.command.UnShareDispose;
 import fun.fifu.nekokecore.zxbskyworld.utils.DateAdmin;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Bukkit;
@@ -21,6 +22,7 @@ import java.util.Random;
  */
 public class IsLand extends BaseIsLand {
     public static DateAdmin dateAdmin;
+
     public static void main(String[] args) {
         dateAdmin = new DateAdmin();
         String uuid = "3e79580d-cfdb-4b80-999c-99bc2740d194";
@@ -28,10 +30,18 @@ public class IsLand extends BaseIsLand {
         //System.out.println(dateAdmin.getAllSkyLoc());
         System.out.println(dateAdmin.getAllMembersSkyLoc(uuid));
         ShareDispose shareDispose = new ShareDispose();
+
         if (shareDispose.shareSkyWorld(uuid, "(0,0)")) {
             System.out.println("没有重复，成功添加" + uuid + "到(0,0)");
         } else {
             System.out.println("重复，无需再添加");
+        }
+
+        UnShareDispose unShareDispose = new UnShareDispose();
+        if (unShareDispose.unShareSkyWorld(uuid, "(0,0)")) {
+            System.out.println("成功把成员" + uuid + "从这个岛(0,0)移除了");
+        } else {
+            System.out.println("这个玩家" + uuid + "不是这个岛(0,0)上的成员,无需删除");
         }
 
 
