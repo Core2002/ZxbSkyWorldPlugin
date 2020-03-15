@@ -33,7 +33,7 @@ public class HelpDispose implements CommandExecutor {
                     player.sendMessage("|| /homes 显示包括分享给你的岛");
                     player.sendMessage("|| /share <Player> 和玩家分享你所在的岛");
                     player.sendMessage("|| /unshare <Player> 取消和某人分享当前岛");
-                    player.sendMessage("|| /help 查看帮助                       [2/4]");
+                    player.sendMessage("|| /help 查看帮助                       [2/3]");
                     player.sendMessage("||=================================|");
                     break;
                 case 3:
@@ -44,7 +44,7 @@ public class HelpDispose implements CommandExecutor {
                     player.sendMessage("|| /delete 清空你所在的岛              [危]");
                     player.sendMessage("|| /giveup 放弃你所在的岛              [危]");
                     player.sendMessage("|| /get 领取你所在的岛");
-                    player.sendMessage("|| /help 查看帮助                       [3/4]");
+                    player.sendMessage("|| /help 查看帮助                       [3/3]");
                     player.sendMessage("||=================================|");
                     break;
                 default:
@@ -56,7 +56,7 @@ public class HelpDispose implements CommandExecutor {
                     player.sendMessage("|| /exple <Player> 把玩家从你的岛踢出");
                     player.sendMessage("|| /infos 查看你所在的岛屿的信息");
                     player.sendMessage("|| /uuid 查询UUID");
-                    player.sendMessage("|| /help 查看帮助                       [1/4]");
+                    player.sendMessage("|| /help 查看帮助                       [1/3]");
                     player.sendMessage("||=================================|");
             }
             return true;

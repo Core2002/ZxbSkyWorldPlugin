@@ -2,6 +2,7 @@ package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,6 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class InfoDispose implements CommandExecutor {
     @Override
@@ -39,8 +41,13 @@ public class InfoDispose implements CommandExecutor {
                 return true;
             }
             try {
-                player.sendMessage("||主人：" + IsLand.dateAdmin.getOwnersList(SkyLoc));
-                player.sendMessage("||好友：" + IsLand.dateAdmin.getMembersList(SkyLoc));
+                if (strings != null & strings.length >= 1 && strings[0].equalsIgnoreCase("wdnmd")) {
+                    player.sendMessage("||主人：" + toRenHua(IsLand.dateAdmin.getOwnersList(SkyLoc)));
+                    player.sendMessage("||好友：" + toRenHua(IsLand.dateAdmin.getMembersList(SkyLoc)));
+                } else {
+                    player.sendMessage("||主人：" + IsLand.dateAdmin.getOwnersList(SkyLoc));
+                    player.sendMessage("||好友：" + IsLand.dateAdmin.getMembersList(SkyLoc));
+                }
                 player.sendMessage("||其他属性：" + IsLand.dateAdmin.getOthers(SkyLoc));
             } catch (IOException e) {
                 e.printStackTrace();
@@ -55,10 +62,23 @@ public class InfoDispose implements CommandExecutor {
             } else {
                 player.sendMessage("||你没有权限操作这个岛。");
             }
-            player.sendMessage("||=================================");
+            player.sendMessage("||=======/infos wdnmd 来说人话=======|");
             return true;
 
         }
         return false;
+    }
+
+    public ArrayList<String> toRenHua(ArrayList<String> arrayList) {
+        ArrayList<String> renhua = new ArrayList<String>();
+        for (String uuid : arrayList) {
+            Player player = Bukkit.getPlayer(uuid);
+            if (player != null) {
+                renhua.add(player.getName());
+            } else {
+                renhua.add(uuid + "(不在线)");
+            }
+        }
+        return renhua;
     }
 }

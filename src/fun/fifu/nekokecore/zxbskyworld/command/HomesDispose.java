@@ -1,13 +1,14 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class HomesDispose implements CommandExecutor {
     @Override
@@ -19,21 +20,23 @@ public class HomesDispose implements CommandExecutor {
             }
             Player player = (Player) commandSender;
             String uuid = player.getUniqueId().toString();
+            ArrayList<String> Owners = new ArrayList<String>();
+            ArrayList<String> Members = new ArrayList<String>();
+            try {
+                Owners = IsLand.dateAdmin.getAllOwnerSkyLoc(uuid);
+                Members = IsLand.dateAdmin.getAllMembersSkyLoc(uuid);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             player.sendMessage("||=================================|");
-            try {
-                player.sendMessage("||你拥有的岛有：" + IsLand.dateAdmin.getAllOwnerSkyLoc(uuid));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            player.sendMessage("||你拥有的岛有：" + Owners);
             player.sendMessage("||---------------------------------|");
-            try {
-                player.sendMessage("||你加入的岛有：" + IsLand.dateAdmin.getAllMembersSkyLoc(uuid));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            player.sendMessage("||你加入的岛有：" + Members);
             player.sendMessage("||=================================|");
             return true;
         }
         return false;
     }
+
+
 }
