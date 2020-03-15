@@ -10,6 +10,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
+
 public class SeclusionDispose implements CommandExecutor {
 
     @Override
@@ -24,24 +26,27 @@ public class SeclusionDispose implements CommandExecutor {
             String SkyLoc = Helper.toSkyLoc(player.getLocation());
             if (strings.length >= 1) {
                 if (ShareDispose.isOwner(uuid, SkyLoc)) {
-                    if (swi(SkyLoc, false)) {
+                    try {
+                        swi(SkyLoc, false);
                         player.sendMessage(player.getName() + "你关闭了Seclusion，现在其他玩家可以使用/goto来传送到你的岛上了");
                         player.sendMessage("输入/seclusion来打开");
-                    } else {
+                    } catch (IOException e) {
                         player.sendMessage("操作失败，请重试，若有疑问，请联系服务器管理员");
+                        e.printStackTrace();
                     }
                 } else {
                     player.sendMessage("你似乎不是这个岛的主人，不可以这么做哦");
                 }
             } else {
                 if (ShareDispose.isOwner(uuid, Helper.toSkyLoc(player.getLocation()))) {
-                    if (swi(SkyLoc, true)) {
+                    try {
+                        swi(SkyLoc, true);
                         player.sendMessage(player.getName() + "你打开了Seclusion，现在其他玩家不能使用/goto来传送到你的岛上了");
                         player.sendMessage("输入/seclusion false来取消开启");
-                    } else {
+                    } catch (IOException e) {
                         player.sendMessage("操作失败，请重试，若有疑问，请联系服务器管理员");
+                        e.printStackTrace();
                     }
-
                 } else {
                     player.sendMessage("你似乎不是这个岛的主人，不可以这么做哦");
                 }
@@ -51,29 +56,32 @@ public class SeclusionDispose implements CommandExecutor {
         return false;
     }
 
-    public boolean swi(String SkyLoc, boolean state) {
+    public void swi(String SkyLoc, boolean state) throws IOException {
         JSONObject jsonObject = IsLand.dateAdmin.getOthers(SkyLoc);
         if (jsonObject == null) {
             try {
                 jsonObject = (JSONObject) new JSONParser().parse("{}");
             } catch (ParseException e) {
                 e.printStackTrace();
-                return false;
             }
         }
         jsonObject.put("Seclusion", state);
         IsLand.dateAdmin.saveOthers(jsonObject, SkyLoc);
-        return true;
     }
 
     /**
-     * 返回SkyLoc的Others的Seclusion的开启状态，true是开启，false是关闭
+     * 返回SkyLoc的Others的Seclusion的开启状态，true是开启(不能传送)，false是关闭（可以传送）
      *
      * @param SkyLoc
      * @return
      */
-    public static boolean getSwi(String SkyLoc) throws RuntimeException{
-        JSONObject jsonObject = IsLand.dateAdmin.getOthers(SkyLoc);
+    public static boolean getSwi(String SkyLoc) {
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = IsLand.dateAdmin.getOthers(SkyLoc);
+        } catch (IOException e) {
+            return false;
+        }
         if (jsonObject == null) {
             return false;
         }

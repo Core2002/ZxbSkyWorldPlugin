@@ -10,6 +10,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.json.simple.JSONArray;
 
+import java.io.IOException;
+
 import static fun.fifu.nekokecore.zxbskyworld.command.ShareDispose.isOwner;
 
 public class UnShareDispose implements CommandExecutor {
@@ -53,11 +55,15 @@ public class UnShareDispose implements CommandExecutor {
      * @return
      */
     public boolean unShareSkyWorld(String unShareUuid, String skyLoc) {
-        if (ShareDispose.isRepetition(unShareUuid, skyLoc)) {
-            JSONArray jsonArray = IsLand.dateAdmin.getMembersList(skyLoc);
-            jsonArray.remove(unShareUuid);
-            IsLand.dateAdmin.saveMemberslist(jsonArray, skyLoc);
-            return true;
+        try {
+            if (ShareDispose.isRepetition(unShareUuid, skyLoc)) {
+                JSONArray jsonArray = IsLand.dateAdmin.getMembersList(skyLoc);
+                jsonArray.remove(unShareUuid);
+                IsLand.dateAdmin.saveMemberslist(jsonArray, skyLoc);
+                return true;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return false;
     }

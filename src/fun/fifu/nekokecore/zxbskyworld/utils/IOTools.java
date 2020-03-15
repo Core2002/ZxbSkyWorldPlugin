@@ -94,8 +94,12 @@ public class IOTools {
      * @return
      * @throws ParseException
      */
-    public static JSONObject getJSONObject(String path) throws ParseException, IOException {
-        return (JSONObject) (new JSONParser().parse(IOTools.readTextFile(path, "utf8")));
+    public static JSONObject getJSONObject(String path) throws IOException {
+        try {
+            return (JSONObject) (new JSONParser().parse(IOTools.readTextFile(path, "utf8")));
+        } catch (ParseException e) {
+            throw new RuntimeException(path + ":文件异常！请检查！");
+        }
     }
 
     public static void zhengliJsonFile(String path) throws IOException, ParseException {

@@ -10,6 +10,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.json.simple.JSONArray;
 
+import java.io.IOException;
+
 public class ShareDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
@@ -32,10 +34,15 @@ public class ShareDispose implements CommandExecutor {
                 player.sendMessage("你似乎不是这个岛的主人，不可以这么做哦");
                 return true;
             }
-            if (shareSkyWorld(shareUuid, SkyLoc)) {
-                player.sendMessage("成功把玩家" + player.getName() + "作为成员添加在" + SkyLoc + "上了");
-            } else {
-                player.sendMessage("这个玩家" + player.getName() + "已经在这个岛" + SkyLoc + "上了");
+            try {
+                if (shareSkyWorld(shareUuid, SkyLoc)) {
+                    player.sendMessage("成功把玩家" + player.getName() + "作为成员添加在" + SkyLoc + "上了");
+                } else {
+                    player.sendMessage("这个玩家" + player.getName() + "已经在这个岛" + SkyLoc + "上了");
+                }
+            } catch (IOException e) {
+                player.sendMessage("操作失败：" + e + "若有疑问，请联系腐竹");
+                e.printStackTrace();
             }
             player.sendMessage("他的UUID是：" + shareUuid);
             return true;
@@ -50,7 +57,7 @@ public class ShareDispose implements CommandExecutor {
      * @param SkyLoc
      * @return
      */
-    public boolean shareSkyWorld(String uuid, String SkyLoc) {
+    public boolean shareSkyWorld(String uuid, String SkyLoc) throws IOException {
         if (!isRepetition(uuid, SkyLoc)) {
             JSONArray jsonArray = IsLand.dateAdmin.getMembersList(SkyLoc);
             jsonArray.add(uuid);
@@ -61,13 +68,13 @@ public class ShareDispose implements CommandExecutor {
     }
 
     /**
-     * 判断uuid是否与skyLoc里的成员列表重复。true：重复，false：不重复
+     * 判断uuid是否是SkyLoc的成员。true：是，false：不是
      *
      * @param uuid
      * @param SkyLoc
      * @return
      */
-    public static boolean isRepetition(String uuid, String SkyLoc) {
+    public static boolean isRepetition(String uuid, String SkyLoc) throws IOException {
         JSONArray jsonArray = IsLand.dateAdmin.getMembersList(SkyLoc);
         if (jsonArray == null) {
             return false;
@@ -89,11 +96,15 @@ public class ShareDispose implements CommandExecutor {
      * @return
      */
     public static boolean isOwner(String uuid, String SkyLoc) {
-        for (Object obj : IsLand.dateAdmin.getOwnersList(SkyLoc)) {
-            String uid = (String) obj;
-            if (uuid.equalsIgnoreCase(uid)) {
-                return true;
+        try {
+            for (Object obj : IsLand.dateAdmin.getOwnersList(SkyLoc)) {
+                String uid = (String) obj;
+                if (uuid.equalsIgnoreCase(uid)) {
+                    return true;
+                }
             }
+        } catch (IOException e) {
+            return false;
         }
         return false;
     }

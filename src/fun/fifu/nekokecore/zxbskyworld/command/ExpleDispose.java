@@ -9,6 +9,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -85,7 +86,14 @@ public class ExpleDispose implements CommandExecutor, Runnable {
                 Location loc = explePlayer.getLocation();
                 int xx = loc.getBlockX();
                 int zz = loc.getBlockZ();
-                ArrayList<String> arrayList = IsLand.dateAdmin.getOwnersList(Helper.toSkyLoc(player.getLocation()));
+                ArrayList<String> arrayList = null;
+                try {
+                    arrayList = IsLand.dateAdmin.getOwnersList(Helper.toSkyLoc(player.getLocation()));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    player.sendMessage("操作失败，请重试，若有疑问，请联系服务器管理员");
+                    return true;
+                }
                 for (String SkyLoc : arrayList) {
                     if (Helper.inSkyWrold(xx, zz, SkyLoc)) {
                         HashMap<String, Integer> temp = new HashMap<String, Integer>();

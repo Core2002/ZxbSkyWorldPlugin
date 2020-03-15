@@ -8,6 +8,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.io.IOException;
+
 public class InfoDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
@@ -36,9 +38,13 @@ public class InfoDispose implements CommandExecutor {
                 player.sendMessage("||你所在的坐标是：x:" + xx + ",z:" + zz + "，按F3查看详细");
                 return true;
             }
-            player.sendMessage("||主人：" + IsLand.dateAdmin.getOwnersList(SkyLoc));
-            player.sendMessage("||好友：" + IsLand.dateAdmin.getMembersList(SkyLoc));
-            player.sendMessage("||其他属性：" + IsLand.dateAdmin.getOthers(SkyLoc));
+            try {
+                player.sendMessage("||主人：" + IsLand.dateAdmin.getOwnersList(SkyLoc));
+                player.sendMessage("||好友：" + IsLand.dateAdmin.getMembersList(SkyLoc));
+                player.sendMessage("||其他属性：" + IsLand.dateAdmin.getOthers(SkyLoc));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             player.sendMessage("||---------------------------------");
             player.sendMessage("||这个岛屿的范围是：");
             player.sendMessage("||在X轴上：从" + IsLand.getrrForm(IsLand.getSkyX(SkyLoc)) + "到" + IsLand.getrrEnd(IsLand.getSkyX(SkyLoc)));

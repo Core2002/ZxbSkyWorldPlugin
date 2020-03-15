@@ -6,6 +6,8 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.json.simple.JSONArray;
 
+import java.io.IOException;
+
 
 public class Helper {
     /**
@@ -62,6 +64,10 @@ public class Helper {
 
     public static boolean inSpawn(int xx, int zz) {
         return inSkyWrold(xx, zz, "(0,0)");
+    }
+
+    public static boolean inSpawn(String SkyLoc) {
+        return simplify(SkyLoc).equalsIgnoreCase(DateAdmin.spawnSkyLoc);
     }
 
     public static boolean in(int now, int from, int end) {
@@ -136,17 +142,25 @@ public class Helper {
         } catch (Exception e) {
             return false;
         }
-        for (Object obj : IsLand.dateAdmin.getOwnersList(SkyLoc)) {
-            String uuid = (String) obj;
-            if (UUID.equalsIgnoreCase(uuid)) {
-                return true;
+        try {
+            for (Object obj : IsLand.dateAdmin.getOwnersList(SkyLoc)) {
+                String uuid = (String) obj;
+                if (UUID.equalsIgnoreCase(uuid)) {
+                    return true;
+                }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        for (Object obj : IsLand.dateAdmin.getMembersList(SkyLoc)) {
-            String uuid = (String) obj;
-            if (UUID.equalsIgnoreCase(uuid)) {
-                return true;
+        try {
+            for (Object obj : IsLand.dateAdmin.getMembersList(SkyLoc)) {
+                String uuid = (String) obj;
+                if (UUID.equalsIgnoreCase(uuid)) {
+                    return true;
+                }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return false;

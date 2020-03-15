@@ -9,6 +9,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.io.IOException;
+
 /**
  * Commain "s"
  *
@@ -30,7 +32,12 @@ public class MainDispose implements CommandExecutor {
             String SkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(UUID);
             //如果玩家没有岛屿，就给他new一个，然后在传送
             if (SkyLoc == null) {
-                new IsLand(UUID);
+                try {
+                    new IsLand(UUID);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    player.sendMessage("操作失败，请重试，若有疑问，请联系服务器管理员");
+                }
                 return true;
             }
             if (!Helper.inSpawn(player.getLocation().getBlockX(), player.getLocation().getBlockZ())) {

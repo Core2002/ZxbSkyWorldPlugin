@@ -52,9 +52,7 @@ public class DateAdmin {
         JSONObject jsonObject = null;
         try {
             jsonObject = IOTools.getJSONObject(unAntiExplosion);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        }catch (IOException e) {
             e.printStackTrace();
         }
         String str = (String) jsonObject.get(CLoc);
@@ -74,8 +72,6 @@ public class DateAdmin {
         JSONObject jsonObject = null;
         try {
             jsonObject = IOTools.getJSONObject(unAntiExplosion);
-        } catch (ParseException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -99,7 +95,7 @@ public class DateAdmin {
      * @param uuid
      * @return
      */
-    public ArrayList<String> getAllOwnerSkyLoc(String uuid) {
+    public ArrayList<String> getAllOwnerSkyLoc(String uuid) throws IOException {
         ArrayList<String> arrayList = new ArrayList<String>();
         ArrayList<String> all = getAllSkyLoc();
         for (String skyLoc : all) {
@@ -118,7 +114,7 @@ public class DateAdmin {
      * @param uuid
      * @return
      */
-    public ArrayList<String> getAllMembersSkyLoc(String uuid) {
+    public ArrayList<String> getAllMembersSkyLoc(String uuid) throws IOException{
         ArrayList<String> arrayList = new ArrayList<String>();
         ArrayList<String> all = getAllSkyLoc();
         for (String skyLoc : all) {
@@ -137,16 +133,8 @@ public class DateAdmin {
      * @param SkyLoc
      * @return
      */
-    public JSONObject getJSONObject(String SkyLoc) {
-        try {
-            return IOTools.getJSONObject(datePATH + Helper.simplify(SkyLoc) + ".json");
-        } catch (ParseException | UnsupportedEncodingException e) {
-            Main.plugin.getLogger().warning("getJSONObject:" + SkyLoc + ":" + e);
-            return null;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+    public JSONObject getJSONObject(String SkyLoc) throws IOException{
+        return IOTools.getJSONObject(datePATH + Helper.simplify(SkyLoc) + ".json");
     }
 
     /**
@@ -169,7 +157,7 @@ public class DateAdmin {
     public JSONObject getIndexInfos() {
         try {
             return IOTools.getJSONObject(indexInfosPATH);
-        } catch (ParseException | IOException e) {
+        } catch (IOException e) {
             Main.plugin.getLogger().warning("getIndexInfos:" + ":" + e);
             return null;
         }
@@ -197,9 +185,9 @@ public class DateAdmin {
      * @param SkyLoc
      * @return
      */
-    public JSONArray getOwnersList(String SkyLoc) {
+    public JSONArray getOwnersList(String SkyLoc) throws IOException{
         JSONObject jsonObject = getJSONObject(SkyLoc);
-        return (JSONArray) Objects.requireNonNull(jsonObject).get("Owners");
+        return (JSONArray) jsonObject.get("Owners");
     }
 
     /**
@@ -208,9 +196,9 @@ public class DateAdmin {
      * @param SkyLoc
      * @return
      */
-    public JSONArray getMembersList(String SkyLoc) {
+    public JSONArray getMembersList(String SkyLoc) throws IOException{
         JSONObject jsonObject = getJSONObject(SkyLoc);
-        return (JSONArray) Objects.requireNonNull(jsonObject).get("Members");
+        return (JSONArray) jsonObject.get("Members");
     }
 
     /**
@@ -219,9 +207,9 @@ public class DateAdmin {
      * @param SkyLoc
      * @return
      */
-    public JSONObject getOthers(String SkyLoc) {
+    public JSONObject getOthers(String SkyLoc) throws IOException{
         JSONObject jsonObject = getJSONObject(SkyLoc);
-        return (JSONObject) Objects.requireNonNull(jsonObject).get("Others");
+        return (JSONObject) jsonObject.get("Others");
     }
 
     /**
@@ -260,7 +248,7 @@ public class DateAdmin {
      * @param jsonArray
      * @param SkyLoc
      */
-    public void saveOwnerslist(JSONArray jsonArray, String SkyLoc) {
+    public void saveOwnerslist(JSONArray jsonArray, String SkyLoc) throws IOException{
         JSONObject jso = null;
         try {
             jso = (JSONObject) new JSONParser().parse("{}");
@@ -280,7 +268,7 @@ public class DateAdmin {
      * @param jsonArray
      * @param SkyLoc
      */
-    public void saveMemberslist(JSONArray jsonArray, String SkyLoc) {
+    public void saveMemberslist(JSONArray jsonArray, String SkyLoc) throws IOException {
         JSONObject jso = null;
         try {
             jso = (JSONObject) new JSONParser().parse("{}");
@@ -300,7 +288,7 @@ public class DateAdmin {
      * @param jsonObject
      * @param SkyLoc
      */
-    public void saveOthers(JSONObject jsonObject, String SkyLoc) {
+    public void saveOthers(JSONObject jsonObject, String SkyLoc) throws IOException {
         JSONObject jso = null;
         try {
             jso = (JSONObject) new JSONParser().parse("{}");
@@ -315,15 +303,10 @@ public class DateAdmin {
         saveJSONObject(jso, SkyLoc);
     }
 
-    /**
-     * 判断岛屿是否存在
-     *
-     * @param SkyLoc
-     * @return true:存在，false：不存在
-     */
-    public static boolean isExist(String SkyLoc) {
+
+    public boolean isExist(String SkyLoc) {
         for (String loc : IsLand.dateAdmin.getAllSkyLoc()) {
-            if (SkyLoc.equalsIgnoreCase(SkyLoc)) {
+            if (loc.equalsIgnoreCase(SkyLoc)) {
                 return true;
             }
         }
@@ -354,7 +337,7 @@ public class DateAdmin {
         }
         try {
             return IOTools.getJSONObject(configpath);
-        } catch (ParseException | IOException e) {
+        } catch (IOException e) {
             System.out.println("Json文件加载失败，请检查文件格式，然后在尝试。" + configpath);
             e.printStackTrace();
         }

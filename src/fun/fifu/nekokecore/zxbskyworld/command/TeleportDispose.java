@@ -1,6 +1,5 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
-import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.command.Command;
@@ -32,20 +31,21 @@ public class TeleportDispose implements CommandExecutor {
                 return false;
             }
             Player player = (Player) commandSender;
+            if (Helper.inSpawn(SkyLoc)){
+                if (player.isOp()){
+                    Helper.tpSkyLoc(player, SkyLoc);
+                    return true;
+                }else {
+                    player.sendMessage("你没权限");
+                    return true;
+                }
+
+            }
             if (!IsLand.dateAdmin.isExist(SkyLoc)) {
                 player.sendMessage("您输入的岛屿" + SkyLoc + "不存在，请检查输入！");
                 return true;
             }
             String UUID = player.getUniqueId().toString();
-            try {
-                if (IsLand.getSkyX(SkyLoc) == 0 && IsLand.getSkyY(SkyLoc) == 0 && !player.isOp()) {
-                    player.sendMessage("权限不足！");
-                    return true;
-                }
-            } catch (Exception e) {
-                Main.plugin.getLogger().warning(e.toString());
-                return false;
-            }
             HashMap<String, HashMap<String, Integer>> tempmap = null;
             if (ExpleDispose.map != null) {
                 tempmap = ExpleDispose.map;

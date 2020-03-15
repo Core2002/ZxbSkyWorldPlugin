@@ -12,6 +12,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
@@ -26,28 +27,18 @@ public class IsLand extends BaseIsLand {
     public static void main(String[] args) {
         dateAdmin = new DateAdmin();
         String uuid = "3e79580d-cfdb-4b80-999c-99bc2740d194";
-        String CLoc = "[64,68]";
-        if (dateAdmin.getCanExplosion(CLoc)) {
-            System.out.println("可以爆炸");
-        } else {
-            System.out.println("不可以爆炸");
-        }
-        dateAdmin.setCanExplosion(false, CLoc);
-        if (dateAdmin.getCanExplosion(CLoc)) {
-            System.out.println("可以爆炸");
-        } else {
-            System.out.println("不可以爆炸");
-        }
+        String SkyLoc="(0,0)";
+        System.out.println(dateAdmin.isExist(SkyLoc));
 
     }
 
-    public IsLand(String uuid) {
+    public IsLand(String uuid) throws IOException{
         String SkyLoc = allocationIsLand(dateAdmin.getAllSkyLoc());
         buildSkyLoc(uuid, SkyLoc);
         Helper.tpSkyLoc(Bukkit.getPlayer(uuid), dateAdmin.getDefaultSkyLoc(uuid));
     }
 
-    public static void buildSkyLoc(String uuid, String SkyLoc) {
+    public static void buildSkyLoc(String uuid, String SkyLoc) throws IOException {
         int xxx = getrrForm(getSkyX(SkyLoc)) + 511 - 3;
         int zzz = getrrForm(getSkyY(SkyLoc)) + 511 - 1;
         World world = Bukkit.getWorld("world");
