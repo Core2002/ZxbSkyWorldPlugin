@@ -26,26 +26,19 @@ public class IsLand extends BaseIsLand {
     public static void main(String[] args) {
         dateAdmin = new DateAdmin();
         String uuid = "3e79580d-cfdb-4b80-999c-99bc2740d194";
-        //System.out.println(dateAdmin.getAllOwnerSkyLoc(uuid));
-        //System.out.println(dateAdmin.getAllSkyLoc());
-        System.out.println(dateAdmin.getAllMembersSkyLoc(uuid));
-        ShareDispose shareDispose = new ShareDispose();
-
-        if (shareDispose.shareSkyWorld(uuid, "(0,0)")) {
-            System.out.println("没有重复，成功添加" + uuid + "到(0,0)");
+        String CLoc = "[64,68]";
+        if (dateAdmin.getCanExplosion(CLoc)) {
+            System.out.println("可以爆炸");
         } else {
-            System.out.println("重复，无需再添加");
+            System.out.println("不可以爆炸");
+        }
+        dateAdmin.setCanExplosion(false, CLoc);
+        if (dateAdmin.getCanExplosion(CLoc)) {
+            System.out.println("可以爆炸");
+        } else {
+            System.out.println("不可以爆炸");
         }
 
-        UnShareDispose unShareDispose = new UnShareDispose();
-        if (unShareDispose.unShareSkyWorld(uuid, "(0,0)")) {
-            System.out.println("成功把成员" + uuid + "从这个岛(0,0)移除了");
-        } else {
-            System.out.println("这个玩家" + uuid + "不是这个岛(0,0)上的成员,无需删除");
-        }
-
-
-        System.out.println(dateAdmin.getAllMembersSkyLoc(uuid));
     }
 
     public IsLand(String uuid) {

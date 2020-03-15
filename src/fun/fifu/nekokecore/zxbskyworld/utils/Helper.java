@@ -1,10 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.utils;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.json.simple.JSONArray;
@@ -153,5 +150,19 @@ public class Helper {
         }
 
         return false;
+    }
+
+    public static int getCLocX(String CLoc) {
+        return Integer.parseInt(CLoc.substring(CLoc.indexOf('[') + 1, CLoc.indexOf(',')));
+    }
+
+    public static int getCLocZ(String CLoc) {
+        return Integer.parseInt(CLoc.substring(CLoc.indexOf(',') + 1, CLoc.indexOf(']')));
+    }
+
+    public static String toCLoc(Chunk chunk) {
+        int cX = chunk.getX();
+        int cZ = chunk.getZ();
+        return "[" + cX + "," + cZ + "]";
     }
 }

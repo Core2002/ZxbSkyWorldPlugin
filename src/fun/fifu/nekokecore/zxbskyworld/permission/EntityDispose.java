@@ -1,8 +1,11 @@
 package fun.fifu.nekokecore.zxbskyworld.permission;
 
+import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.DateAdmin;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
+import org.bukkit.Chunk;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -36,6 +39,11 @@ public class EntityDispose implements Listener {
      */
     @EventHandler(ignoreCancelled = true)
     public void onEntityExplode(EntityExplodeEvent explodeEvent) {
+        Chunk chunk = explodeEvent.getLocation().getChunk();
+        String CLoc = Helper.toCLoc(chunk);
+        if (IsLand.dateAdmin.getCanExplosion(CLoc)) {
+            return;
+        }
         explodeEvent.blockList().clear();
     }
 

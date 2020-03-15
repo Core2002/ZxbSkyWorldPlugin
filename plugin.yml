@@ -29,10 +29,13 @@ commands:
         usage: /seclusion <args>
     homes:
         description: "显示包括分享给你的岛"
-        usage: "homes"
+        usage: /homes
     share:
         description: "和玩家分享你所在的岛"
-        usage: "/share <Player>"
+        usage: /share <Player>
     unshare:
         description: "取消和玩家分享你所在的岛"
-        usage: "/unshare <Player>"
+        usage: /unshare <Player>
+    anti-explosion:
+        descriptiom: "打开/关闭防爆"
+        usage: /anti-explosion <on/off>

@@ -14,6 +14,7 @@ import java.util.Objects;
 public class DateAdmin {
     static final String datePATH = "./plugins/ZxbSkyWorld/date/";
     static final String utilConfigPATH = "./plugins/ZxbSkyWorld/util_config.json";
+    static final String unAntiExplosion = "./plugins/ZxbSkyWorld/unAntiExplosion.json";
     static final String indexInfosPATH = "./plugins/ZxbSkyWorld/index.json";
     public static JSONObject util_jsonObject = null;
     public static String spawnSkyLoc = "(0,0)";
@@ -26,9 +27,10 @@ public class DateAdmin {
             spawnSkyLoc = Helper.toSkyLoc(Integer.parseInt(Objects.requireNonNull(util_jsonObject).get("spawn_xx").toString()), Integer.parseInt(util_jsonObject.get("spawn_yy").toString()));
             spawnSkyLoc = Helper.simplify(spawnSkyLoc);
             initJson(indexInfosPATH, "{}");
+            initJson(unAntiExplosion, "{}");
             initJson(datePATH + spawnSkyLoc + ".json", defaultJsonStr);
         } catch (Exception e) {
-            Main.plugin.getLogger().info("配置文件加载错误！为了数据安全！服务器无法启动！" + e);
+            Main.plugin.getLogger().info("配置文件初始化错误！为了数据安全！服务器无法启动！" + e);
             try {
                 Main.plugin.getLogger().info("傻眼儿了吧？谁***叫你乱改配置文件的？改坏了吧？这下没得玩儿了吧？**玩意儿！");
                 Thread.sleep(999999999);
@@ -38,7 +40,38 @@ public class DateAdmin {
         }
     }
 
-    //查询
+    public boolean getCanExplosion(String CLoc) {
+        JSONObject jsonObject;
+        try {
+            jsonObject = IOTools.getJSONObject(unAntiExplosion);
+        } catch (ParseException e) {
+            return false;
+        }
+        String str = (String) jsonObject.get(CLoc);
+        if (str == null) {
+            return false;
+        }
+        return str.equalsIgnoreCase("on");
+    }
+
+    public void setCanExplosion(boolean bool, String CLoc) {
+        JSONObject jsonObject;
+        try {
+            jsonObject = IOTools.getJSONObject(unAntiExplosion);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return;
+        }
+        String str;
+        if (bool) {
+            str = "on";
+        } else {
+            str = "off";
+        }
+        jsonObject.put(CLoc, str);
+        IOTools.writeJsonFile(jsonObject, unAntiExplosion);
+    }
+
     public ArrayList<String> getAllOwnerSkyLoc(String uuid) {
         ArrayList<String> arrayList = new ArrayList<String>();
         ArrayList<String> all = getAllSkyLoc();
@@ -115,7 +148,6 @@ public class DateAdmin {
         return (JSONObject) Objects.requireNonNull(jsonObject).get("Others");
     }
 
-    //存储
     public void saveDefaultSkyLoc(String uuid, String SkyLoc) {
         JSONObject jsonObject = getIndexInfos();
         jsonObject.put(uuid, SkyLoc);

@@ -24,13 +24,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了上次提交中的命令不能用的问题，现在所有命令正常使用。并且优化了部分代码。">
-      <change afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/UnShareDispose.java" afterDir="false" />
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="添加了/unshare &lt;Player&gt;命令，可以将玩家从当前岛的成员名单移除。">
+      <change afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/AntiExplosionDispose.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/ShareDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/ShareDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/Helper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/Helper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/ShareDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/ShareDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/Helper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,7 +342,8 @@
     <MESSAGE value="加入了修改、查看当前区块的生物群系的功能/biome &lt;biome&gt;" />
     <MESSAGE value="加入了/seclusion 使你所在的岛不能被他人传送、/homes 显示包括分享给你的岛、/share 和玩家分享你所在的岛三个命令，并且优化了部分代码。" />
     <MESSAGE value="修复了上次提交中的命令不能用的问题，现在所有命令正常使用。并且优化了部分代码。" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复了上次提交中的命令不能用的问题，现在所有命令正常使用。并且优化了部分代码。" />
+    <MESSAGE value="添加了/unshare &lt;Player&gt;命令，可以将玩家从当前岛的成员名单移除。" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加了/unshare &lt;Player&gt;命令，可以将玩家从当前岛的成员名单移除。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="583" y="181" key="#Plugins" timestamp="1583952587081">
@@ -346,29 +358,29 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="879" y="275" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1583873027845" />
-    <state width="428" height="952" key="GridCell.Tab.0.bottom" timestamp="1584036018678">
+    <state width="446" height="952" key="GridCell.Tab.0.bottom" timestamp="1584162619969">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="428" height="952" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1584036018678" />
-    <state width="428" height="952" key="GridCell.Tab.0.center" timestamp="1584036018677">
+    <state width="446" height="952" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1584162619969" />
+    <state width="446" height="952" key="GridCell.Tab.0.center" timestamp="1584162619969">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="428" height="952" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1584036018677" />
-    <state width="428" height="952" key="GridCell.Tab.0.left" timestamp="1584036018677">
+    <state width="446" height="952" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1584162619969" />
+    <state width="446" height="952" key="GridCell.Tab.0.left" timestamp="1584162619969">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="428" height="952" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1584036018677" />
-    <state width="428" height="952" key="GridCell.Tab.0.right" timestamp="1584036018677">
+    <state width="446" height="952" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1584162619969" />
+    <state width="446" height="952" key="GridCell.Tab.0.right" timestamp="1584162619969">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="428" height="952" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1584036018677" />
+    <state width="446" height="952" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1584162619969" />
     <state x="619" y="121" key="SettingsEditor" timestamp="1583952463282">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="619" y="121" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1583952463282" />
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1584035942987">
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1584127413245">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1584035942987" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1584127413245" />
   </component>
 </project>
