@@ -72,7 +72,7 @@ public class SeclusionDispose implements CommandExecutor {
      * @param SkyLoc
      * @return
      */
-    public static boolean getSwi(String SkyLoc) {
+    public static boolean getSwi(String SkyLoc) throws RuntimeException{
         JSONObject jsonObject = IsLand.dateAdmin.getOthers(SkyLoc);
         if (jsonObject == null) {
             return false;

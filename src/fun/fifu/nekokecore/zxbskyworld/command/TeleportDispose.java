@@ -32,6 +32,10 @@ public class TeleportDispose implements CommandExecutor {
                 return false;
             }
             Player player = (Player) commandSender;
+            if (!IsLand.dateAdmin.isExist(SkyLoc)) {
+                player.sendMessage("您输入的岛屿" + SkyLoc + "不存在，请检查输入！");
+                return true;
+            }
             String UUID = player.getUniqueId().toString();
             try {
                 if (IsLand.getSkyX(SkyLoc) == 0 && IsLand.getSkyY(SkyLoc) == 0 && !player.isOp()) {
@@ -70,4 +74,5 @@ public class TeleportDispose implements CommandExecutor {
         }
         return false;
     }
+
 }

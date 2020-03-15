@@ -8,8 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -23,15 +22,10 @@ public class IOTools {
      * @param c
      * @param path
      */
-    public static void writeFile(byte[] c, String path) {
-        try {
-            try (FileOutputStream i = new FileOutputStream(path)) {
-                i.write(c, 0, c.length);
-                i.flush();
-            }
-        } catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
+    public static void writeFile(byte[] c, String path) throws IOException {
+        FileOutputStream i = new FileOutputStream(path);
+        i.write(c, 0, c.length);
+        i.flush();
     }
 
     /**
@@ -41,12 +35,8 @@ public class IOTools {
      * @param encode
      * @param path
      */
-    public static void writeTextFile(String text, String encode, String path) {
-        try {
-            writeFile(text.getBytes(encode), path);
-        } catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
+    public static void writeTextFile(String text, String encode, String path) throws IOException {
+        writeFile(text.getBytes(encode), path);
     }
 
     /**
@@ -56,7 +46,7 @@ public class IOTools {
      * @param jsonObject
      * @param path
      */
-    public static void writeJsonFile(JSONObject jsonObject, String path) {
+    public static void writeJsonFile(JSONObject jsonObject, String path) throws IOException {
         writeTextFile(toPrettyFormat(jsonObject.toString()), "utf8", path);
     }
 
@@ -66,16 +56,11 @@ public class IOTools {
      * @param path
      * @return
      */
-    public static byte[] readFile(String path) {
-        try {
-            try (FileInputStream i = new FileInputStream(path)) {
-                byte[] buf = new byte[i.available()];
-                i.read(buf, 0, buf.length);
-                return buf;
-            }
-        } catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
+    public static byte[] readFile(String path) throws IOException {
+        FileInputStream i = new FileInputStream(path);
+        byte[] buf = new byte[i.available()];
+        i.read(buf, 0, buf.length);
+        return buf;
     }
 
     /**
@@ -85,12 +70,8 @@ public class IOTools {
      * @param encode
      * @return
      */
-    public static String readTextFile(String path, String encode) {
-        try {
-            return new String(readFile(path), encode);
-        } catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
+    public static String readTextFile(String path, String encode) throws IOException {
+        return new String(readFile(path), encode);
     }
 
 
@@ -113,16 +94,12 @@ public class IOTools {
      * @return
      * @throws ParseException
      */
-    public static JSONObject getJSONObject(String path) throws ParseException {
+    public static JSONObject getJSONObject(String path) throws ParseException, IOException {
         return (JSONObject) (new JSONParser().parse(IOTools.readTextFile(path, "utf8")));
     }
 
-    public static void zhengliJsonFile(String path) {
-        try {
-            IOTools.writeTextFile(toPrettyFormat(new JSONParser().parse(IOTools.readTextFile(path, "utf8")).toString()), "utf8", path);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+    public static void zhengliJsonFile(String path) throws IOException, ParseException {
+        IOTools.writeTextFile(toPrettyFormat(new JSONParser().parse(IOTools.readTextFile(path, "utf8")).toString()), "utf8", path);
     }
 
     /**
