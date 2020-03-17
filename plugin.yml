@@ -39,3 +39,6 @@ commands:
     anti-explosion:
         descriptiom: "打开/关闭防爆"
         usage: /anti-explosion <on/off>
+    sethome:
+        description: "设置你的家"
+        usage: /sethome

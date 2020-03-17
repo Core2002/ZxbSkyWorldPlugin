@@ -2,6 +2,10 @@ package fun.fifu.nekokecore.zxbskyworld.utils;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.Main;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
+import org.bukkit.entity.Player;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -9,7 +13,6 @@ import org.json.simple.parser.ParseException;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -18,6 +21,7 @@ public class DateAdmin {
     static final String utilConfigPATH = "./plugins/ZxbSkyWorld/util_config.json";
     static final String unAntiExplosion = "./plugins/ZxbSkyWorld/unAntiExplosion.json";
     static final String indexInfosPATH = "./plugins/ZxbSkyWorld/index.json";
+    static final String playerHomeInfoPATH = "./plugins/ZxbSkyWorld/playerHomeInfoPATH.json";
     public static JSONObject util_jsonObject = null;
     public static String spawnSkyLoc = "(0,0)";
     public static String defaultJsonStr = "{\"Owners\":[],\"Members\":[],\"Others\":{}}";
@@ -31,6 +35,7 @@ public class DateAdmin {
             initJson(indexInfosPATH, "{}");
             initJson(unAntiExplosion, "{}");
             initJson(datePATH + spawnSkyLoc + ".json", defaultJsonStr);
+            initJson(playerHomeInfoPATH, "{}");
         } catch (Exception e) {
             Main.plugin.getLogger().info("配置文件初始化错误！为了数据安全！服务器无法启动！" + e);
             try {
@@ -43,6 +48,60 @@ public class DateAdmin {
     }
 
     /**
+     * 尝试获取玩家的家的坐标
+     * @param uuid
+     * @return
+     */
+    public Location getPlayerHomeLocation(String uuid) {
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = IOTools.getJSONObject(playerHomeInfoPATH);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        JSONObject Object = (JSONObject) jsonObject.get(uuid);
+        if (Object != null) {
+            String world_str = Object.get("world").toString();
+            int xx = Integer.parseInt(Object.get("xx").toString());
+            int yy = Integer.parseInt(Object.get("yy").toString());
+            int zz = Integer.parseInt(Object.get("zz").toString());
+            float yaw = Float.parseFloat(Object.get("yaw").toString());
+            float pitch = Float.parseFloat(Object.get("pitch").toString());
+            World world = Bukkit.getWorld(world_str);
+            return new Location(world, xx, yy, zz, yaw, pitch);
+        } else {
+            World world = Bukkit.getWorld("world");
+            String SkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(uuid);
+            Location location = new Location(world, Helper.getxxCentered(IsLand.getSkyX(SkyLoc)), 64, Helper.getyyCentered(IsLand.getSkyY(SkyLoc)));
+            return location;
+        }
+    }
+
+    /**
+     * 尝试保存玩家家的坐标
+     * @param uuid
+     * @param location
+     * @throws IOException
+     */
+    public void savePlayerHomeLocation(String uuid,Location location) throws IOException {
+        JSONObject jsonObject = null;
+        try {
+            jsonObject= (JSONObject) new JSONParser().parse("{}");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        jsonObject.put("world",location.getWorld().getName());
+        jsonObject.put("xx",location.getBlockX());
+        jsonObject.put("yy",location.getBlockY());
+        jsonObject.put("zz",location.getBlockZ());
+        jsonObject.put("yaw",location.getYaw());
+        jsonObject.put("pitch",location.getPitch());
+        JSONObject object=new JSONObject();
+        object.put(uuid,jsonObject);
+        IOTools.writeJsonFile(object,playerHomeInfoPATH);
+    }
+
+    /**
      * 判断一个区块是否允许爆炸
      *
      * @param CLoc
@@ -52,7 +111,7 @@ public class DateAdmin {
         JSONObject jsonObject = null;
         try {
             jsonObject = IOTools.getJSONObject(unAntiExplosion);
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         String str = (String) jsonObject.get(CLoc);
@@ -114,7 +173,7 @@ public class DateAdmin {
      * @param uuid
      * @return
      */
-    public ArrayList<String> getAllMembersSkyLoc(String uuid) throws IOException{
+    public ArrayList<String> getAllMembersSkyLoc(String uuid) throws IOException {
         ArrayList<String> arrayList = new ArrayList<String>();
         ArrayList<String> all = getAllSkyLoc();
         for (String skyLoc : all) {
@@ -133,7 +192,7 @@ public class DateAdmin {
      * @param SkyLoc
      * @return
      */
-    public JSONObject getJSONObject(String SkyLoc) throws IOException{
+    public JSONObject getJSONObject(String SkyLoc) throws IOException {
         return IOTools.getJSONObject(datePATH + Helper.simplify(SkyLoc) + ".json");
     }
 
@@ -185,7 +244,7 @@ public class DateAdmin {
      * @param SkyLoc
      * @return
      */
-    public JSONArray getOwnersList(String SkyLoc) throws IOException{
+    public JSONArray getOwnersList(String SkyLoc) throws IOException {
         JSONObject jsonObject = getJSONObject(SkyLoc);
         return (JSONArray) jsonObject.get("Owners");
     }
@@ -196,7 +255,7 @@ public class DateAdmin {
      * @param SkyLoc
      * @return
      */
-    public JSONArray getMembersList(String SkyLoc) throws IOException{
+    public JSONArray getMembersList(String SkyLoc) throws IOException {
         JSONObject jsonObject = getJSONObject(SkyLoc);
         return (JSONArray) jsonObject.get("Members");
     }
@@ -207,7 +266,7 @@ public class DateAdmin {
      * @param SkyLoc
      * @return
      */
-    public JSONObject getOthers(String SkyLoc) throws IOException{
+    public JSONObject getOthers(String SkyLoc) throws IOException {
         JSONObject jsonObject = getJSONObject(SkyLoc);
         return (JSONObject) jsonObject.get("Others");
     }
@@ -248,7 +307,7 @@ public class DateAdmin {
      * @param jsonArray
      * @param SkyLoc
      */
-    public void saveOwnerslist(JSONArray jsonArray, String SkyLoc) throws IOException{
+    public void saveOwnerslist(JSONArray jsonArray, String SkyLoc) throws IOException {
         JSONObject jso = null;
         try {
             jso = (JSONObject) new JSONParser().parse("{}");
@@ -318,7 +377,7 @@ public class DateAdmin {
      *
      * @param configpath
      */
-    public static JSONObject initJson(String configpath, String initStr) {
+    public static JSONObject initJson(String configpath, String initStr) throws IOException {
         int temp = 0;
         System.out.println("正在加载json文件：" + configpath);
         while (!new File(configpath).exists()) {
@@ -335,12 +394,6 @@ public class DateAdmin {
             }
             temp++;
         }
-        try {
-            return IOTools.getJSONObject(configpath);
-        } catch (IOException e) {
-            System.out.println("Json文件加载失败，请检查文件格式，然后在尝试。" + configpath);
-            e.printStackTrace();
-        }
-        return null;
+        return IOTools.getJSONObject(configpath);
     }
 }

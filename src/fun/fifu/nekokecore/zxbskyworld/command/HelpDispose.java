@@ -41,7 +41,7 @@ public class HelpDispose implements CommandExecutor {
                     player.sendMessage("||                      -帮助-");
                     player.sendMessage("||---------------------------------|");
                     player.sendMessage("|| /anti-explosion 打开/关闭防爆");
-                    player.sendMessage("|| /delete 清空你所在的岛              [危]");
+                    player.sendMessage("|| /sethome 设置自己的家");
                     player.sendMessage("|| /giveup 放弃你所在的岛              [危]");
                     player.sendMessage("|| /get 领取你所在的岛");
                     player.sendMessage("|| /help 查看帮助                       [3/3]");

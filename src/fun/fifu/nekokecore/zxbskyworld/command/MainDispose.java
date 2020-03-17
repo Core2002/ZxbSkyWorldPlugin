@@ -40,6 +40,12 @@ public class MainDispose implements CommandExecutor {
                 }
                 return true;
             }
+            if (strings != null & strings.length >= 1 && strings[0].equalsIgnoreCase("h")) {
+                player.teleport(IsLand.dateAdmin.getPlayerHomeLocation(UUID));
+                player.sendMessage(player.getName() + "欢迎回家!  " + Helper.toSkyLoc(player.getLocation()));
+                new SoundPlayer().playCat(player);
+                return true;
+            }
             if (!Helper.inSpawn(player.getLocation().getBlockX(), player.getLocation().getBlockZ())) {
                 Helper.goSpawn(player);
                 player.sendMessage(player.getName() + "欢迎来到主城!  " + DateAdmin.spawnSkyLoc);
