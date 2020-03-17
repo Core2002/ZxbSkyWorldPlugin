@@ -49,6 +49,7 @@ public class DateAdmin {
 
     /**
      * 尝试获取玩家的家的坐标
+     *
      * @param uuid
      * @return
      */
@@ -79,26 +80,22 @@ public class DateAdmin {
 
     /**
      * 尝试保存玩家家的坐标
+     *
      * @param uuid
      * @param location
      * @throws IOException
      */
-    public void savePlayerHomeLocation(String uuid,Location location) throws IOException {
-        JSONObject jsonObject = null;
-        try {
-            jsonObject= (JSONObject) new JSONParser().parse("{}");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        jsonObject.put("world",location.getWorld().getName());
-        jsonObject.put("xx",location.getBlockX());
-        jsonObject.put("yy",location.getBlockY());
-        jsonObject.put("zz",location.getBlockZ());
-        jsonObject.put("yaw",location.getYaw());
-        jsonObject.put("pitch",location.getPitch());
-        JSONObject object=new JSONObject();
-        object.put(uuid,jsonObject);
-        IOTools.writeJsonFile(object,playerHomeInfoPATH);
+    public void savePlayerHomeLocation(String uuid, Location location) throws IOException {
+        JSONObject object = IOTools.getJSONObject(playerHomeInfoPATH);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("world", location.getWorld().getName());
+        jsonObject.put("xx", location.getBlockX());
+        jsonObject.put("yy", location.getBlockY());
+        jsonObject.put("zz", location.getBlockZ());
+        jsonObject.put("yaw", location.getYaw());
+        jsonObject.put("pitch", location.getPitch());
+        object.put(uuid, jsonObject);
+        IOTools.writeJsonFile(object, playerHomeInfoPATH);
     }
 
     /**
