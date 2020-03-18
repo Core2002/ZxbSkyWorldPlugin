@@ -1,9 +1,10 @@
 package fun.fifu.nekokecore.zxbskyworld;
 
 import fun.fifu.nekokecore.zxbskyworld.command.*;
+import fun.fifu.nekokecore.zxbskyworld.listener.ChairStairsListener;
 import fun.fifu.nekokecore.zxbskyworld.permission.BlockDispose;
 import fun.fifu.nekokecore.zxbskyworld.permission.EntityDispose;
-import fun.fifu.nekokecore.zxbskyworld.listener.PlayerDispose;
+import fun.fifu.nekokecore.zxbskyworld.listener.PlayerListener;
 import fun.fifu.nekokecore.zxbskyworld.utils.DateAdmin;
 import fun.fifu.nekokecore.zxbskyworld.utils.UUID;
 import org.bukkit.Bukkit;
@@ -47,7 +48,8 @@ public class Main extends JavaPlugin {
         getLogger().info("完毕。");
         getLogger().info("开始注册监听器。");
         //注册监听器
-        pluginManager.registerEvents(new PlayerDispose(), this);
+        pluginManager.registerEvents(new PlayerListener(), this);
+        pluginManager.registerEvents(new ChairStairsListener(), this);
         pluginManager.registerEvents(new EntityDispose(), this);
         pluginManager.registerEvents(new BlockDispose(), this);
         getLogger().info("完毕。");

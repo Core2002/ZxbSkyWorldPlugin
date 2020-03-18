@@ -2,13 +2,14 @@ package fun.fifu.nekokecore.zxbskyworld.listener;
 
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.SoundPlayer;
-import org.bukkit.GameMode;
-import org.bukkit.Location;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
@@ -18,14 +19,13 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-import org.bukkit.ChatColor;
 import org.bukkit.util.io.BukkitObjectOutputStream;
 
 
 /**
  * @author NekokeCore
  */
-public class PlayerDispose implements Listener {
+public class PlayerListener implements Listener {
     /**
      * 玩家进入服务器事件.
      *
