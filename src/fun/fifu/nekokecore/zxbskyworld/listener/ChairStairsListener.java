@@ -33,7 +33,7 @@ public class ChairStairsListener implements Listener {
                 return;
             }
             Block block = event.getClickedBlock();
-            if (event.getAction() == Action.RIGHT_CLICK_BLOCK && !player.isInsideVehicle() && player.getItemOnCursor().getType() == Material.AIR) {
+            if (event.getAction() == Action.RIGHT_CLICK_BLOCK && !player.isInsideVehicle() && player.getInventory().getItemInMainHand().getType() == Material.AIR) {
                 //范围
                 double range = 1.0;
                 if (player.getLocation().distance(block.getLocation()) - 1.0 > range) {
