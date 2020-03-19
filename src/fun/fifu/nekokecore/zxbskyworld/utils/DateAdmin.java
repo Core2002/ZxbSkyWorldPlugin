@@ -22,7 +22,7 @@ public class DateAdmin {
     static final String unAntiExplosion = "./plugins/ZxbSkyWorld/unAntiExplosion.json";
     static final String indexInfosPATH = "./plugins/ZxbSkyWorld/index.json";
     static final String playerHomeInfoPATH = "./plugins/ZxbSkyWorld/playerHomeInfoPATH.json";
-    static final String playerInfo = "./plugins/ZxbSkyWorld/playerInfo.json";
+    static final String playerInfoPATH = "./plugins/ZxbSkyWorld/playerInfo.json";
     public static JSONObject util_jsonObject = null;
     public static String spawnSkyLoc = "(0,0)";
     public static String defaultJsonStr = "{\"Owners\":[],\"Members\":[],\"Others\":{}}";
@@ -37,7 +37,7 @@ public class DateAdmin {
             initJson(unAntiExplosion, "{}");
             initJson(datePATH + spawnSkyLoc + ".json", defaultJsonStr);
             initJson(playerHomeInfoPATH, "{}");
-            initJson(playerInfo, "{}");
+            initJson(playerInfoPATH, "{}");
         } catch (Exception e) {
             Main.plugin.getLogger().info("配置文件初始化错误！为了数据安全！服务器无法启动！" + e);
             try {
@@ -58,7 +58,7 @@ public class DateAdmin {
     public String getUuidName(String uuid) {
         JSONObject jsonObject = null;
         try {
-            jsonObject = IOTools.getJSONObject(playerHomeInfoPATH);
+            jsonObject = IOTools.getJSONObject(playerInfoPATH);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -79,7 +79,7 @@ public class DateAdmin {
      */
     public void savePlayerInfo(Player player) throws IOException {
         String uuid = player.getUniqueId().toString();
-        JSONObject object = IOTools.getJSONObject(playerInfo);
+        JSONObject object = IOTools.getJSONObject(playerInfoPATH);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", player.getName());
         JSONArray jsonArray;
@@ -92,7 +92,7 @@ public class DateAdmin {
             jsonObject.put("ip", jsonArray);
         }
         object.put(uuid, jsonObject);
-        IOTools.writeJsonFile(object, playerInfo);
+        IOTools.writeJsonFile(object, playerInfoPATH);
     }
 
 
@@ -105,7 +105,7 @@ public class DateAdmin {
     public Location getPlayerHomeLocation(String uuid) {
         JSONObject jsonObject = null;
         try {
-            jsonObject = IOTools.getJSONObject(playerInfo);
+            jsonObject = IOTools.getJSONObject(playerHomeInfoPATH);
         } catch (IOException e) {
             e.printStackTrace();
         }
