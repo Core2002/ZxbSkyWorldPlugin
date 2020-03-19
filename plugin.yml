@@ -42,3 +42,7 @@ commands:
     sethome:
         description: "设置你的家"
         usage: /sethome
+    giveup:
+        description: "清空岛屿"
+        usage: /giveup <危险操作确认码>
+

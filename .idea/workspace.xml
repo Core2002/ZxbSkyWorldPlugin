@@ -36,10 +36,16 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了bug,现在ip记录功能正常了">
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了bug,现在wdnmd功能正常了">
+      <change afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/GiveupDispose.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -390,7 +396,8 @@
     <MESSAGE value="(修复了bug)加入了小鸟坐：空手+潜行+右键" />
     <MESSAGE value="修复了bug，wdnmd可以正常使用了" />
     <MESSAGE value="修复了bug,现在ip记录功能正常了" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复了bug,现在ip记录功能正常了" />
+    <MESSAGE value="修复了bug,现在wdnmd功能正常了" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复了bug,现在wdnmd功能正常了" />
   </component>
   <component name="WindowStateProjectService">
     <state x="583" y="181" key="#Plugins" timestamp="1583952587081">
@@ -409,22 +416,22 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="879" y="275" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1583873027845" />
-    <state width="1814" height="362" key="GridCell.Tab.0.bottom" timestamp="1584558433747">
+    <state width="446" height="952" key="GridCell.Tab.0.bottom" timestamp="1584638932522">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1814" height="362" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1584558433747" />
-    <state width="1814" height="362" key="GridCell.Tab.0.center" timestamp="1584558433747">
+    <state width="446" height="952" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1584638932522" />
+    <state width="446" height="952" key="GridCell.Tab.0.center" timestamp="1584638932522">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1814" height="362" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1584558433747" />
-    <state width="1814" height="362" key="GridCell.Tab.0.left" timestamp="1584558433746">
+    <state width="446" height="952" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1584638932522" />
+    <state width="446" height="952" key="GridCell.Tab.0.left" timestamp="1584638932521">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1814" height="362" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1584558433746" />
-    <state width="1814" height="362" key="GridCell.Tab.0.right" timestamp="1584558433747">
+    <state width="446" height="952" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1584638932521" />
+    <state width="446" height="952" key="GridCell.Tab.0.right" timestamp="1584638932522">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1814" height="362" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1584558433747" />
+    <state width="446" height="952" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1584638932522" />
     <state width="1814" height="362" key="GridCell.Tab.1.bottom" timestamp="1584558433781">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -449,10 +456,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="501" y="120" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1584458438446" />
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1584637308221">
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1584637633624">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1584637308221" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1584637633624" />
     <state x="647" y="250" key="run.anything.popup" timestamp="1584271066483">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

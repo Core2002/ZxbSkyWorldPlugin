@@ -45,6 +45,7 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginCommand("unshare").setExecutor(new UnShareDispose());
         Bukkit.getPluginCommand("anti-explosion").setExecutor(new AntiExplosionDispose());
         Bukkit.getPluginCommand("sethome").setExecutor(new SetHomeDispose());
+        Bukkit.getPluginCommand("giveup").setExecutor(new GiveupDispose());
         getLogger().info("完毕。");
         getLogger().info("开始注册监听器。");
         //注册监听器

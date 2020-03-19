@@ -27,7 +27,7 @@ public class ChairStairsListener implements Listener {
                 World world = player.getWorld();
                 Entity chair = world.spawnEntity(player.getLocation(), EntityType.ARROW);
                 chair.setGravity(true);
-                chair.teleport(block.getLocation().add(0.5, 0.6, 0.5));
+                chair.teleport(block.getLocation().add(0.5, 0.5, 0.5));
                 chair.addPassenger(player);
                 player.sendMessage(player.getName() + "小鸟坐");
                 event.setCancelled(true);

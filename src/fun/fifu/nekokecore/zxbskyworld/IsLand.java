@@ -26,9 +26,7 @@ public class IsLand extends BaseIsLand {
 
     public static void main(String[] args) {
         dateAdmin = new DateAdmin();
-        String uuid = "3e79580d-cfdb-4b80-999c-99bc2740d194";
-        String SkyLoc="(0,0)";
-        System.out.println(dateAdmin.isExist(SkyLoc));
+        System.out.println(System.nanoTime());
 
     }
 
