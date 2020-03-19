@@ -21,6 +21,7 @@ public class BiomeDispose implements CommandExecutor {
                 return true;
             }
             Player player = (Player) commandSender;
+            String uuid = player.getUniqueId().toString();
             World world = player.getWorld();
             if (strings == null || strings.length == 0) {
                 Biome[] biomes = Biome.values();
@@ -45,14 +46,14 @@ public class BiomeDispose implements CommandExecutor {
                 return false;
             }
 
-            if (Helper.havePermission(player)) {
+            if (ShareDispose.isOwner(uuid, Helper.toSkyLoc(player.getLocation()))) {
                 Location location = player.getLocation();
                 Chunk chunk = location.getChunk();
                 player.sendMessage("开始任务！把区块" + chunk.getX() + "," + chunk.getZ() + "的生物群系换成" + biome.name());
                 work(chunk, biome);
                 player.sendMessage("搞完了，已经把区块" + chunk.getX() + "," + chunk.getZ() + "的生物群系换成了" + biome.name());
             } else {
-                commandSender.sendMessage("你没权限");
+                commandSender.sendMessage("你不是这个岛屿的主人，无权操作！");
             }
             return true;
         }

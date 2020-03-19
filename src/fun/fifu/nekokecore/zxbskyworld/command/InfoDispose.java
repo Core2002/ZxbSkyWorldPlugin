@@ -72,12 +72,7 @@ public class InfoDispose implements CommandExecutor {
     public ArrayList<String> toRenHua(ArrayList<String> arrayList) {
         ArrayList<String> renhua = new ArrayList<String>();
         for (String uuid : arrayList) {
-            Player player = Bukkit.getPlayer(uuid);
-            if (player != null) {
-                renhua.add(player.getName());
-            } else {
-                renhua.add(uuid + "(不在线)");
-            }
+            renhua.add(IsLand.dateAdmin.getUuidName(uuid));
         }
         return renhua;
     }

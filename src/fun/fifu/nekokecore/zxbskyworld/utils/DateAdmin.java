@@ -22,6 +22,7 @@ public class DateAdmin {
     static final String unAntiExplosion = "./plugins/ZxbSkyWorld/unAntiExplosion.json";
     static final String indexInfosPATH = "./plugins/ZxbSkyWorld/index.json";
     static final String playerHomeInfoPATH = "./plugins/ZxbSkyWorld/playerHomeInfoPATH.json";
+    static final String playerInfo = "./plugins/ZxbSkyWorld/playerInfo.json";
     public static JSONObject util_jsonObject = null;
     public static String spawnSkyLoc = "(0,0)";
     public static String defaultJsonStr = "{\"Owners\":[],\"Members\":[],\"Others\":{}}";
@@ -36,6 +37,7 @@ public class DateAdmin {
             initJson(unAntiExplosion, "{}");
             initJson(datePATH + spawnSkyLoc + ".json", defaultJsonStr);
             initJson(playerHomeInfoPATH, "{}");
+            initJson(playerInfo, "{}");
         } catch (Exception e) {
             Main.plugin.getLogger().info("配置文件初始化错误！为了数据安全！服务器无法启动！" + e);
             try {
@@ -48,6 +50,53 @@ public class DateAdmin {
     }
 
     /**
+     * 尝试获取uuid的名字
+     *
+     * @param uuid
+     * @return
+     */
+    public String getUuidName(String uuid) {
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = IOTools.getJSONObject(playerHomeInfoPATH);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        JSONObject Object = (JSONObject) jsonObject.get(uuid);
+        if (Object != null) {
+            String name = Object.get("name").toString();
+            return name;
+        } else {
+            return uuid + "(这真的不是小白的问题，真的不是)";
+        }
+    }
+
+    /**
+     * 存储玩家信息
+     *
+     * @param player
+     * @throws IOException
+     */
+    public void savePlayerInfo(Player player) throws IOException {
+        String uuid = player.getUniqueId().toString();
+        JSONObject object = IOTools.getJSONObject(playerInfo);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", player.getName());
+        JSONArray jsonArray;
+        if ((jsonArray = (JSONArray) jsonObject.get("ip")) == null) {
+            jsonArray = new JSONArray();
+        }
+        String address = player.getAddress().toString();
+        if (!jsonArray.contains(address)) {
+            jsonArray.add(player.getAddress().toString());
+            object.put("ip", jsonArray);
+        }
+        object.put(uuid, jsonObject);
+        IOTools.writeJsonFile(object, playerInfo);
+    }
+
+
+    /**
      * 尝试获取玩家的家的坐标
      *
      * @param uuid
@@ -56,7 +105,7 @@ public class DateAdmin {
     public Location getPlayerHomeLocation(String uuid) {
         JSONObject jsonObject = null;
         try {
-            jsonObject = IOTools.getJSONObject(playerHomeInfoPATH);
+            jsonObject = IOTools.getJSONObject(playerInfo);
         } catch (IOException e) {
             e.printStackTrace();
         }

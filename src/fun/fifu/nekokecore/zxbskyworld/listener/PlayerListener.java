@@ -1,5 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.listener;
 
+import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.SoundPlayer;
 import org.bukkit.*;
@@ -34,6 +35,11 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent playerJoinEvent) {
         Player player = playerJoinEvent.getPlayer();
+        try {
+            IsLand.dateAdmin.savePlayerInfo(player);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if (!player.getGameMode().equals(GameMode.SURVIVAL)) {
             player.setGameMode(GameMode.SURVIVAL);
         }
@@ -143,10 +149,11 @@ public class PlayerListener implements Listener {
 
     /**
      * 玩家用完一只桶后触发此事件.
+     *
      * @param event
      */
     @EventHandler
-    public void onBucketEmpty(PlayerBucketEmptyEvent event){
+    public void onBucketEmpty(PlayerBucketEmptyEvent event) {
         if (!Helper.havePermission(event.getPlayer())) {
             event.getPlayer().sendMessage("你没权限");
             event.setCancelled(true);
@@ -156,10 +163,11 @@ public class PlayerListener implements Listener {
 
     /**
      * 水桶装满水事件.
+     *
      * @param event
      */
     @EventHandler
-    public void onBucketFill(PlayerBucketFillEvent event){
+    public void onBucketFill(PlayerBucketFillEvent event) {
         if (!Helper.havePermission(event.getPlayer())) {
             event.getPlayer().sendMessage("你没权限");
             event.setCancelled(true);
