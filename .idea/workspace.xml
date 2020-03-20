@@ -36,12 +36,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="加入了在主城死亡的提示。">
-      <change afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/game/GuessGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/game/MengTiGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="集成了钟小白游戏插件">
+      <change afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/mineore/BlockFormListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/mineore/BlockLucker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +100,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/game" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/mineore" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -111,6 +108,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\MyIdeaPorject\ZxbSkyWorldPlugin\src\fun\fifu\nekokecore\zxbskyworld\mineore" />
       <recent name="E:\MyIdeaPorject\ZxbSkyWorldPlugin\src\fun\fifu\nekokecore\zxbskyworld\game" />
       <recent name="E:\MyIdeaPorject\ZxbSkyWorldPlugin\src\fun\fifu\nekokecore\zxbskyworld\listener" />
     </key>
@@ -370,7 +368,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="除了玩家物品栏以外的容器，都只能在自己的岛里才能打开。" />
     <MESSAGE value="修复了一个打脸的BUG" />
     <MESSAGE value="现在主城坐标可以定义朝向了。" />
     <MESSAGE value="修复若干BUG。" />
@@ -395,7 +392,8 @@
     <MESSAGE value="加入了/give &lt;危险操作保险码&gt;来清空岛屿[框架已完成，还差具体实现]" />
     <MESSAGE value="现在拿着箭对着任何一个实体都可以骑上去了" />
     <MESSAGE value="加入了在主城死亡的提示。" />
-    <option name="LAST_COMMIT_MESSAGE" value="加入了在主城死亡的提示。" />
+    <MESSAGE value="集成了钟小白游戏插件" />
+    <option name="LAST_COMMIT_MESSAGE" value="集成了钟小白游戏插件" />
   </component>
   <component name="WindowStateProjectService">
     <state x="583" y="181" key="#Plugins" timestamp="1583952587081">
@@ -454,10 +452,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="501" y="120" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1584458438446" />
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1584744305258">
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1584745263132">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1584744305258" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1584745263132" />
     <state x="647" y="250" key="run.anything.popup" timestamp="1584271066483">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

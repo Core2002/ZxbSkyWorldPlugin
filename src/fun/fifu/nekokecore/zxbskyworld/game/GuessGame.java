@@ -6,7 +6,6 @@ import java.util.Random;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public class GuessGame implements CommandExecutor {
     // guess的初始化
@@ -17,10 +16,6 @@ public class GuessGame implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         try {
             if (command.getName().equalsIgnoreCase("guess")) {
-                if (!(sender instanceof Player)) {
-                    sender.sendMessage("只能由玩家执行此命令");
-                    return true;
-                }
                 if (numberList.containsKey(sender)) {
                     if (args.length >= 1) {
                         if (numberList.get(sender) == Integer.parseInt(args[0])) {
