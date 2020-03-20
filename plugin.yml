@@ -45,4 +45,9 @@ commands:
     giveup:
         description: "清空岛屿"
         usage: /giveup <危险操作确认码>
-
+    mengti:
+        description: "蒙题器"
+        usage: /mengti [题目个数]
+    guess:
+        description: "猜数字小游戏"
+        usage: /guess

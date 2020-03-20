@@ -1,6 +1,8 @@
 package fun.fifu.nekokecore.zxbskyworld;
 
 import fun.fifu.nekokecore.zxbskyworld.command.*;
+import fun.fifu.nekokecore.zxbskyworld.game.GuessGame;
+import fun.fifu.nekokecore.zxbskyworld.game.MengTiGame;
 import fun.fifu.nekokecore.zxbskyworld.listener.ChairStairsListener;
 import fun.fifu.nekokecore.zxbskyworld.permission.BlockDispose;
 import fun.fifu.nekokecore.zxbskyworld.permission.EntityDispose;
@@ -46,6 +48,8 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginCommand("anti-explosion").setExecutor(new AntiExplosionDispose());
         Bukkit.getPluginCommand("sethome").setExecutor(new SetHomeDispose());
         Bukkit.getPluginCommand("giveup").setExecutor(new GiveupDispose());
+        Bukkit.getPluginCommand("mengti").setExecutor(new MengTiGame());
+        Bukkit.getPluginCommand("guess").setExecutor(new GuessGame());
         getLogger().info("完毕。");
         getLogger().info("开始注册监听器。");
         //注册监听器
