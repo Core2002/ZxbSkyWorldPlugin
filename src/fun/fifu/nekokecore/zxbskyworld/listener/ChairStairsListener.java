@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class ChairStairsListener implements Listener {
@@ -29,6 +30,25 @@ public class ChairStairsListener implements Listener {
                 chair.setGravity(true);
                 chair.teleport(block.getLocation().add(0.5, 0.5, 0.5));
                 chair.addPassenger(player);
+                player.sendMessage(player.getName() + "小鸟坐");
+                event.setCancelled(true);
+                return;
+            }
+        }
+    }
+
+    @EventHandler
+    public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
+        if (event.getPlayer() != null) {
+            Player player = event.getPlayer();
+            Entity entity = event.getRightClicked();
+            if (!player.isInsideVehicle() && player.getInventory().getItemInMainHand().getType() == Material.ARROW) {
+                //范围
+                double range = 1.0;
+                if (player.getLocation().distance(entity.getLocation()) - 1.0 > range) {
+                    return;
+                }
+                entity.addPassenger(player);
                 player.sendMessage(player.getName() + "小鸟坐");
                 event.setCancelled(true);
                 return;
