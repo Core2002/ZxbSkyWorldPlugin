@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
 
@@ -171,5 +172,15 @@ public class PlayerListener implements Listener {
         }
     }
 
-
+    /**
+     * 玩家死亡
+     *
+     * @param event
+     */
+    @EventHandler
+    public void onPlayerDeath(PlayerDeathEvent event) {
+        if (Helper.inSpawn(Helper.toSkyLoc(event.getEntity().getLocation()))) {
+            event.getEntity().sendMessage("这个世界虽然不完美，我们仍可以治愈自己");
+        }
+    }
 }

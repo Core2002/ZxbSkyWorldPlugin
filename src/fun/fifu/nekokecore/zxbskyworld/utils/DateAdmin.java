@@ -87,10 +87,14 @@ public class DateAdmin {
             jsonArray = new JSONArray();
         }
         String address = player.getAddress().toString();
-        if (!jsonArray.contains(address)) {
-            jsonArray.add(player.getAddress().toString());
-            jsonObject.put("ip", jsonArray);
+        ArrayList<String> ipList = jsonArray;
+        for (String ip:ipList){
+            if (ip.equalsIgnoreCase(address)){
+                break;
+            }
         }
+
+
         object.put(uuid, jsonObject);
         IOTools.writeJsonFile(object, playerInfoPATH);
     }
