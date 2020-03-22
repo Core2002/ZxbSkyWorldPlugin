@@ -58,9 +58,9 @@ public class InfoDispose implements CommandExecutor {
             player.sendMessage("||在z轴上：从" + IsLand.getrrForm(IsLand.getSkyY(SkyLoc)) + "到" + IsLand.getrrEnd(IsLand.getSkyY(SkyLoc)));
             player.sendMessage("||你所在的坐标是：x:" + xx + ",z:" + zz + "，按F3查看详细");
             if (Helper.havePermission(player)) {
-                player.sendMessage("||你有权限操作这个岛。");
+                player.sendMessage("||§2你有权限操作这个岛。");
             } else {
-                player.sendMessage("||你没有权限操作这个岛。");
+                player.sendMessage("||§4你没有权限操作这个岛。");
             }
             player.sendMessage("||=======/infos wdnmd 来说人话=======|");
             return true;
