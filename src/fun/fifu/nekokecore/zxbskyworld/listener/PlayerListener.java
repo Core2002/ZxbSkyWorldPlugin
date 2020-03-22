@@ -203,10 +203,6 @@ public class PlayerListener implements Listener {
             return;
         }
         LivingEntity livingEntity = (LivingEntity) entity;
-        int i = (int) livingEntity.getHealth();
-        int j = (int) livingEntity.getAttribute(GENERIC_MAX_HEALTH).getValue();
-        Player player = event.getPlayer();
-        player.sendTitle("", "HP:" + i + "/" + j, 10, 40, 5);
-        player.sendMessage(entity.getName() + "受伤：" + (int) livingEntity.getLastDamage() + "，HP:" + i + "/" + j);
+        Helper.showDamage(event.getPlayer(),livingEntity);
     }
 }

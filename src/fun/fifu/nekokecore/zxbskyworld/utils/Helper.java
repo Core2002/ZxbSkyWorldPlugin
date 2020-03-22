@@ -3,9 +3,12 @@ package fun.fifu.nekokecore.zxbskyworld.utils;
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
 import java.io.IOException;
+
+import static org.bukkit.attribute.Attribute.GENERIC_MAX_HEALTH;
 
 
 public class Helper {
@@ -178,5 +181,12 @@ public class Helper {
         int cX = chunk.getX();
         int cZ = chunk.getZ();
         return "[" + cX + "," + cZ + "]";
+    }
+
+    public static void showDamage(Player player,LivingEntity livingEntity){
+        int i = (int) livingEntity.getHealth();
+        int j = (int) livingEntity.getAttribute(GENERIC_MAX_HEALTH).getValue();
+        player.sendTitle("", "HP:" + i + "/" + j, 10, 40, 5);
+        player.sendMessage(livingEntity.getName() + "受伤：" + (int) livingEntity.getLastDamage() + "，HP:" + i + "/" + j);
     }
 }

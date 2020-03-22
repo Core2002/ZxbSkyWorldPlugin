@@ -6,10 +6,7 @@ import fun.fifu.nekokecore.zxbskyworld.utils.DateAdmin;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Chunk;
 import org.bukkit.Sound;
-import org.bukkit.entity.AbstractVillager;
-import org.bukkit.entity.Animals;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
@@ -88,6 +85,7 @@ public class EntityDispose implements Listener {
         }
         if (event.getDamager() instanceof Player) {
             Player player = (Player) event.getDamager();
+            Helper.showDamage(player, (LivingEntity) entity);
             if (!Helper.havePermission(player) && (entity instanceof Animals || entity instanceof AbstractVillager)) {
                 player.sendMessage("你没权限伤害动物！");
                 event.setCancelled(true);

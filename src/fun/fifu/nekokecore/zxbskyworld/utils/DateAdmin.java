@@ -86,15 +86,12 @@ public class DateAdmin {
         if ((jsonArray = (JSONArray) jsonObject.get("ip")) == null) {
             jsonArray = new JSONArray();
         }
-        String address = player.getAddress().toString();
+        String address = player.getAddress().getAddress().getHostAddress();
         ArrayList<String> ipList = jsonArray;
-        for (String ip:ipList){
-            if (ip.equalsIgnoreCase(address)){
-                break;
-            }
+        if (!ipList.contains(address)) {
+            ipList.add(address);
         }
-
-
+        jsonObject.put("ip", ipList);
         object.put(uuid, jsonObject);
         IOTools.writeJsonFile(object, playerInfoPATH);
     }
