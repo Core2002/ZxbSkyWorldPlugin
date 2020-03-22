@@ -4,7 +4,6 @@ import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.json.simple.JSONArray;
 
 import java.io.IOException;
 
@@ -126,11 +125,11 @@ public class Helper {
 
     public static boolean havePermission(Player player) {
         String UUID = player.getUniqueId().toString();
-        JSONArray jsonArray;
         Location location = player.getLocation();
         int xx = location.getBlockX();
         int zz = location.getBlockZ();
         if (inSpawn(xx, zz)) {
+            player.playSound(player.getLocation(), Sound.ENTITY_LLAMA_SPIT, 20.0f, 20.0f);
             return false;
         }
         if (player.isOp()) {
@@ -140,6 +139,7 @@ public class Helper {
         try {
             IsLand.dateAdmin.getJSONObject(SkyLoc);
         } catch (Exception e) {
+            player.playSound(player.getLocation(), Sound.ENTITY_LLAMA_SPIT, 20.0f, 20.0f);
             return false;
         }
         try {
@@ -162,7 +162,7 @@ public class Helper {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        player.playSound(player.getLocation(), Sound.ENTITY_LLAMA_SPIT, 20.0f, 20.0f);
         return false;
     }
 

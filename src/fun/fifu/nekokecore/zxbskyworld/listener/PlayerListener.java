@@ -5,6 +5,8 @@ import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.SoundPlayer;
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,6 +21,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.bukkit.util.io.BukkitObjectOutputStream;
+
+import static org.bukkit.attribute.Attribute.GENERIC_MAX_HEALTH;
 
 
 /**
@@ -180,7 +184,29 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
         if (Helper.inSpawn(Helper.toSkyLoc(event.getEntity().getLocation()))) {
-            event.getEntity().sendMessage("这个世界虽然不完美，我们仍可以治愈自己");
+            if (event.getEntity().getLocation().getBlockY() < -150) {
+                event.getEntity().sendMessage("这个世界虽然不完美，我们仍可以治愈自己");
+            }
+
         }
+    }
+
+    /**
+     * 点击实体
+     *
+     * @param event
+     */
+    @EventHandler
+    public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
+        Entity entity = event.getRightClicked();
+        if (!(entity instanceof LivingEntity)) {
+            return;
+        }
+        LivingEntity livingEntity = (LivingEntity) entity;
+        int i = (int) livingEntity.getHealth();
+        int j = (int) livingEntity.getAttribute(GENERIC_MAX_HEALTH).getValue();
+        Player player = event.getPlayer();
+        player.sendTitle("", "HP:" + i + "/" + j, 10, 40, 5);
+        player.sendMessage(entity.getName() + "受伤：" + (int) livingEntity.getLastDamage() + "，HP:" + i + "/" + j);
     }
 }

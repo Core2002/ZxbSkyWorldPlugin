@@ -5,14 +5,18 @@ import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.DateAdmin;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Chunk;
-import org.bukkit.Location;
+import org.bukkit.Sound;
+import org.bukkit.entity.AbstractVillager;
+import org.bukkit.entity.Animals;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.*;
 
 
 public class EntityDispose implements Listener {
@@ -52,8 +56,12 @@ public class EntityDispose implements Listener {
      *
      * @param event
      */
+    @EventHandler
     public void onOpen(InventoryOpenEvent event) {
-        InventoryType inventoryType = event.getInventory().getType();
+        Inventory inventory = event.getInventory();
+        if (inventory instanceof PlayerInventory || inventory instanceof MerchantInventory || inventory instanceof CraftingInventory || inventory instanceof EnchantingInventory) {
+            return;
+        }
         Player player;
         if (event.getPlayer() instanceof Player) {
             player = (Player) event.getPlayer();
@@ -66,4 +74,24 @@ public class EntityDispose implements Listener {
         }
     }
 
+    /**
+     * 实体受伤时触发
+     * 保护动物不被没有权限的玩家伤害
+     *
+     * @param event
+     */
+    @EventHandler
+    public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
+        Entity entity = event.getEntity();
+        if (entity instanceof Player) {
+            return;
+        }
+        if (event.getDamager() instanceof Player) {
+            Player player = (Player) event.getDamager();
+            if (!Helper.havePermission(player) && (entity instanceof Animals || entity instanceof AbstractVillager)) {
+                player.sendMessage("你没权限伤害动物！");
+                event.setCancelled(true);
+            }
+        }
+    }
 }
