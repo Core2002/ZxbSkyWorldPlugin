@@ -22,7 +22,6 @@ import java.util.List;
 
 import org.bukkit.util.io.BukkitObjectOutputStream;
 
-import static org.bukkit.attribute.Attribute.GENERIC_MAX_HEALTH;
 
 
 /**
@@ -37,6 +36,7 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent playerJoinEvent) {
         Player player = playerJoinEvent.getPlayer();
+        player.leaveVehicle();
         try {
             IsLand.dateAdmin.savePlayerInfo(player);
         } catch (IOException e) {
@@ -57,7 +57,6 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent event) {
         event.setRespawnLocation(Helper.getSpawnLocation());
-
     }
 
     public int inventorySize(ItemStack[] contents) {
@@ -203,6 +202,6 @@ public class PlayerListener implements Listener {
             return;
         }
         LivingEntity livingEntity = (LivingEntity) entity;
-        Helper.showDamage(event.getPlayer(),livingEntity);
+        Helper.showDamage(event.getPlayer(), livingEntity);
     }
 }

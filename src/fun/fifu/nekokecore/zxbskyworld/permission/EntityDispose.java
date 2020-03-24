@@ -1,11 +1,9 @@
 package fun.fifu.nekokecore.zxbskyworld.permission;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
-import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.DateAdmin;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Chunk;
-import org.bukkit.Sound;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -27,7 +25,7 @@ public class EntityDispose implements Listener {
         int xx = (int) creatureSpawnEvent.getLocation().getX();
         int zz = (int) creatureSpawnEvent.getLocation().getZ();
         if (Helper.inSkyWrold(xx, zz, DateAdmin.spawnSkyLoc)) {
-            Main.plugin.getLogger().info("事件:当一个生物体在世界中出生时触发:其坐标xx:" + xx + "，zz：" + zz + "已拦截！");
+            //Main.plugin.getLogger().info("事件:当一个生物体在世界中出生时触发:其坐标xx:" + xx + "，zz：" + zz + "已拦截！");
             creatureSpawnEvent.setCancelled(true);
         }
 
