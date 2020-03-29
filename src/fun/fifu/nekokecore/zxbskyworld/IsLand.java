@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
+import java.util.UUID;
 
 
 /**
@@ -33,7 +34,7 @@ public class IsLand extends BaseIsLand {
     public IsLand(String uuid) throws IOException{
         String SkyLoc = allocationIsLand(dateAdmin.getAllSkyLoc());
         buildSkyLoc(uuid, SkyLoc);
-        Helper.tpSkyLoc(Bukkit.getPlayer(uuid), dateAdmin.getDefaultSkyLoc(uuid));
+        Helper.tpSkyLoc(Bukkit.getPlayer(UUID.fromString(uuid)), dateAdmin.getDefaultSkyLoc(uuid));
     }
 
     public static void buildSkyLoc(String uuid, String SkyLoc) throws IOException {
