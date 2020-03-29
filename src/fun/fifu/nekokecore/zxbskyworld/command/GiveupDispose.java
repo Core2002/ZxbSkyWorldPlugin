@@ -1,9 +1,15 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
+import fun.fifu.nekokecore.zxbskyworld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.Main;
+import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.json.simple.JSONArray;
+
+import java.io.IOException;
 
 public class GiveupDispose implements CommandExecutor {
     private static String nanoTime = "!IKnowWhatIDo!" + System.nanoTime();
@@ -20,7 +26,20 @@ public class GiveupDispose implements CommandExecutor {
                 String input = strings[0];
                 if (nanoTime.equalsIgnoreCase(input)) {
                     nanoTime = "!IKnowWhatIDo!" + System.nanoTime();
-                    player.sendMessage("完成(测试)");
+                    String uuid = player.getUniqueId().toString();
+                    String DefSkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(uuid);
+                    try {
+                        IsLand.dateAdmin.saveOwnerslist(new JSONArray(), DefSkyLoc);
+                    } catch (IOException e) {
+                        long time = System.nanoTime();
+                        player.sendMessage("操作过程貌似出错了，如果有问题，请拿着下面这串数字找服务器管理员" + time);
+                        Main.plugin.getLogger().info("错误标记：" + time);
+                        e.printStackTrace();
+                        return true;
+                    }
+                    player.sendMessage("操作成功，原来的岛屿已被放弃，但保留所有数据");
+                    Helper.goSpawn(player);
+                    player.sendMessage("输入/s可分配一个新的岛");
                     return true;
                 }
             }

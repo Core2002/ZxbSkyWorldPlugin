@@ -2,6 +2,8 @@ package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -20,25 +22,28 @@ public class TeleportDispose implements CommandExecutor {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
-            if (strings == null) {
+            if (strings == null || strings.length < 1) {
                 return false;
             }
             String SkyLoc;
             try {
                 SkyLoc = strings[0];
+                if ((strings.length == 2 && strings[1] != null && strings[1] != "") || SkyLoc.equalsIgnoreCase("p")) {
+                    Player tempPlayer = Bukkit.getPlayer(strings[1]);
+                    SkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(tempPlayer.getUniqueId().toString());
+                }
                 SkyLoc = Helper.simplify(SkyLoc);
             } catch (Exception e) {
                 return false;
             }
             Player player = (Player) commandSender;
-            if (Helper.inSpawn(SkyLoc)){
-                if (player.isOp()){
+            if (Helper.inSpawn(SkyLoc)) {
+                if (player.isOp()) {
                     Helper.tpSkyLoc(player, SkyLoc);
-                    return true;
-                }else {
+                } else {
                     player.sendMessage("你没权限");
-                    return true;
                 }
+                return true;
 
             }
             if (!IsLand.dateAdmin.isExist(SkyLoc)) {
@@ -73,6 +78,11 @@ public class TeleportDispose implements CommandExecutor {
             return true;
         }
         return false;
+    }
+
+
+    public void trytoSkyLoc(Player player) {
+
     }
 
 }

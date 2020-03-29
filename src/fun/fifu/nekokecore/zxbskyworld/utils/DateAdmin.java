@@ -80,6 +80,7 @@ public class DateAdmin {
     public void savePlayerInfo(Player player) throws IOException {
         String uuid = player.getUniqueId().toString();
         JSONObject object = IOTools.getJSONObject(playerInfoPATH);
+        object.put("总人数", object.size() - 1 + "");
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", player.getName());
         JSONArray jsonArray;
@@ -88,6 +89,7 @@ public class DateAdmin {
         }
         String address = player.getAddress().getAddress().getHostAddress();
         ArrayList<String> ipList = jsonArray;
+        ipList.addAll(jsonArray);
         if (!ipList.contains(address)) {
             ipList.add(address);
         }
