@@ -85,11 +85,7 @@ public class SeclusionDispose implements CommandExecutor {
         if (jsonObject == null) {
             return false;
         }
-        String temp = (String) jsonObject.get("Seclusion");
-        if (temp == null) {
-            return false;
-        }
-        return temp.equalsIgnoreCase("true");
+        return (boolean) jsonObject.get("Seclusion");
     }
 
 }
