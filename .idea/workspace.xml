@@ -35,16 +35,14 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="加入了新功能/goto p &lt;Player&gt;传送到玩家的岛">
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了转换异常的bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/GiveupDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/GiveupDispose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/SeclusionDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/SeclusionDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/SeclusionDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/SeclusionDispose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -375,7 +373,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="加入了/seclusion 使你所在的岛不能被他人传送、/homes 显示包括分享给你的岛、/share 和玩家分享你所在的岛三个命令，并且优化了部分代码。" />
     <MESSAGE value="修复了上次提交中的命令不能用的问题，现在所有命令正常使用。并且优化了部分代码。" />
     <MESSAGE value="添加了/unshare &lt;Player&gt;命令，可以将玩家从当前岛的成员名单移除。" />
     <MESSAGE value="优化代码" />
@@ -400,17 +397,18 @@
     <MESSAGE value="做了些调整" />
     <MESSAGE value="修复了空指针异常" />
     <MESSAGE value="加入了新功能/goto p &lt;Player&gt;传送到玩家的岛" />
-    <option name="LAST_COMMIT_MESSAGE" value="加入了新功能/goto p &lt;Player&gt;传送到玩家的岛" />
+    <MESSAGE value="修复了转换异常的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复了转换异常的bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="583" y="181" key="#Plugins" timestamp="1583952587081">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="583" y="181" key="#Plugins/62.0.1858.1080@62.0.1858.1080" timestamp="1583952587081" />
-    <state x="445" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584271115298">
+    <state x="435" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585847160190">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="445" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1584271115298" />
+    <state x="435" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1585847160190" />
     <state x="796" y="245" key="#com.intellij.ide.util.MemberChooser" timestamp="1583950321079">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -455,14 +453,18 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="571" y="274" key="IDE.errors.dialog/62.0.1858.1080@62.0.1858.1080" timestamp="1584271152793" />
-    <state x="501" y="120" key="SettingsEditor" timestamp="1584458438469">
+    <state x="511" y="103" key="SettingsEditor" timestamp="1585848074718">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="501" y="120" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1584458438446" />
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1585497872176">
+    <state x="511" y="103" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1585848074718" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1585847106113">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1585497872176" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1585847106113" />
+    <state x="648" y="200" key="new project wizard" timestamp="1585847697781">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="648" y="200" key="new project wizard/62.0.1858.1080@62.0.1858.1080" timestamp="1585847697781" />
     <state x="647" y="250" key="run.anything.popup" timestamp="1584271066483">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

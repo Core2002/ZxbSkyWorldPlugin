@@ -5,6 +5,7 @@ import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.SoundPlayer;
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.block.Sign;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -21,7 +22,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.bukkit.util.io.BukkitObjectOutputStream;
-
 
 
 /**
@@ -204,4 +204,24 @@ public class PlayerListener implements Listener {
         LivingEntity livingEntity = (LivingEntity) entity;
         Helper.showDamage(event.getPlayer(), livingEntity);
     }
+
+    /**
+     * 点击牌子
+     *
+     * @param event
+     */
+    @EventHandler
+    public void onPlayerInteract(PlayerInteractEvent event) {
+        if (event.hasBlock()) {
+            //event.getPlayer().sendMessage("debug1:hasBlock");
+            if (event.getClickedBlock().getState() instanceof Sign) {
+                Sign sign = (Sign) event.getClickedBlock().getState();
+                String lines[] = sign.getLines();
+                if (lines[0].equalsIgnoreCase("[命令]")) {
+                    event.getPlayer().chat(lines[1]);
+                }
+            }
+        }
+    }
+
 }

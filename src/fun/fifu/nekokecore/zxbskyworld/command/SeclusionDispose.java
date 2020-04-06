@@ -82,7 +82,7 @@ public class SeclusionDispose implements CommandExecutor {
         } catch (IOException e) {
             return false;
         }
-        if (jsonObject == null) {
+        if (jsonObject == null || jsonObject.size() == 0) {
             return false;
         }
         return (boolean) jsonObject.get("Seclusion");
