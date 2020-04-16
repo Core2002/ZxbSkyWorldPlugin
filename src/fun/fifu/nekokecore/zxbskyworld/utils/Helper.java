@@ -7,11 +7,14 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static org.bukkit.attribute.Attribute.GENERIC_MAX_HEALTH;
 
 
 public class Helper {
+    public static ArrayList<String> noP = new ArrayList<>();
+
     /**
      * 把玩家传送到岛上，脚下第四格永远是基岩
      *
@@ -128,22 +131,18 @@ public class Helper {
 
     public static boolean havePermission(Player player) {
         String UUID = player.getUniqueId().toString();
+        if (noP.contains(UUID)){
+            return noP(UUID);
+        }
         Location location = player.getLocation();
         int xx = location.getBlockX();
         int zz = location.getBlockZ();
-        if (inSpawn(xx, zz)) {
-            player.playSound(player.getLocation(), Sound.ENTITY_LLAMA_SPIT, 20.0f, 20.0f);
-            return false;
-        }
-        if (player.isOp()) {
-            return true;
-        }
         String SkyLoc = Helper.toSkyLoc(xx, zz);
         try {
             IsLand.dateAdmin.getJSONObject(SkyLoc);
         } catch (Exception e) {
             player.playSound(player.getLocation(), Sound.ENTITY_LLAMA_SPIT, 20.0f, 20.0f);
-            return false;
+            return noP(UUID);
         }
         try {
             for (Object obj : IsLand.dateAdmin.getOwnersList(SkyLoc)) {
@@ -166,6 +165,21 @@ public class Helper {
             e.printStackTrace();
         }
         player.playSound(player.getLocation(), Sound.ENTITY_LLAMA_SPIT, 20.0f, 20.0f);
+        return noP(UUID);
+    }
+
+    public static boolean noP(String uuid){
+        if (!noP.contains(uuid)){
+            noP.add(uuid);
+            new Thread(()->{
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                noP.clear();
+            }).start();
+        }
         return false;
     }
 

@@ -5,6 +5,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.*;
+import org.bukkit.event.player.PlayerBucketEmptyEvent;
+import org.bukkit.event.player.PlayerBucketFillEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+
+import static org.bukkit.event.block.Action.LEFT_CLICK_AIR;
+import static org.bukkit.event.block.Action.RIGHT_CLICK_AIR;
 
 public class BlockDispose implements Listener {
     String str = "你没权限";
@@ -37,18 +43,47 @@ public class BlockDispose implements Listener {
     }
 
     /**
-     * 当我们尝试建造一个方块的时候，可以看到我们是否可以在此建造它。
+     * 玩家试图交互方块
      *
      * @param event
      */
     @EventHandler
-    public void onBlockCanBuild(BlockCanBuildEvent event) {
+    public void onPlayerInteract(PlayerInteractEvent event) {
+        if (event.getAction() == LEFT_CLICK_AIR || event.getAction() == RIGHT_CLICK_AIR) {
+            return;
+        }
         Player player = event.getPlayer();
         if (!Helper.havePermission(player)) {
-            event.setBuildable(false);
-            player.sendMessage(str);
+            event.getPlayer().sendMessage(str);
+            event.setCancelled(true);
+        }
+    }
+
+    /**
+     * 玩家用完一只桶后触发此事件.
+     *
+     * @param event
+     */
+    @EventHandler
+    public void onBucketEmpty(PlayerBucketEmptyEvent event) {
+        if (!Helper.havePermission(event.getPlayer())) {
+            event.getPlayer().sendMessage("你没权限");
+            event.setCancelled(true);
         }
 
+    }
+
+    /**
+     * 水桶装满水事件.
+     *
+     * @param event
+     */
+    @EventHandler
+    public void onBucketFill(PlayerBucketFillEvent event) {
+        if (!Helper.havePermission(event.getPlayer())) {
+            event.getPlayer().sendMessage("你没权限");
+            event.setCancelled(true);
+        }
     }
 
     /**

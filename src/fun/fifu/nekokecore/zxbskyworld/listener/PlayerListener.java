@@ -148,32 +148,7 @@ public class PlayerListener implements Listener {
         }
     }
 
-    /**
-     * 玩家用完一只桶后触发此事件.
-     *
-     * @param event
-     */
-    @EventHandler
-    public void onBucketEmpty(PlayerBucketEmptyEvent event) {
-        if (!Helper.havePermission(event.getPlayer())) {
-            event.getPlayer().sendMessage("你没权限");
-            event.setCancelled(true);
-        }
 
-    }
-
-    /**
-     * 水桶装满水事件.
-     *
-     * @param event
-     */
-    @EventHandler
-    public void onBucketFill(PlayerBucketFillEvent event) {
-        if (!Helper.havePermission(event.getPlayer())) {
-            event.getPlayer().sendMessage("你没权限");
-            event.setCancelled(true);
-        }
-    }
 
     /**
      * 玩家死亡

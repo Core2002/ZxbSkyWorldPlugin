@@ -60,10 +60,10 @@ public class EntityDispose implements Listener {
         Player player;
         if (event.getPlayer() instanceof Player) {
             player = (Player) event.getPlayer();
-            if (Helper.inSpawn(player.getLocation().getBlockX(), player.getLocation().getBlockZ())) {
-                return;
-            }
         } else {
+            return;
+        }
+        if ("Slimefun 指南".equals(event.getView().getTitle())){
             return;
         }
         if (!Helper.havePermission(player)) {

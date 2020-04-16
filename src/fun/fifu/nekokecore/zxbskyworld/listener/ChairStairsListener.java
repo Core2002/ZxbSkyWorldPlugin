@@ -1,5 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.listener;
 
+import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -32,6 +33,7 @@ public class ChairStairsListener implements Listener {
                 chair.addPassenger(player);
                 player.sendMessage(player.getName() + "小鸟坐");
             }
+
         }
     }
 
