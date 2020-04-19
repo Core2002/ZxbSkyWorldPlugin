@@ -1,6 +1,5 @@
 package fun.fifu.nekokecore.zxbskyworld.listener;
 
-import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -30,6 +29,7 @@ public class ChairStairsListener implements Listener {
                 World world = player.getWorld();
                 Entity chair = world.spawnEntity(player.getLocation(), EntityType.ARROW);
                 chair.teleport(block.getLocation().add(0.5, 0.5, 0.5));
+                //player.setAllowFlight(true);
                 chair.addPassenger(player);
                 player.sendMessage(player.getName() + "小鸟坐");
             }
@@ -48,6 +48,7 @@ public class ChairStairsListener implements Listener {
                 if (player.getLocation().distance(entity.getLocation()) - 1.0 > range) {
                     return;
                 }
+                //player.setAllowFlight(true);
                 entity.addPassenger(player);
                 player.sendMessage(player.getName() + "小鸟坐");
                 event.setCancelled(true);

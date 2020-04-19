@@ -35,17 +35,30 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="加入了牌子命令功能">
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了无权限时，锄头，铲子，斧头可以更改方块的bug和权限管理机制优化：若玩家被检测无权限，则在接下来的5秒也不会有权限，无论他是否真的有权限。">
+      <change afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/item/Lcarus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/BlockDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/BlockDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/Helper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/Helper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/ZxbSkyWorld/date/(-5248,-7143).json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/ZxbSkyWorld/date/(-5248,-7143).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/ZxbSkyWorld/date/(-8328,276).json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/ZxbSkyWorld/date/(-8328,276).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/ZxbSkyWorld/date/(12247,-4162).json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/ZxbSkyWorld/date/(12247,-4162).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/ZxbSkyWorld/date/(1729,-17280).json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/ZxbSkyWorld/date/(1729,-17280).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/ZxbSkyWorld/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/ZxbSkyWorld/index.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/ZxbSkyWorld/playerHomeInfoPATH.json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/ZxbSkyWorld/playerHomeInfoPATH.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/ZxbSkyWorld/playerInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/ZxbSkyWorld/playerInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/ZxbSkyWorld/unAntiExplosion.json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/ZxbSkyWorld/unAntiExplosion.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/AntiExplosionDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/AntiExplosionDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/UnShareDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/UnShareDispose.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/BlockDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/BlockDispose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/Helper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,11 +94,17 @@
     </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand />
-      <select />
-    </treeState>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="E:/apache-maven-3.6.1" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="PhpServers">
     <servers />
@@ -376,7 +395,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加了/unshare &lt;Player&gt;命令，可以将玩家从当前岛的成员名单移除。" />
     <MESSAGE value="优化代码" />
     <MESSAGE value="优化代码，修复了传送时，输入错误坐标而报错的情况。" />
     <MESSAGE value="优化代码，重新规划异常处理" />
@@ -401,9 +419,18 @@
     <MESSAGE value="加入了新功能/goto p &lt;Player&gt;传送到玩家的岛" />
     <MESSAGE value="修复了转换异常的bug" />
     <MESSAGE value="加入了牌子命令功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="加入了牌子命令功能" />
+    <MESSAGE value="修复了无权限时，锄头，铲子，斧头可以更改方块的bug和权限管理机制优化：若玩家被检测无权限，则在接下来的5秒也不会有权限，无论他是否真的有权限。" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复了无权限时，锄头，铲子，斧头可以更改方块的bug和权限管理机制优化：若玩家被检测无权限，则在接下来的5秒也不会有权限，无论他是否真的有权限。" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="804" y="241" key="#Custom_Plugin_Repositories" timestamp="1587135772727">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="804" y="241" key="#Custom_Plugin_Repositories/62.0.1858.1080@62.0.1858.1080" timestamp="1587135772727" />
+    <state x="703" y="215" key="#HTTP_Proxy" timestamp="1587135916979">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="703" y="215" key="#HTTP_Proxy/62.0.1858.1080@62.0.1858.1080" timestamp="1587135916979" />
     <state x="583" y="181" key="#Plugins" timestamp="1583952587081">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -416,10 +443,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="796" y="245" key="#com.intellij.ide.util.MemberChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1583950321079" />
-    <state x="879" y="275" key="FileChooserDialogImpl" timestamp="1583873027845">
+    <state x="879" y="275" key="FileChooserDialogImpl" timestamp="1587135525277">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="879" y="275" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1583873027845" />
+    <state x="879" y="275" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1587135525277" />
     <state width="446" height="952" key="GridCell.Tab.0.bottom" timestamp="1584640276046">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -456,14 +483,14 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="571" y="274" key="IDE.errors.dialog/62.0.1858.1080@62.0.1858.1080" timestamp="1584271152793" />
-    <state x="511" y="103" key="SettingsEditor" timestamp="1585848074718">
+    <state x="433" y="142" key="SettingsEditor" timestamp="1587136527556">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="511" y="103" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1585848074718" />
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1586142941594">
+    <state x="433" y="142" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1587136527556" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1587035063481">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1586142941594" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1587035063481" />
     <state x="648" y="200" key="new project wizard" timestamp="1585847697781">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

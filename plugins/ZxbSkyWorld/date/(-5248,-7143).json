@@ -1,5 +1,18 @@
 {
-  "Others": {},
-  "Members": [],
-  "Owners": ["bc017f20-9169-4f8b-835c-934793b4bd7e"]
+  "Others": {
+    "Seclusion": true
+  },
+  "Members": [
+    "9454a9cb-90cb-4b1f-908c-aba159546bec",
+    "3e79580d-cfdb-4b80-999c-99bc2740d194",
+    "52f986e6-7769-4c91-89ef-c3bf2fd56f82",
+    "c8ff2874-7375-4f2a-9a70-99015fe8c065",
+    "71a03502-79d5-42b7-b343-f28ad9eec682",
+    "7eb22d85-dd55-4d5d-8121-cc0298c04283",
+    "9d1e2c55-db26-4f78-b342-6fd50174b12f",
+    "6560be6e-764e-4af7-a822-43c353004d8f"
+  ],
+  "Owners": [
+    "bc017f20-9169-4f8b-835c-934793b4bd7e"
+  ]
 }

@@ -1,5 +1,12 @@
 {
-  "Others": {},
-  "Members": [],
-  "Owners": ["52f986e6-7769-4c91-89ef-c3bf2fd56f82"]
+  "Others": {
+    "Seclusion": false
+  },
+  "Members": [
+    "bc017f20-9169-4f8b-835c-934793b4bd7e",
+    "9d1e2c55-db26-4f78-b342-6fd50174b12f"
+  ],
+  "Owners": [
+    "52f986e6-7769-4c91-89ef-c3bf2fd56f82"
+  ]
 }

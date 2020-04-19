@@ -46,7 +46,7 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginCommand("homes").setExecutor(new HomesDispose());
         Bukkit.getPluginCommand("share").setExecutor(new ShareDispose());
         Bukkit.getPluginCommand("unshare").setExecutor(new UnShareDispose());
-        Bukkit.getPluginCommand("anti-explosion").setExecutor(new AntiExplosionDispose());
+        Bukkit.getPluginCommand("explosion").setExecutor(new AntiExplosionDispose());
         Bukkit.getPluginCommand("sethome").setExecutor(new SetHomeDispose());
         Bukkit.getPluginCommand("giveup").setExecutor(new GiveupDispose());
         Bukkit.getPluginCommand("mengti").setExecutor(new MengTiGame());

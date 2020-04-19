@@ -1,6 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.listener;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.command.SeclusionDispose;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.SoundPlayer;
 import org.bukkit.*;
@@ -22,6 +23,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.bukkit.util.io.BukkitObjectOutputStream;
+import org.json.simple.JSONObject;
 
 
 /**
@@ -148,7 +150,42 @@ public class PlayerListener implements Listener {
         }
     }
 
-
+    /**
+     * 玩家传送
+     *
+     * @param event
+     */
+    @EventHandler
+    public void onTP(PlayerTeleportEvent event) {
+        //如果岛屿是隐居的，则玩家无法传送过去
+        String SkyLoc = Helper.toSkyLoc(event.getTo());
+        String UUID = event.getPlayer().getUniqueId().toString();
+        try {
+            for (Object obj : IsLand.dateAdmin.getOwnersList(SkyLoc)) {
+                String uuid = (String) obj;
+                if (UUID.equalsIgnoreCase(uuid)) {
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            for (Object obj : IsLand.dateAdmin.getMembersList(SkyLoc)) {
+                String uuid = (String) obj;
+                if (UUID.equalsIgnoreCase(uuid)) {
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (SeclusionDispose.getSwi(SkyLoc)) {
+            event.setCancelled(true);
+            event.getPlayer().resetTitle();
+            event.getPlayer().sendTitle("§4传送失败", "§c该岛屿是隐居的", 10, 30, 20);
+        }
+    }
 
     /**
      * 玩家死亡

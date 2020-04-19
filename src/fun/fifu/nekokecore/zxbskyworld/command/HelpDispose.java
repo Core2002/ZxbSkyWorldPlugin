@@ -29,7 +29,7 @@ public class HelpDispose implements CommandExecutor {
                     player.sendMessage("||                      -帮助-");
                     player.sendMessage("||---------------------------------|");
                     player.sendMessage("|| /biome <biome> 更改当前区块的生物群系");
-                    player.sendMessage("|| /seclusion 使你所在的岛不能被他人传送");
+                    player.sendMessage("|| /seclusion 隐居，使你所在的岛不能被他人传送");
                     player.sendMessage("|| /homes 显示包括分享给你的岛");
                     player.sendMessage("|| /share <Player> 和玩家分享你所在的岛");
                     player.sendMessage("|| /unshare <Player> 取消和某人分享当前岛");
@@ -41,7 +41,7 @@ public class HelpDispose implements CommandExecutor {
                     player.sendMessage("||                      -帮助-");
                     player.sendMessage("||---------------------------------|");
                     player.sendMessage("|| /goto p <Player> 去这个玩家的岛");
-                    player.sendMessage("|| /anti-explosion 打开/关闭当前区块的防爆");
+                    player.sendMessage("|| /explosion 打开/关闭当前区块的爆炸");
                     player.sendMessage("|| /sethome 设置自己的家");
                     player.sendMessage("|| /giveup 放弃你所在的岛              [危]");
                     player.sendMessage("|| /get 领取你所在的岛");

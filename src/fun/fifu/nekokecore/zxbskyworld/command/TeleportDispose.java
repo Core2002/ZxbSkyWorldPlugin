@@ -79,9 +79,4 @@ public class TeleportDispose implements CommandExecutor {
         return false;
     }
 
-
-    public void trytoSkyLoc(Player player) {
-
-    }
-
 }

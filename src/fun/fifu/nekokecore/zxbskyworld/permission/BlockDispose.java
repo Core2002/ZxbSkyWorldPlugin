@@ -9,8 +9,7 @@ import org.bukkit.event.player.PlayerBucketEmptyEvent;
 import org.bukkit.event.player.PlayerBucketFillEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import static org.bukkit.event.block.Action.LEFT_CLICK_AIR;
-import static org.bukkit.event.block.Action.RIGHT_CLICK_AIR;
+import static org.bukkit.event.block.Action.*;
 
 public class BlockDispose implements Listener {
     String str = "你没权限";
@@ -49,7 +48,7 @@ public class BlockDispose implements Listener {
      */
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
-        if (event.getAction() == LEFT_CLICK_AIR || event.getAction() == RIGHT_CLICK_AIR) {
+        if (event.getAction() == LEFT_CLICK_AIR || event.getAction() == RIGHT_CLICK_AIR || event.getAction() == PHYSICAL) {
             return;
         }
         Player player = event.getPlayer();

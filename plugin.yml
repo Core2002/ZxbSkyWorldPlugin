@@ -5,49 +5,49 @@ author: NekokeCore
 commands:
     s:
         description: "回到自己的岛"
-        usage: /s <玩家名>
+        usage: /s 回到自己的岛
     goto:
         description: "去某个岛"
-        usage: /goto <SkyLoc>
+        usage: /goto <SkyLoc> 或者 /goto p <Player>去某个岛
     help:
         description: "帮助"
-        usage: /help
+        usage: /help 查看帮助
     exple:
         description: "把玩家从你的岛踢出"
-        usage: /exple <Player>
+        usage: /exple <Player> 把玩家从你的岛踢出
     infos:
         description: "查看你所在的岛屿的信息"
-        usage: /infos
+        usage: /infos 查看你所在的岛屿的信息
     uuid:
         description: "查询UUID"
-        usage: /uuid
+        usage: /uuid 查询UUID
     biome:
         description: "更改当前区块的生物群系"
-        usage: /biome <biome>
+        usage: /biome <biome> 更改当前区块的生物群系
     seclusion:
-        description: "使你所在的岛不能被他人传送"
-        usage: /seclusion <args>
+        description: "隐居，使你所在的岛不能被他人传送"
+        usage: /seclusion <true/false> 隐居，打开后你所在的岛不能被他人传送
     homes:
         description: "显示包括分享给你的岛"
-        usage: /homes
+        usage: /homes 显示包括分享给你的岛
     share:
         description: "和玩家分享你所在的岛"
-        usage: /share <Player>
+        usage: /share <Player> 和玩家分享你所在的岛
     unshare:
         description: "取消和玩家分享你所在的岛"
-        usage: /unshare <Player>
-    anti-explosion:
-        descriptiom: "打开/关闭防爆"
-        usage: /anti-explosion <on/off>
+        usage: /unshare <Player> 取消和玩家分享你所在的岛
+    explosion:
+        descriptiom: "打开/关闭爆炸"
+        usage: /anti-explosion <on/off> 打开/关闭爆炸
     sethome:
         description: "设置你的家"
-        usage: /sethome
+        usage: /sethome 设置你的家
     giveup:
         description: "清空岛屿"
-        usage: /giveup <危险操作确认码>
+        usage: /giveup <危险操作确认码> 重新开始你的岛屿
     mengti:
         description: "蒙题器"
-        usage: /mengti [题目个数]
+        usage: /mengti [题目个数] 蒙题器
     guess:
         description: "猜数字小游戏"
-        usage: /guess
+        usage: /guess 猜数字小游戏

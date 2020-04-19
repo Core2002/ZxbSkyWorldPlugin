@@ -17,7 +17,7 @@ import static fun.fifu.nekokecore.zxbskyworld.command.ShareDispose.isOwner;
 public class UnShareDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if ("share".equalsIgnoreCase(command.getName())) {
+        if ("unshare".equalsIgnoreCase(command.getName())) {
             if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
@@ -27,7 +27,7 @@ public class UnShareDispose implements CommandExecutor {
                 return false;
             }
             String sp = strings[0];
-            Player sharePlayer = Bukkit.getPlayer(sp);
+            Player sharePlayer = Main.plugin.getServer().getPlayer(sp);
             Player player = (Player) commandSender;
             String uuid = player.getUniqueId().toString();
             String shareUuid = sharePlayer.getUniqueId().toString();
