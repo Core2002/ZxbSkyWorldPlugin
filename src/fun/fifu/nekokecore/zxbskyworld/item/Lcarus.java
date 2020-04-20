@@ -11,18 +11,15 @@ public class Lcarus {
 
     public static ItemStack build() {
         ItemStack is = new ItemStack(Material.ELYTRA);
-        is.addEnchantment(Enchantment.DAMAGE_ALL, 6);
-        is.addEnchantment(Enchantment.DEPTH_STRIDER, 6);
-        is.addEnchantment(Enchantment.DIG_SPEED, 6);
-        is.addEnchantment(Enchantment.LOOT_BONUS_MOBS, 6);
-        is.addEnchantment(Enchantment.OXYGEN, 6);
-        is.addEnchantment(Enchantment.PROTECTION_FALL, 6);
-        is.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 6);
-        is.addEnchantment(Enchantment.WATER_WORKER, 6);
-        is.addEnchantment(Enchantment.BINDING_CURSE, 6);
         ItemMeta im = is.getItemMeta();
         im.setDisplayName("钉三多的翅膀");
         im.setLore(Arrays.asList("组成翅膀的羽毛来自伊卡洛斯"));
+        im.addEnchant(Enchantment.DEPTH_STRIDER, 10, true);
+        im.addEnchant(Enchantment.OXYGEN, 10, true);
+        im.addEnchant(Enchantment.PROTECTION_FALL, 6, true);
+        im.addEnchant(Enchantment.PROTECTION_PROJECTILE, 6, true);
+        im.addEnchant(Enchantment.BINDING_CURSE, 1, true);
+        is.setItemMeta(im);
         return is;
     }
 

@@ -14,6 +14,7 @@ import org.json.simple.parser.ParseException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class DateAdmin {
@@ -26,6 +27,10 @@ public class DateAdmin {
     public static JSONObject util_jsonObject = null;
     public static String spawnSkyLoc = "(0,0)";
     public static String defaultJsonStr = "{\"Owners\":[],\"Members\":[],\"Others\":{}}";
+    //数据缓冲机制
+    private static HashMap<String, JSONArray> OwnerMap = new HashMap();
+    private static HashMap<String, JSONArray> MemberMap = new HashMap();
+    private static HashMap<String, JSONObject> OthersMap = new HashMap();
 
     public DateAdmin() {
         try {
@@ -38,11 +43,25 @@ public class DateAdmin {
             initJson(datePATH + spawnSkyLoc + ".json", defaultJsonStr);
             initJson(playerHomeInfoPATH, "{}");
             initJson(playerInfoPATH, "{}");
+            new Thread(() -> {
+                Main.plugin.getLogger().info("数据缓冲模块清理器已开始工作");
+                while (true) {
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    OwnerMap.clear();
+                    MemberMap.clear();
+                    OthersMap.clear();
+                }
+
+            }).start();
         } catch (Exception e) {
             Main.plugin.getLogger().info("配置文件初始化错误！为了数据安全！服务器无法启动！" + e);
             try {
-                Main.plugin.getLogger().info("傻眼儿了吧？谁***叫你乱改配置文件的？改坏了吧？这下没得玩儿了吧？**玩意儿！");
-                Thread.sleep(999999999);
+                Thread.sleep(5000);
+                Bukkit.getServer().reload();
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
@@ -294,8 +313,15 @@ public class DateAdmin {
      * @return
      */
     public JSONArray getOwnersList(String SkyLoc) throws IOException {
-        JSONObject jsonObject = getJSONObject(SkyLoc);
-        return (JSONArray) jsonObject.get("Owners");
+        JSONArray ja;
+        ja = OwnerMap.get(SkyLoc);
+        if (ja == null) {
+            JSONObject jsonObject = getJSONObject(SkyLoc);
+            OwnerMap.put(SkyLoc, (JSONArray) jsonObject.get("Owners"));
+            return (JSONArray) jsonObject.get("Owners");
+        } else {
+            return ja;
+        }
     }
 
     /**
@@ -305,8 +331,16 @@ public class DateAdmin {
      * @return
      */
     public JSONArray getMembersList(String SkyLoc) throws IOException {
-        JSONObject jsonObject = getJSONObject(SkyLoc);
-        return (JSONArray) jsonObject.get("Members");
+        JSONArray ja;
+        ja = MemberMap.get(SkyLoc);
+        if (ja == null) {
+            JSONObject jsonObject = getJSONObject(SkyLoc);
+            MemberMap.put(SkyLoc, (JSONArray) jsonObject.get("Members"));
+            return (JSONArray) jsonObject.get("Members");
+        } else {
+            return ja;
+        }
+
     }
 
     /**
@@ -316,8 +350,15 @@ public class DateAdmin {
      * @return
      */
     public JSONObject getOthers(String SkyLoc) throws IOException {
-        JSONObject jsonObject = getJSONObject(SkyLoc);
-        return (JSONObject) jsonObject.get("Others");
+        JSONObject jo;
+        jo = OthersMap.get(SkyLoc);
+        if (jo == null) {
+            JSONObject jsonObject = getJSONObject(SkyLoc);
+            OthersMap.put(SkyLoc, (JSONObject) jsonObject.get("Others"));
+            return (JSONObject) jsonObject.get("Others");
+        } else {
+            return jo;
+        }
     }
 
     /**

@@ -51,3 +51,6 @@ commands:
     guess:
         description: "猜数字小游戏"
         usage: /guess 猜数字小游戏
+    test:
+        description: "调试用命令"
+        usage: /test

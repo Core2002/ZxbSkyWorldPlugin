@@ -11,10 +11,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 
 /**
@@ -24,8 +21,9 @@ public class IsLand extends BaseIsLand {
     public static DateAdmin dateAdmin;
 
     public static void main(String[] args) {
-        dateAdmin = new DateAdmin();
-        System.out.println(System.nanoTime());
+        HashMap map=new HashMap();
+        map.remove("test");
+        System.out.println(map.get("59"));
 
     }
 

@@ -183,7 +183,7 @@ public class PlayerListener implements Listener {
         if (SeclusionDispose.getSwi(SkyLoc)) {
             event.setCancelled(true);
             event.getPlayer().resetTitle();
-            event.getPlayer().sendTitle("§4传送失败", "§c该岛屿是隐居的", 10, 30, 20);
+            event.getPlayer().sendTitle("§4传送失败", "§c该岛屿是隐居的", 10, 50, 20);
         }
     }
 
