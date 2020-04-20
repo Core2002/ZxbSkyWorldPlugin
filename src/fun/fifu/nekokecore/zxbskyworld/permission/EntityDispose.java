@@ -63,7 +63,7 @@ public class EntityDispose implements Listener {
         } else {
             return;
         }
-        if ("Slimefun 指南".equals(event.getView().getTitle())){
+        if ("Slimefun 指南".equals(event.getView().getTitle())) {
             return;
         }
         if (!Helper.havePermission(player)) {
@@ -86,9 +86,11 @@ public class EntityDispose implements Listener {
         }
         if (event.getDamager() instanceof Player) {
             Player player = (Player) event.getDamager();
-            Helper.showDamage(player, (LivingEntity) entity);
+            if (entity instanceof LivingEntity) {
+                Helper.showDamage(player, (LivingEntity) entity);
+            }
             if (!Helper.havePermission(player) && (entity instanceof Animals || entity instanceof AbstractVillager)) {
-                player.sendMessage("你没权限伤害动物！");
+                player.sendMessage("你没权限伤害他！");
                 event.setCancelled(true);
             }
         }

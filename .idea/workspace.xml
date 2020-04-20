@@ -35,22 +35,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复若干bug，优化了帮助命令的显示">
-      <change afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TestDispose.java" afterDir="false" />
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了一个小bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/AntiExplosionDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/AntiExplosionDispose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/UnShareDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/UnShareDispose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/UnShareDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/UnShareDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/item/Lcarus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/item/Lcarus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/ShareDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/ShareDispose.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/item/Lcarus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/item/Lcarus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -388,8 +381,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="优化代码，修复了传送时，输入错误坐标而报错的情况。" />
-    <MESSAGE value="优化代码，重新规划异常处理" />
     <MESSAGE value="做了一些调整" />
     <MESSAGE value="加入了/sethome命令设置家，/s h回家。" />
     <MESSAGE value="修复了/sethome时，玩家配置文件冲突的bug" />
@@ -413,7 +404,9 @@
     <MESSAGE value="加入了牌子命令功能" />
     <MESSAGE value="修复了无权限时，锄头，铲子，斧头可以更改方块的bug和权限管理机制优化：若玩家被检测无权限，则在接下来的5秒也不会有权限，无论他是否真的有权限。" />
     <MESSAGE value="修复若干bug，优化了帮助命令的显示" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复若干bug，优化了帮助命令的显示" />
+    <MESSAGE value="优化了代码，减少了硬盘访问频率" />
+    <MESSAGE value="修复了一个小bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复了一个小bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="804" y="241" key="#Custom_Plugin_Repositories" timestamp="1587135772727">
@@ -436,6 +429,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="796" y="245" key="#com.intellij.ide.util.MemberChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1583950321079" />
+    <state x="721" y="286" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1587387116698">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="721" y="286" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1587387116698" />
     <state x="879" y="275" key="FileChooserDialogImpl" timestamp="1587135525277">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -480,10 +477,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="433" y="142" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1587136527556" />
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1587292142801">
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1587386707971">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1587292142801" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1587386707971" />
     <state x="648" y="200" key="new project wizard" timestamp="1585847697781">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

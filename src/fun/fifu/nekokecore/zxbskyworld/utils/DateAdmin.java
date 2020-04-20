@@ -28,9 +28,9 @@ public class DateAdmin {
     public static String spawnSkyLoc = "(0,0)";
     public static String defaultJsonStr = "{\"Owners\":[],\"Members\":[],\"Others\":{}}";
     //数据缓冲机制
-    private static HashMap<String, JSONArray> OwnerMap = new HashMap();
-    private static HashMap<String, JSONArray> MemberMap = new HashMap();
-    private static HashMap<String, JSONObject> OthersMap = new HashMap();
+    public static HashMap<String, JSONArray> OwnerMap = new HashMap<>();
+    public static HashMap<String, JSONArray> MemberMap = new HashMap<>();
+    public static HashMap<String, JSONObject> OthersMap = new HashMap<>();
 
     public DateAdmin() {
         try {

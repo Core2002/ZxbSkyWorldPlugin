@@ -1,7 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
-import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -21,12 +20,15 @@ public class ShareDispose implements CommandExecutor {
                 return true;
             }
             if (strings.length != 1) {
-                Main.plugin.getLogger().info(strings + ":" + strings.length + "，!=1");
                 return false;
             }
             String sp = strings[0];
             Player sharePlayer = Bukkit.getPlayer(sp);
             Player player = (Player) commandSender;
+            if (sharePlayer == null) {
+                player.sendMessage("玩家" + sp + "不在线，无法操作");
+                return true;
+            }
             String uuid = player.getUniqueId().toString();
             String shareUuid = sharePlayer.getUniqueId().toString();
             String SkyLoc = Helper.toSkyLoc(player.getLocation());
