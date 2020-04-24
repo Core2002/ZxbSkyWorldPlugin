@@ -35,16 +35,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了一个小bug">
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了两处小bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/item/Lcarus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/item/Lcarus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/ShareDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/ShareDispose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/item/Lcarus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/item/Lcarus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/SoundPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/SoundPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -381,7 +375,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="做了一些调整" />
     <MESSAGE value="加入了/sethome命令设置家，/s h回家。" />
     <MESSAGE value="修复了/sethome时，玩家配置文件冲突的bug" />
     <MESSAGE value="加入了小鸟坐：空手+潜行+右键" />
@@ -406,7 +399,8 @@
     <MESSAGE value="修复若干bug，优化了帮助命令的显示" />
     <MESSAGE value="优化了代码，减少了硬盘访问频率" />
     <MESSAGE value="修复了一个小bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复了一个小bug" />
+    <MESSAGE value="修复了两处小bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复了两处小bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="804" y="241" key="#Custom_Plugin_Repositories" timestamp="1587135772727">
@@ -437,22 +431,22 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="879" y="275" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1587135525277" />
-    <state width="446" height="952" key="GridCell.Tab.0.bottom" timestamp="1587383826618">
+    <state width="446" height="952" key="GridCell.Tab.0.bottom" timestamp="1587392728075">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="446" height="952" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1587383826618" />
-    <state width="446" height="952" key="GridCell.Tab.0.center" timestamp="1587383826618">
+    <state width="446" height="952" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1587392728075" />
+    <state width="446" height="952" key="GridCell.Tab.0.center" timestamp="1587392728068">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="446" height="952" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1587383826618" />
-    <state width="446" height="952" key="GridCell.Tab.0.left" timestamp="1587383826618">
+    <state width="446" height="952" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1587392728068" />
+    <state width="446" height="952" key="GridCell.Tab.0.left" timestamp="1587392728068">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="446" height="952" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1587383826618" />
-    <state width="446" height="952" key="GridCell.Tab.0.right" timestamp="1587383826618">
+    <state width="446" height="952" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1587392728068" />
+    <state width="446" height="952" key="GridCell.Tab.0.right" timestamp="1587392728068">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="446" height="952" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1587383826618" />
+    <state width="446" height="952" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1587392728068" />
     <state width="1814" height="362" key="GridCell.Tab.1.bottom" timestamp="1584558433781">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -477,10 +471,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="433" y="142" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1587136527556" />
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1587386707971">
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1587391456432">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1587386707971" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1587391456432" />
     <state x="648" y="200" key="new project wizard" timestamp="1585847697781">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

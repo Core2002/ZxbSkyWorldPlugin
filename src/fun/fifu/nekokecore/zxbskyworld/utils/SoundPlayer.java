@@ -20,7 +20,6 @@ public class SoundPlayer {
         catList.add(Sound.ENTITY_CAT_AMBIENT);
         catList.add(Sound.ENTITY_CAT_PURREOW);
         catList.add(Sound.ENTITY_CAT_STRAY_AMBIENT);
-
     }
 
     public static Sound extact(ArrayList<Sound> arrayList) {
