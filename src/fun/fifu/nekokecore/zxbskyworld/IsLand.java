@@ -21,9 +21,9 @@ public class IsLand extends BaseIsLand {
     public static DateAdmin dateAdmin;
 
     public static void main(String[] args) {
-        HashMap map=new HashMap();
-        map.remove("test");
-        System.out.println(map.get("59"));
+       List aaa=new ArrayList();
+       aaa.add("qwer");
+        System.out.println(aaa.contains("qwer"));
 
     }
 

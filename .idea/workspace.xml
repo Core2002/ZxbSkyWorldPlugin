@@ -36,9 +36,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了两处小bug">
+      <change afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/item/Honey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/TestListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/SoundPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/SoundPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/BaseIsLand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/AntiExplosionDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/BiomeDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/ExpleDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/GiveupDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/HomesDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/InfoDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/MainDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/SeclusionDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/SetHomeDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/ShareDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TestDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/UnShareDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/game/GuessGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/game/MengTiGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/item/Lcarus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/mineore/BlockFormListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/mineore/BlockLucker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/BlockDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/Helper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/IOTools.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/KeyGeter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/ShardProcessing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/SoundPlayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/UUID.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TestDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TestDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +140,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="AnalyzeApkAction.lastApkPath" value="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/mineore" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -419,34 +459,34 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="435" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1585847160190" />
-    <state x="796" y="245" key="#com.intellij.ide.util.MemberChooser" timestamp="1583950321079">
+    <state x="796" y="245" key="#com.intellij.ide.util.MemberChooser" timestamp="1588007215657">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="796" y="245" key="#com.intellij.ide.util.MemberChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1583950321079" />
+    <state x="796" y="245" key="#com.intellij.ide.util.MemberChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1588007215657" />
     <state x="721" y="286" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1587387116698">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="721" y="286" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1587387116698" />
-    <state x="879" y="275" key="FileChooserDialogImpl" timestamp="1587135525277">
+    <state x="879" y="275" key="FileChooserDialogImpl" timestamp="1588014252956">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="879" y="275" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1587135525277" />
-    <state width="446" height="952" key="GridCell.Tab.0.bottom" timestamp="1587392728075">
+    <state x="879" y="275" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1588014252956" />
+    <state width="446" height="952" key="GridCell.Tab.0.bottom" timestamp="1588014983972">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="446" height="952" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1587392728075" />
-    <state width="446" height="952" key="GridCell.Tab.0.center" timestamp="1587392728068">
+    <state width="446" height="952" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1588014983972" />
+    <state width="446" height="952" key="GridCell.Tab.0.center" timestamp="1588014983972">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="446" height="952" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1587392728068" />
-    <state width="446" height="952" key="GridCell.Tab.0.left" timestamp="1587392728068">
+    <state width="446" height="952" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1588014983972" />
+    <state width="446" height="952" key="GridCell.Tab.0.left" timestamp="1588014983971">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="446" height="952" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1587392728068" />
-    <state width="446" height="952" key="GridCell.Tab.0.right" timestamp="1587392728068">
+    <state width="446" height="952" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1588014983971" />
+    <state width="446" height="952" key="GridCell.Tab.0.right" timestamp="1588014983972">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="446" height="952" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1587392728068" />
+    <state width="446" height="952" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1588014983972" />
     <state width="1814" height="362" key="GridCell.Tab.1.bottom" timestamp="1584558433781">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

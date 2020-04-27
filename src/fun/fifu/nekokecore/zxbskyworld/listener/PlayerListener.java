@@ -58,6 +58,8 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent event) {
+        event.getPlayer().setFlying(false);
+        event.getPlayer().setAllowFlight(false);
         event.setRespawnLocation(Helper.getSpawnLocation());
     }
 

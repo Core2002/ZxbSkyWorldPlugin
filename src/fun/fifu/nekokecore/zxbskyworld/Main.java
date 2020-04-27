@@ -3,7 +3,9 @@ package fun.fifu.nekokecore.zxbskyworld;
 import fun.fifu.nekokecore.zxbskyworld.command.*;
 import fun.fifu.nekokecore.zxbskyworld.game.GuessGame;
 import fun.fifu.nekokecore.zxbskyworld.game.MengTiGame;
+import fun.fifu.nekokecore.zxbskyworld.item.Honey;
 import fun.fifu.nekokecore.zxbskyworld.listener.ChairStairsListener;
+import fun.fifu.nekokecore.zxbskyworld.listener.TestListener;
 import fun.fifu.nekokecore.zxbskyworld.mineore.BlockFormListener;
 import fun.fifu.nekokecore.zxbskyworld.permission.BlockDispose;
 import fun.fifu.nekokecore.zxbskyworld.permission.EntityDispose;
@@ -60,6 +62,8 @@ public class Main extends JavaPlugin {
         pluginManager.registerEvents(new EntityDispose(), this);
         pluginManager.registerEvents(new BlockDispose(), this);
         pluginManager.registerEvents(new BlockFormListener(), this);
+        pluginManager.registerEvents(new Honey(), this);
+        pluginManager.registerEvents(new TestListener(), this);
         getLogger().info("完毕。");
     }
 

@@ -18,6 +18,7 @@ public class TestDispose implements CommandExecutor {
             String uuid = player.getUniqueId().toString();
             if (!"3e79580d-cfdb-4b80-999c-99bc2740d194".equals(uuid)) {
                 player.sendMessage("只有小白才可以用哦");
+                return true;
             }
 
             player.getInventory().setChestplate(Lcarus.build());
