@@ -35,48 +35,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了两处小bug">
-      <change afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/item/Honey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/TestListener.java" afterDir="false" />
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="现在喝蜂蜜可以短暂飞行了">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Paper_1_15_2_b192.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/spigot_1_15_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/BaseIsLand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/AntiExplosionDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/BiomeDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/ExpleDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/GiveupDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/HelpDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/HomesDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/InfoDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/MainDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/SeclusionDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/SetHomeDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/ShareDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TestDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/UnShareDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/game/GuessGame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/game/MengTiGame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/item/Lcarus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/mineore/BlockFormListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/mineore/BlockLucker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/BlockDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/Helper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/IOTools.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/KeyGeter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/ShardProcessing.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/SoundPlayer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/UUID.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TestDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TestDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ZxbSkyWorldPlugin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ZxbSkyWorldPlugin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/ExpleDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/ExpleDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/ExpleDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/ExpleDispose.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +83,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="E:/apache-maven-3.6.1" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../apache-maven-3.6.1" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -147,11 +114,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/mineore" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../API/Paper-1.15.2-b192.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -415,7 +382,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="加入了/sethome命令设置家，/s h回家。" />
     <MESSAGE value="修复了/sethome时，玩家配置文件冲突的bug" />
     <MESSAGE value="加入了小鸟坐：空手+潜行+右键" />
     <MESSAGE value="(修复了bug)加入了小鸟坐：空手+潜行+右键" />
@@ -440,7 +406,8 @@
     <MESSAGE value="优化了代码，减少了硬盘访问频率" />
     <MESSAGE value="修复了一个小bug" />
     <MESSAGE value="修复了两处小bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复了两处小bug" />
+    <MESSAGE value="现在喝蜂蜜可以短暂飞行了" />
+    <option name="LAST_COMMIT_MESSAGE" value="现在喝蜂蜜可以短暂飞行了" />
   </component>
   <component name="WindowStateProjectService">
     <state x="804" y="241" key="#Custom_Plugin_Repositories" timestamp="1587135772727">
@@ -459,34 +426,34 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="435" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1585847160190" />
-    <state x="796" y="245" key="#com.intellij.ide.util.MemberChooser" timestamp="1588007215657">
+    <state x="825" y="359" key="#com.intellij.ide.util.MemberChooser" timestamp="1588345026630">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="796" y="245" key="#com.intellij.ide.util.MemberChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1588007215657" />
+    <state x="825" y="359" key="#com.intellij.ide.util.MemberChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1588345026630" />
     <state x="721" y="286" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1587387116698">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="721" y="286" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1587387116698" />
-    <state x="879" y="275" key="FileChooserDialogImpl" timestamp="1588014252956">
+    <state x="249" y="366" key="FileChooserDialogImpl" timestamp="1588254932926">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="879" y="275" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1588014252956" />
-    <state width="446" height="952" key="GridCell.Tab.0.bottom" timestamp="1588014983972">
+    <state x="249" y="366" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1588254932926" />
+    <state width="446" height="952" key="GridCell.Tab.0.bottom" timestamp="1588015864828">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="446" height="952" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1588014983972" />
-    <state width="446" height="952" key="GridCell.Tab.0.center" timestamp="1588014983972">
+    <state width="446" height="952" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1588015864828" />
+    <state width="446" height="952" key="GridCell.Tab.0.center" timestamp="1588015864828">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="446" height="952" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1588014983972" />
-    <state width="446" height="952" key="GridCell.Tab.0.left" timestamp="1588014983971">
+    <state width="446" height="952" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1588015864828" />
+    <state width="446" height="952" key="GridCell.Tab.0.left" timestamp="1588015864828">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="446" height="952" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1588014983971" />
-    <state width="446" height="952" key="GridCell.Tab.0.right" timestamp="1588014983972">
+    <state width="446" height="952" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1588015864828" />
+    <state width="446" height="952" key="GridCell.Tab.0.right" timestamp="1588015864828">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="446" height="952" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1588014983972" />
+    <state width="446" height="952" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1588015864828" />
     <state width="1814" height="362" key="GridCell.Tab.1.bottom" timestamp="1584558433781">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -507,18 +474,18 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="571" y="274" key="IDE.errors.dialog/62.0.1858.1080@62.0.1858.1080" timestamp="1584271152793" />
-    <state x="433" y="142" key="SettingsEditor" timestamp="1587136527556">
+    <state x="403" y="127" key="SettingsEditor" timestamp="1588254940437">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="433" y="142" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1587136527556" />
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1587391456432">
+    <state x="403" y="127" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1588254940437" />
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2" timestamp="1588015671486">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1587391456432" />
-    <state x="648" y="200" key="new project wizard" timestamp="1585847697781">
+    <state x="583" y="273" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1588015671486" />
+    <state x="187" y="246" width="1251" height="642" key="new project wizard" timestamp="1588137741673">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="648" y="200" key="new project wizard/62.0.1858.1080@62.0.1858.1080" timestamp="1585847697781" />
+    <state x="187" y="246" width="1251" height="642" key="new project wizard/62.0.1858.1080@62.0.1858.1080" timestamp="1588137741673" />
     <state x="647" y="250" key="run.anything.popup" timestamp="1584271066483">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

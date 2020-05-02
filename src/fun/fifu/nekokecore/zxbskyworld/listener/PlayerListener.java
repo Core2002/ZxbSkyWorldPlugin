@@ -38,6 +38,8 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent playerJoinEvent) {
         Player player = playerJoinEvent.getPlayer();
+        playerJoinEvent.getPlayer().setFlying(false);
+        playerJoinEvent.getPlayer().setAllowFlight(false);
         player.leaveVehicle();
         try {
             IsLand.dateAdmin.savePlayerInfo(player);

@@ -61,15 +61,12 @@ public class ExpleDispose implements CommandExecutor, Runnable {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if ("exple".equalsIgnoreCase(command.getName())) {
+        if ("exple".equalsIgnoreCase(s)) {
             if (door) {
                 new Thread(this).start();
             }
-
-            // 判断输入者的类型 为了防止出现 控制台或命令方块 输入的情况
             if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
-                // 这里返回true只是因为该输入者不是玩家,并不是输入错指令,所以我们直接返回true即可
                 return true;
             }
             Player player = (Player) commandSender;
@@ -88,31 +85,38 @@ public class ExpleDispose implements CommandExecutor, Runnable {
                 int zz = loc.getBlockZ();
                 ArrayList<String> arrayList = null;
                 try {
+                    //踢人玩家当前岛的所有的所有者
                     arrayList = IsLand.dateAdmin.getOwnersList(Helper.toSkyLoc(player.getLocation()));
                 } catch (IOException e) {
                     e.printStackTrace();
                     player.sendMessage("操作失败，请重试，若有疑问，请联系服务器管理员");
                     return true;
                 }
-                for (String SkyLoc : arrayList) {
-                    if (Helper.inSkyWrold(xx, zz, SkyLoc)) {
-                        HashMap<String, Integer> temp = new HashMap<String, Integer>();
-                        SkyLoc = Helper.simplify(SkyLoc);
-                        temp.put(SkyLoc, 1000);
-                        ExpleDispose.map.put(expleUUID, temp);
-                        //System.out.println("ExpleDispose_Map:" + ExpleDispose.map);
-                        int time = ExpleDispose.map.get(expleUUID).get(SkyLoc);
-                        if (explePlayer.isOnline()) {
-                            explePlayer.sendMessage("你被玩家" + PlayerName + "踢出了他的岛," + time + "秒后解除。");
+                for (String owneruuid : arrayList) {
+                    //命令发送者是该岛屿的主人
+                    if (player.getUniqueId().toString().equalsIgnoreCase(owneruuid)) {
+                        //命令发送者和被踢出者在同一个岛屿
+                        String SkyLoc = Helper.toSkyLoc(explePlayer.getLocation());
+                        if (SkyLoc.equals(Helper.toSkyLoc(player.getLocation()))) {
+                            HashMap<String, Integer> temp = new HashMap<String, Integer>();
+                            SkyLoc = Helper.simplify(SkyLoc);
+                            temp.put(SkyLoc, 1000);
+                            ExpleDispose.map.put(expleUUID, temp);
+                            int time = ExpleDispose.map.get(expleUUID).get(SkyLoc);
+                            if (explePlayer.isOnline()) {
+                                explePlayer.sendMessage("你被玩家" + PlayerName + "踢出了他的岛," + time + "秒后解除。");
+                            }
+                            if (player.isOnline()) {
+                                player.sendMessage("你踢出了玩家" + PlayerName + "," + time + "秒后解除。");
+                            }
+                            Helper.goSpawn(explePlayer);
+                            return true;
                         }
-                        if (player.isOnline()) {
-                            player.sendMessage("你踢出了玩家" + PlayerName + "," + time + "秒后解除。");
-                        }
-                        Helper.goSpawn(explePlayer);
+                        player.sendMessage("该玩家和你不在同一个岛上");
                         return true;
                     }
                 }
-                player.sendMessage("玩家" + explePlayerName + "不在你的岛里。");
+                player.sendMessage("你不是该岛屿的主人");
             }
             return true;
         }
