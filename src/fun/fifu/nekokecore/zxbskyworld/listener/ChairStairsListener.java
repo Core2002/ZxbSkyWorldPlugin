@@ -39,21 +39,18 @@ public class ChairStairsListener implements Listener {
 
     @EventHandler
     public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
-        if (event.getPlayer() != null) {
-            Player player = event.getPlayer();
-            Entity entity = event.getRightClicked();
-            if (!player.isInsideVehicle() && player.getInventory().getItemInMainHand().getType() == Material.ARROW) {
-                //范围
-                double range = 1.0;
-                if (player.getLocation().distance(entity.getLocation()) - 1.0 > range) {
-                    return;
-                }
-                //player.setAllowFlight(true);
-                entity.addPassenger(player);
-                player.sendMessage(player.getName() + "小鸟坐");
-                event.setCancelled(true);
+        Player player = event.getPlayer();
+        Entity entity = event.getRightClicked();
+        if (!player.isInsideVehicle() && player.getInventory().getItemInMainHand().getType() == Material.ARROW) {
+            //范围
+            double range = 1.0;
+            if (player.getLocation().distance(entity.getLocation()) - 1.0 > range) {
                 return;
             }
+            //player.setAllowFlight(true);
+            entity.addPassenger(player);
+            player.sendMessage(player.getName() + "小瑶瑶");
+            event.setCancelled(true);
         }
     }
 

@@ -1,13 +1,16 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.json.simple.JSONArray;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class TeleportDispose implements CommandExecutor {
@@ -27,7 +30,7 @@ public class TeleportDispose implements CommandExecutor {
             String SkyLoc;
             try {
                 SkyLoc = strings[0];
-                if ((strings.length == 2 && strings[1] != null && strings[1] != "") || SkyLoc.equalsIgnoreCase("p")) {
+                if ((strings.length == 2 && strings[1] != null && !strings[1].isEmpty()) || SkyLoc.equalsIgnoreCase("p")) {
                     Player tempPlayer = Bukkit.getPlayer(strings[1]);
                     SkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(tempPlayer.getUniqueId().toString());
                 }
@@ -57,8 +60,8 @@ public class TeleportDispose implements CommandExecutor {
                 Helper.tpSkyLoc(player, SkyLoc);
                 return true;
             }
-            if (SeclusionDispose.getSwi(SkyLoc)) {
-                player.sendMessage("这个岛的主人设置了禁止使用/goto传送");
+            if (SeclusionDispose.getSwi(SkyLoc) && strange(player.getUniqueId().toString(), SkyLoc)) {
+                player.sendMessage("这个岛的主人设置了禁止陌生人传送");
                 return true;
             }
             if (tempmap.get(UUID) != null) {
@@ -77,6 +80,33 @@ public class TeleportDispose implements CommandExecutor {
             return true;
         }
         return false;
+    }
+
+    public static boolean strange(String uuid, String SkyLoc) {
+        try {
+            JSONArray memList = IsLand.dateAdmin.getMembersList(SkyLoc);
+            JSONArray owenList = IsLand.dateAdmin.getOwnersList(SkyLoc);
+            if (memList != null) {
+                for (Object mem : memList) {
+                    String m = (String) mem;
+                    if (m.equals(uuid)) {
+                        return false;
+                    }
+                }
+            }
+            if (owenList != null) {
+                for (Object owen : owenList) {
+                    String o = (String) owen;
+                    if (o.equals(uuid)) {
+                        return false;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return true;
+        }
+        return true;
     }
 
 }

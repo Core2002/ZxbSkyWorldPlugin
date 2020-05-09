@@ -12,6 +12,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.*;
+import org.bukkit.projectiles.ProjectileSource;
 
 
 public class EntityDispose implements Listener {
@@ -63,7 +64,11 @@ public class EntityDispose implements Listener {
         } else {
             return;
         }
-        if ("Slimefun 指南".equals(event.getView().getTitle())) {
+        String title = event.getView().getTitle();
+        if ("Slimefun 指南".equals(title)) {
+            return;
+        }
+        if (title.contains("Slimefun") || title.contains("设置") || title.contains("設置") || title.contains("Settings") || title.contains("Searching")) {
             return;
         }
         if (!Helper.havePermission(player)) {
@@ -74,25 +79,37 @@ public class EntityDispose implements Listener {
 
     /**
      * 实体受伤时触发
-     * 保护动物不被没有权限的玩家伤害
+     * 保护非怪物不被没有权限的玩家伤害
      *
      * @param event
      */
     @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         Entity entity = event.getEntity();
-        if (entity instanceof Player) {
-            return;
-        }
-        if (event.getDamager() instanceof Player) {
-            Player player = (Player) event.getDamager();
-            if (entity instanceof LivingEntity) {
+        if (entity instanceof LivingEntity) {
+            if (event.getDamager() instanceof Player) {
+                Player player = (Player) event.getDamager();
                 Helper.showDamage(player, (LivingEntity) entity);
+                if (!(entity instanceof Monster) && !Helper.havePermission(player)) {
+                    player.sendMessage("你没权限伤害她！");
+                    event.setCancelled(true);
+                }
+            } else if (event.getDamager() instanceof Projectile) {
+                if (((Projectile) event.getDamager()).getShooter() instanceof Player) {
+                    Player player = (Player) ((Projectile) event.getDamager()).getShooter();
+                    if (player == null) {
+                        event.setCancelled(true);
+                        return;
+                    }
+                    Helper.showDamage(player, (LivingEntity) entity);
+                    if (!(entity instanceof Monster) && !Helper.havePermission(player)) {
+                        player.sendMessage("你没权限伤害她！");
+                        event.setCancelled(true);
+                    }
+                }
             }
-            if (!Helper.havePermission(player) && (entity instanceof Animals || entity instanceof AbstractVillager)) {
-                player.sendMessage("你没权限伤害他！");
-                event.setCancelled(true);
-            }
+
         }
     }
+
 }
