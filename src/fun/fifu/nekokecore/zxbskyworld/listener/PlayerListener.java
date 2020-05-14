@@ -1,6 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.listener;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.command.InfoDispose;
 import fun.fifu.nekokecore.zxbskyworld.command.SeclusionDispose;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.SoundPlayer;
@@ -23,7 +24,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.bukkit.util.io.BukkitObjectOutputStream;
-import org.json.simple.JSONObject;
 
 
 /**
@@ -168,12 +168,20 @@ public class PlayerListener implements Listener {
             for (Object obj : IsLand.dateAdmin.getOwnersList(SkyLoc)) {
                 String uuid = (String) obj;
                 if (UUID.equalsIgnoreCase(uuid)) {
+                    String info = InfoDispose.toRenHua(IsLand.dateAdmin.getOwnersList(SkyLoc)).toString();
+                    event.getPlayer().resetTitle();
+                    if (!info.contains("(UUID)"))
+                        event.getPlayer().sendTitle("§a传送成功", "§a主人:" + info, 10, 50, 20);
                     return;
                 }
             }
             for (Object obj : IsLand.dateAdmin.getMembersList(SkyLoc)) {
                 String uuid = (String) obj;
                 if (UUID.equalsIgnoreCase(uuid)) {
+                    String info = InfoDispose.toRenHua(IsLand.dateAdmin.getOwnersList(SkyLoc)).toString();
+                    event.getPlayer().resetTitle();
+                    if (!info.contains("(UUID)"))
+                        event.getPlayer().sendTitle("§a传送成功", "§a主人:" + info, 10, 50, 20);
                     return;
                 }
             }
@@ -188,6 +196,7 @@ public class PlayerListener implements Listener {
             event.getPlayer().resetTitle();
             event.getPlayer().sendTitle("§4传送失败", "§c该岛屿是隐居的", 10, 50, 20);
         }
+
     }
 
     /**

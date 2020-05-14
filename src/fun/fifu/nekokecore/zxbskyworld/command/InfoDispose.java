@@ -68,7 +68,7 @@ public class InfoDispose implements CommandExecutor {
         return false;
     }
 
-    public ArrayList<String> toRenHua(ArrayList<String> arrayList) {
+    public static ArrayList<String> toRenHua(ArrayList<String> arrayList) {
         ArrayList<String> renhua = new ArrayList<String>();
         for (String uuid : arrayList) {
             renhua.add(IsLand.dateAdmin.getUuidName(uuid));

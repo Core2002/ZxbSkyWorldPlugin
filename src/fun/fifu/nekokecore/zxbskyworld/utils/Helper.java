@@ -1,10 +1,13 @@
 package fun.fifu.nekokecore.zxbskyworld.utils;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.Main;
+import fun.fifu.nekokecore.zxbskyworld.item.Honey;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -198,23 +201,28 @@ public class Helper {
     }
 
     public static void showDamage(Player player, LivingEntity livingEntity) {
-        int i = (int) livingEntity.getHealth();
-        int j = (int) livingEntity.getAttribute(GENERIC_MAX_HEALTH).getValue();
-        String color = "§f";
-        double c = i / 1.0 / j;
-        if (c <= 1.0 && c >= 0.825) {
-            color = "§a";
-        } else if (c < 0.825 && c >= 0.66) {
-            color = "§2";
-        } else if (c < 0.66 && c >= 0.495) {
-            color = "§e";
-        } else if (c < 0.495 && c >= 0.33) {
-            color = "§6";
-        } else if (c < 0.33 && c >= 0.165) {
-            color = "§c";
-        } else if (c < 0.165) {
-            color = "§4";
-        }
-        player.sendTitle("", color + livingEntity.getName() + "->HP:" + i + "/" + j, 2, 20, 6);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                int i = (int) livingEntity.getHealth();
+                int j = (int) livingEntity.getAttribute(GENERIC_MAX_HEALTH).getValue();
+                String color = "§f";
+                double c = i / 1.0 / j;
+                if (c <= 1.0 && c >= 0.825) {
+                    color = "§a";
+                } else if (c < 0.825 && c >= 0.66) {
+                    color = "§2";
+                } else if (c < 0.66 && c >= 0.495) {
+                    color = "§e";
+                } else if (c < 0.495 && c >= 0.33) {
+                    color = "§6";
+                } else if (c < 0.33 && c >= 0.165) {
+                    color = "§c";
+                } else if (c < 0.165) {
+                    color = "§4";
+                }
+                player.sendTitle("", color + livingEntity.getName() + "->HP:" + i + "/" + j, 2, 20, 6);
+            }
+        }.runTaskLater(Main.plugin, 1);
     }
 }

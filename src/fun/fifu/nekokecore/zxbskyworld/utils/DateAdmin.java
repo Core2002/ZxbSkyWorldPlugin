@@ -86,7 +86,7 @@ public class DateAdmin {
             String name = Object.get("name").toString();
             return name;
         } else {
-            return uuid + "(这真的不是小白的问题，真的不是)";
+            return uuid + "(UUID)";
         }
     }
 

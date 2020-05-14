@@ -90,7 +90,7 @@ public class EntityDispose implements Listener {
             if (event.getDamager() instanceof Player) {
                 Player player = (Player) event.getDamager();
                 Helper.showDamage(player, (LivingEntity) entity);
-                if (!(entity instanceof Monster) && !Helper.havePermission(player)) {
+                if (!(entity instanceof Monster) && !Helper.havePermission(player) && !Helper.inSpawn(Helper.toSkyLoc(entity.getLocation()))) {
                     player.sendMessage("你没权限伤害她！");
                     event.setCancelled(true);
                 }
@@ -102,7 +102,7 @@ public class EntityDispose implements Listener {
                         return;
                     }
                     Helper.showDamage(player, (LivingEntity) entity);
-                    if (!(entity instanceof Monster) && !Helper.havePermission(player)) {
+                    if (!(entity instanceof Monster) && !Helper.havePermission(player) && !Helper.inSpawn(Helper.toSkyLoc(entity.getLocation()))) {
                         player.sendMessage("你没权限伤害她！");
                         event.setCancelled(true);
                     }
