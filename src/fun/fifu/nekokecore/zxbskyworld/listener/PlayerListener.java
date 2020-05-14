@@ -171,10 +171,6 @@ public class PlayerListener implements Listener {
                     return;
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
             for (Object obj : IsLand.dateAdmin.getMembersList(SkyLoc)) {
                 String uuid = (String) obj;
                 if (UUID.equalsIgnoreCase(uuid)) {
@@ -182,7 +178,10 @@ public class PlayerListener implements Listener {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            event.getPlayer().resetTitle();
+            event.getPlayer().sendTitle("§a传送成功", "§a该岛屿是无人认领的", 10, 50, 20);
+            return;
         }
         if (SeclusionDispose.getSwi(SkyLoc)) {
             event.setCancelled(true);
