@@ -30,6 +30,7 @@ public class GiveupDispose implements CommandExecutor {
                     String DefSkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(uuid);
                     try {
                         IsLand.dateAdmin.saveOwnerslist(new JSONArray(), DefSkyLoc);
+                        IsLand.dateAdmin.saveDefaultSkyLoc(uuid,"REMOVE");
                     } catch (IOException e) {
                         long time = System.nanoTime();
                         player.sendMessage("操作过程貌似出错了，如果有问题，请拿着下面这串数字找服务器管理员" + time);

@@ -35,15 +35,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了exple命令不能正常使用的bug">
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了没有权限的条件下可以杀非怪物的bug、弓箭射杀动物的bug、打玩家血量不显示的bug、跑到别人家攻击玩家的bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/ChairStairsListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588457343728</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="修复了没有权限的条件下可以杀非怪物的bug、弓箭射杀动物的bug、打玩家血量不显示的bug、跑到别人家攻击玩家的bug">
+      <created>1589040323838</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1589040323839</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -388,7 +388,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="加入了小鸟坐：空手+潜行+右键" />
     <MESSAGE value="(修复了bug)加入了小鸟坐：空手+潜行+右键" />
     <MESSAGE value="修复了bug，wdnmd可以正常使用了" />
     <MESSAGE value="修复了bug,现在ip记录功能正常了" />
@@ -413,7 +412,8 @@
     <MESSAGE value="修复了两处小bug" />
     <MESSAGE value="现在喝蜂蜜可以短暂飞行了" />
     <MESSAGE value="修复了exple命令不能正常使用的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复了exple命令不能正常使用的bug" />
+    <MESSAGE value="修复了没有权限的条件下可以杀非怪物的bug、弓箭射杀动物的bug、打玩家血量不显示的bug、跑到别人家攻击玩家的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复了没有权限的条件下可以杀非怪物的bug、弓箭射杀动物的bug、打玩家血量不显示的bug、跑到别人家攻击玩家的bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="804" y="241" key="#Custom_Plugin_Repositories" timestamp="1587135772727">
@@ -484,10 +484,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="711" y="220" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1588951389550" />
-    <state x="554" y="430" width="816" height="552" key="Vcs.Push.Dialog.v2" timestamp="1588457490625">
+    <state x="554" y="430" width="816" height="552" key="Vcs.Push.Dialog.v2" timestamp="1589040392961">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="554" y="430" width="816" height="552" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1588457490625" />
+    <state x="554" y="430" width="816" height="552" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1589040392961" />
     <state x="664" y="142" width="653" height="795" key="find.popup" timestamp="1589032480217">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

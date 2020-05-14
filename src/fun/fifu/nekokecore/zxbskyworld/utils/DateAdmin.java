@@ -370,6 +370,9 @@ public class DateAdmin {
     public void saveDefaultSkyLoc(String uuid, String SkyLoc) {
         JSONObject jsonObject = getIndexInfos();
         jsonObject.put(uuid, SkyLoc);
+        if (SkyLoc.equals("REMOVE")){
+            jsonObject.remove(uuid);
+        }
         try {
             IOTools.writeJsonFile(jsonObject, indexInfosPATH);
         } catch (IOException e) {
