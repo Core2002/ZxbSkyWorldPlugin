@@ -52,6 +52,13 @@ public class PlayerListener implements Listener {
         Helper.goSpawn(player);
         player.sendMessage(player.getName() + "欢迎来到主城!");
         new SoundPlayer().playCat(player);
+        //获取UUID
+        String UUID = player.getUniqueId().toString();
+        String SkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(UUID);
+        //如果玩家没有岛屿，给他显示帮助
+        if (SkyLoc == null) {
+            player.sendTitle("§a欢迎" + player.getDisplayName(), "§a使用/s以开始你的空岛生涯", 10, 20 * 60 * 60 * 24, 20);
+        }
     }
 
     /**
