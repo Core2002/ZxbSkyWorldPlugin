@@ -35,13 +35,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了站在船上、活塞飞行器上不停触发传送提示的bug">
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="加入了重生点保护">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/Helper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/Helper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/Helper.java" afterDir="false" />
     </list>
@@ -351,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590290468034</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="加入了重生点保护">
+      <created>1590293891917</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1590293891917</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -430,7 +435,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="现在拿着箭对着任何一个实体都可以骑上去了" />
     <MESSAGE value="加入了在主城死亡的提示。" />
     <MESSAGE value="集成了钟小白游戏插件" />
     <MESSAGE value="集成了钟小白挖石出矿插件" />
@@ -455,7 +459,8 @@
     <MESSAGE value="修复了血量显示功能显示的是造成伤害前的血量的 bug，并且对代码做了一些调整" />
     <MESSAGE value="20200516" />
     <MESSAGE value="修复了站在船上、活塞飞行器上不停触发传送提示的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复了站在船上、活塞飞行器上不停触发传送提示的bug" />
+    <MESSAGE value="加入了重生点保护" />
+    <option name="LAST_COMMIT_MESSAGE" value="加入了重生点保护" />
   </component>
   <component name="WindowStateProjectService">
     <state x="804" y="241" key="#Custom_Plugin_Repositories" timestamp="1587135772727">
@@ -526,10 +531,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="478" y="123" width="1118" height="852" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1589568802007" />
-    <state x="554" y="430" width="816" height="552" key="Vcs.Push.Dialog.v2" timestamp="1590290499154">
+    <state x="554" y="430" width="816" height="552" key="Vcs.Push.Dialog.v2" timestamp="1590293893996">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="554" y="430" width="816" height="552" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1590290499154" />
+    <state x="554" y="430" width="816" height="552" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1590293893996" />
     <state x="664" y="142" width="653" height="795" key="find.popup" timestamp="1589032480217">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

@@ -239,6 +239,6 @@ public class Helper {
 
         l = Math.sqrt((x - x1) * (x - x1) + (y - y1) * (y - y1) + (z - z1) * (z - z1));
 
-        return l < 3;
+        return l < 4;
     }
 }

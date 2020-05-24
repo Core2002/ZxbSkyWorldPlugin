@@ -12,7 +12,6 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.*;
-import org.bukkit.projectiles.ProjectileSource;
 
 
 public class EntityDispose implements Listener {
@@ -25,8 +24,7 @@ public class EntityDispose implements Listener {
     public void onCreatureSpawn(CreatureSpawnEvent creatureSpawnEvent) {
         int xx = (int) creatureSpawnEvent.getLocation().getX();
         int zz = (int) creatureSpawnEvent.getLocation().getZ();
-        if (Helper.inSkyWrold(xx, zz, DateAdmin.spawnSkyLoc)) {
-            //Main.plugin.getLogger().info("事件:当一个生物体在世界中出生时触发:其坐标xx:" + xx + "，zz：" + zz + "已拦截！");
+        if (Helper.inSkyWrold(xx, zz, DateAdmin.spawnSkyLoc) && (creatureSpawnEvent.getEntity() instanceof Monster)) {
             creatureSpawnEvent.setCancelled(true);
         }
 
