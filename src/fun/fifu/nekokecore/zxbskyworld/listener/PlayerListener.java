@@ -57,7 +57,7 @@ public class PlayerListener implements Listener {
         String SkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(UUID);
         //如果玩家没有岛屿，给他显示帮助
         if (SkyLoc == null) {
-            player.sendTitle("§a欢迎" + player.getDisplayName(), "§a使用/s以开始你的空岛生涯", 10, 20 * 60 * 60 * 24, 20);
+            player.sendTitle("§a欢迎新人owo" + player.getDisplayName(), "§a使用/s以开始你的空岛生涯", 10, 20 * 60 * 60 * 24, 20);
         }
     }
 
@@ -168,9 +168,20 @@ public class PlayerListener implements Listener {
      */
     @EventHandler
     public void onTP(PlayerTeleportEvent event) {
-        //如果岛屿是隐居的，则玩家无法传送过去
-        String SkyLoc = Helper.toSkyLoc(event.getTo());
+        Location from = event.getFrom();
+        Location to = event.getTo();
+        int fx = from.getBlockX();
+        int fz = from.getBlockZ();
+        int tx = to.getBlockX();
+        int tz = to.getBlockZ();
+
+        String SkyLoc = Helper.toSkyLoc(to);
         String UUID = event.getPlayer().getUniqueId().toString();
+
+        //如果传送距离低于16格，忽略
+        if (Math.sqrt((fx - tx) * (fx - tx) + (fz - tz) * (fz - tz)) < 16)
+            return;
+        //如果是主人或者是成员，则可以传送
         try {
             for (Object obj : IsLand.dateAdmin.getOwnersList(SkyLoc)) {
                 String uuid = (String) obj;
@@ -198,12 +209,12 @@ public class PlayerListener implements Listener {
             event.getPlayer().sendTitle("§a传送成功", "§a该岛屿是无人认领的", 10, 50, 20);
             return;
         }
+        //如果岛屿是隐居的，则玩家无法传送过去
         if (SeclusionDispose.getSwi(SkyLoc)) {
             event.setCancelled(true);
             event.getPlayer().resetTitle();
             event.getPlayer().sendTitle("§4传送失败", "§c该岛屿是隐居的", 10, 50, 20);
         }
-
     }
 
     /**
