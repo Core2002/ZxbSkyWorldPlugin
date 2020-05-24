@@ -35,11 +35,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了血量显示功能显示的是造成伤害前的血量的 bug，并且对代码做了一些调整">
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了站在船上、活塞飞行器上不停触发传送提示的bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/Helper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/Helper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/Helper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -340,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589608578259</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="修复了站在船上、活塞飞行器上不停触发传送提示的bug">
+      <created>1590290468034</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1590290468034</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -419,7 +430,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="加入了/give &lt;危险操作保险码&gt;来清空岛屿[框架已完成，还差具体实现]" />
     <MESSAGE value="现在拿着箭对着任何一个实体都可以骑上去了" />
     <MESSAGE value="加入了在主城死亡的提示。" />
     <MESSAGE value="集成了钟小白游戏插件" />
@@ -444,7 +454,8 @@
     <MESSAGE value="修复了玩家传送到无人认领的岛后，抛出空指针异常的bug" />
     <MESSAGE value="修复了血量显示功能显示的是造成伤害前的血量的 bug，并且对代码做了一些调整" />
     <MESSAGE value="20200516" />
-    <option name="LAST_COMMIT_MESSAGE" value="20200516" />
+    <MESSAGE value="修复了站在船上、活塞飞行器上不停触发传送提示的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复了站在船上、活塞飞行器上不停触发传送提示的bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="804" y="241" key="#Custom_Plugin_Repositories" timestamp="1587135772727">
@@ -515,10 +526,10 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="478" y="123" width="1118" height="852" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1589568802007" />
-    <state x="554" y="430" width="816" height="552" key="Vcs.Push.Dialog.v2" timestamp="1589608596927">
+    <state x="554" y="430" width="816" height="552" key="Vcs.Push.Dialog.v2" timestamp="1590290499154">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="554" y="430" width="816" height="552" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1589608596927" />
+    <state x="554" y="430" width="816" height="552" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1590290499154" />
     <state x="664" y="142" width="653" height="795" key="find.popup" timestamp="1589032480217">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

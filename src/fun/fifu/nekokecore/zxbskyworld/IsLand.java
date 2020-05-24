@@ -19,7 +19,6 @@ import java.util.*;
  */
 public class IsLand extends BaseIsLand {
     public static DateAdmin dateAdmin;
-
     public static void main(String[] args) {
        List aaa=new ArrayList();
        aaa.add("qwer");

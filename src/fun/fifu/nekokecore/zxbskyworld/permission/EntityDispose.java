@@ -85,6 +85,10 @@ public class EntityDispose implements Listener {
      */
     @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
+        if (Helper.hasSpawnProtection(event.getEntity().getLocation())) {
+            event.setCancelled(true);
+            return;
+        }
         Entity entity = event.getEntity();
         if (entity instanceof LivingEntity) {
             if (event.getDamager() instanceof Player) {

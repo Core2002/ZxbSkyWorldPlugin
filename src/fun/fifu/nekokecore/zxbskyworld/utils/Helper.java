@@ -134,7 +134,7 @@ public class Helper {
 
     public static boolean havePermission(Player player) {
         String UUID = player.getUniqueId().toString();
-        if (noP.contains(UUID)){
+        if (noP.contains(UUID)) {
             return noP(UUID);
         }
         Location location = player.getLocation();
@@ -171,10 +171,10 @@ public class Helper {
         return noP(UUID);
     }
 
-    public static boolean noP(String uuid){
-        if (!noP.contains(uuid)){
+    public static boolean noP(String uuid) {
+        if (!noP.contains(uuid)) {
             noP.add(uuid);
-            new Thread(()->{
+            new Thread(() -> {
                 try {
                     Thread.sleep(5000);
                 } catch (InterruptedException e) {
@@ -224,5 +224,21 @@ public class Helper {
                 player.sendTitle("", color + livingEntity.getName() + "->HP:" + i + "/" + j, 2, 20, 6);
             }
         }.runTaskLater(Main.plugin, 1);
+    }
+
+    public static boolean hasSpawnProtection(Location l1) {
+        double l;
+
+        int x = l1.getBlockX();
+        int y = l1.getBlockY();
+        int z = l1.getBlockZ();
+
+        int x1 = Integer.parseInt((String) DateAdmin.util_jsonObject.get("spawn_xx"));
+        int y1 = Integer.parseInt((String) DateAdmin.util_jsonObject.get("spawn_yy"));
+        int z1 = Integer.parseInt((String) DateAdmin.util_jsonObject.get("spawn_zz"));
+
+        l = Math.sqrt((x - x1) * (x - x1) + (y - y1) * (y - y1) + (z - z1) * (z - z1));
+
+        return l < 3;
     }
 }
