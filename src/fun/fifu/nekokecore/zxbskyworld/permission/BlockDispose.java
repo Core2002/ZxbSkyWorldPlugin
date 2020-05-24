@@ -34,9 +34,7 @@ public class BlockDispose implements Listener {
      */
     @EventHandler
     public void onBlockBurn(BlockBurnEvent event) {
-        int xx = (int) event.getBlock().getLocation().getX();
-        int zz = (int) event.getBlock().getLocation().getZ();
-        if (Helper.inSpawn(xx, zz)) {
+        if (event.getBlock().getLocation().getWorld().getName().equals("world")) {
             event.setCancelled(true);
         }
     }
@@ -107,6 +105,10 @@ public class BlockDispose implements Listener {
      */
     @EventHandler
     public void onBlockIgnite(BlockIgniteEvent event) {
+        if (event.getBlock().getLocation().getWorld().getName().equals("world") && event.getCause() != BlockIgniteEvent.IgniteCause.FLINT_AND_STEEL) {
+            event.setCancelled(true);
+            return;
+        }
         if (event.getPlayer() != null && event.getPlayer().isOp()) {
             return;
         }

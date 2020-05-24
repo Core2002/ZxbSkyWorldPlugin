@@ -23,6 +23,7 @@ public class TestDispose implements CommandExecutor {
 
             player.getInventory().setChestplate(Lcarus.build());
 
+            System.out.println(player.getLocation().getWorld().getName());
             return true;
         }
         return false;
