@@ -1,6 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.item.Lcarus;
+import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,7 +17,7 @@ public class TestDispose implements CommandExecutor {
             }
             Player player = (Player) commandSender;
             String uuid = player.getUniqueId().toString();
-            if (!"3e79580d-cfdb-4b80-999c-99bc2740d194".equals(uuid)) {
+            if (!DynamicEternalMap.zxb.equals(uuid)) {
                 player.sendMessage("只有小白才可以用哦");
                 return true;
             }

@@ -53,8 +53,6 @@ public class GiveupDispose implements CommandExecutor {
             player.sendMessage("若要继续，请输入：/giveup " + nanoTime);
             return true;
         }
-
-
         return false;
     }
 }

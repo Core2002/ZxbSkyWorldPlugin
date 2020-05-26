@@ -3,6 +3,8 @@ package fun.fifu.nekokecore.zxbskyworld.listener;
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.command.InfoDispose;
 import fun.fifu.nekokecore.zxbskyworld.command.SeclusionDispose;
+import fun.fifu.nekokecore.zxbskyworld.command.ShareDispose;
+import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.SoundPlayer;
 import org.bukkit.*;
@@ -146,7 +148,7 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onSwapHand(PlayerSwapHandItemsEvent event) {
         Player player = event.getPlayer();
-        if (event.getOffHandItem().getType().equals(Material.BUCKET) && player.isSneaking()) {
+        if (event.getOffHandItem() != null && event.getOffHandItem().getType().equals(Material.BUCKET) && player.isSneaking()) {
             if (Helper.havePermission(player)) {
                 Location l = player.getLocation();
                 Location location = new Location(player.getWorld(), l.getBlockX(), l.getBlockY() - 1, l.getBlockZ());
@@ -182,31 +184,19 @@ public class PlayerListener implements Listener {
         if (Math.sqrt((fx - tx) * (fx - tx) + (fz - tz) * (fz - tz)) < 16)
             return;
         //如果是主人或者是成员，则可以传送
+        String owner;
+        event.getPlayer().resetTitle();
         try {
-            for (Object obj : IsLand.dateAdmin.getOwnersList(SkyLoc)) {
-                String uuid = (String) obj;
-                if (UUID.equalsIgnoreCase(uuid)) {
-                    String info = InfoDispose.toRenHua(IsLand.dateAdmin.getOwnersList(SkyLoc)).toString();
-                    event.getPlayer().resetTitle();
-                    if (!info.contains("(UUID)"))
-                        event.getPlayer().sendTitle("§a传送成功", "§a主人:" + info, 10, 50, 20);
-                    return;
-                }
-            }
-            for (Object obj : IsLand.dateAdmin.getMembersList(SkyLoc)) {
-                String uuid = (String) obj;
-                if (UUID.equalsIgnoreCase(uuid)) {
-                    String info = InfoDispose.toRenHua(IsLand.dateAdmin.getOwnersList(SkyLoc)).toString();
-                    event.getPlayer().resetTitle();
-                    if (!info.contains("(UUID)"))
-                        event.getPlayer().sendTitle("§a传送成功", "§a主人:" + info, 10, 50, 20);
-                    return;
-                }
-            }
+            owner = InfoDispose.toRenHua(IsLand.dateAdmin.getOwnersList(SkyLoc)).toString();
         } catch (IOException e) {
-            //e.printStackTrace();
-            event.getPlayer().resetTitle();
             event.getPlayer().sendTitle("§a传送成功", "§a该岛屿是无人认领的", 10, 50, 20);
+            return;
+        }
+        if (ShareDispose.isOwner(UUID, SkyLoc)) {
+            event.getPlayer().sendTitle("§a传送成功", "§a主人:" + owner, 10, 50, 20);
+            return;
+        } else if (ShareDispose.isRepetition(UUID, SkyLoc)) {
+            event.getPlayer().sendTitle("§a传送成功", "§a主人:" + owner, 10, 50, 20);
             return;
         }
         //如果岛屿是隐居的，则玩家无法传送过去
@@ -254,11 +244,11 @@ public class PlayerListener implements Listener {
      */
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
-        if (event.hasBlock()) {
+        if (event.hasBlock() && event.getClickedBlock() != null) {
             //event.getPlayer().sendMessage("debug1:hasBlock");
             if (event.getClickedBlock().getState() instanceof Sign) {
                 Sign sign = (Sign) event.getClickedBlock().getState();
-                String lines[] = sign.getLines();
+                String[] lines = sign.getLines();
                 if (lines[0].equalsIgnoreCase("[命令]")) {
                     event.getPlayer().chat(lines[1]);
                 }

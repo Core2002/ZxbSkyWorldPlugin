@@ -1,16 +1,11 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
-import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
-import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -80,43 +75,25 @@ public class ExpleDispose implements CommandExecutor, Runnable {
             Player explePlayer = Main.plugin.getServer().getPlayer(explePlayerName);
             String expleUUID = explePlayer.getUniqueId().toString();
             if (explePlayer.isOnline()) {
-                Location loc = explePlayer.getLocation();
-                int xx = loc.getBlockX();
-                int zz = loc.getBlockZ();
-                ArrayList<String> arrayList = null;
-                try {
-                    //踢人玩家当前岛的所有的所有者
-                    arrayList = IsLand.dateAdmin.getOwnersList(Helper.toSkyLoc(player.getLocation()));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    player.sendMessage("操作失败，请重试，若有疑问，请联系服务器管理员");
+                //命令发送者和被踢出者在同一个岛屿
+                String SkyLoc = Helper.toSkyLoc(explePlayer.getLocation());
+                if (ShareDispose.isOwner(player.getUniqueId().toString(), Helper.toSkyLoc(player.getLocation())) && SkyLoc.equals(Helper.toSkyLoc(player.getLocation()))) {
+                    HashMap<String, Integer> temp = new HashMap<String, Integer>();
+                    SkyLoc = Helper.simplify(SkyLoc);
+                    temp.put(SkyLoc, 1000);
+                    ExpleDispose.map.put(expleUUID, temp);
+                    int time = ExpleDispose.map.get(expleUUID).get(SkyLoc);
+                    if (explePlayer.isOnline()) {
+                        explePlayer.sendMessage("你被玩家" + PlayerName + "踢出了他的岛," + time + "秒后解除。");
+                    }
+                    if (player.isOnline()) {
+                        player.sendMessage("你踢出了玩家" + PlayerName + "," + time + "秒后解除。");
+                    }
+                    Helper.goSpawn(explePlayer);
                     return true;
                 }
-                for (String owneruuid : arrayList) {
-                    //命令发送者是该岛屿的主人
-                    if (player.getUniqueId().toString().equalsIgnoreCase(owneruuid)) {
-                        //命令发送者和被踢出者在同一个岛屿
-                        String SkyLoc = Helper.toSkyLoc(explePlayer.getLocation());
-                        if (SkyLoc.equals(Helper.toSkyLoc(player.getLocation()))) {
-                            HashMap<String, Integer> temp = new HashMap<String, Integer>();
-                            SkyLoc = Helper.simplify(SkyLoc);
-                            temp.put(SkyLoc, 1000);
-                            ExpleDispose.map.put(expleUUID, temp);
-                            int time = ExpleDispose.map.get(expleUUID).get(SkyLoc);
-                            if (explePlayer.isOnline()) {
-                                explePlayer.sendMessage("你被玩家" + PlayerName + "踢出了他的岛," + time + "秒后解除。");
-                            }
-                            if (player.isOnline()) {
-                                player.sendMessage("你踢出了玩家" + PlayerName + "," + time + "秒后解除。");
-                            }
-                            Helper.goSpawn(explePlayer);
-                            return true;
-                        }
-                        player.sendMessage("该玩家和你不在同一个岛上");
-                        return true;
-                    }
-                }
-                player.sendMessage("你不是该岛屿的主人");
+                player.sendMessage("该玩家和你不在同一个岛上，或你不是该岛屿的主人");
+                return true;
             }
             return true;
         }

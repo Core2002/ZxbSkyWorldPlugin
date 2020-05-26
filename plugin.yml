@@ -54,3 +54,6 @@ commands:
     test:
         description: "调试用命令"
         usage: /test
+    authority-elevation:
+        description: "提权"
+        usage: /authority-elevation

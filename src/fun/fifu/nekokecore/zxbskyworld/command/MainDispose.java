@@ -40,7 +40,7 @@ public class MainDispose implements CommandExecutor {
                 }
                 return true;
             }
-            if (strings != null & strings.length >= 1 && strings[0].equalsIgnoreCase("h")) {
+            if (strings != null && strings.length >= 1 && strings[0].equalsIgnoreCase("h")) {
                 player.teleport(IsLand.dateAdmin.getPlayerHomeLocation(UUID));
                 player.sendMessage(player.getName() + "欢迎回家!  " + Helper.toSkyLoc(player.getLocation()));
                 new SoundPlayer().playCat(player);

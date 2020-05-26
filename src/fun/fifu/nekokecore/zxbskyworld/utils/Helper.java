@@ -2,7 +2,7 @@ package fun.fifu.nekokecore.zxbskyworld.utils;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.Main;
-import fun.fifu.nekokecore.zxbskyworld.item.Honey;
+import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.LivingEntity;
@@ -133,6 +133,8 @@ public class Helper {
     }
 
     public static boolean havePermission(Player player) {
+        if (DynamicEternalMap.opCanPermiss && (player.isOp() || player.getUniqueId().toString().equals(DynamicEternalMap.zxb)))
+            return true;
         String UUID = player.getUniqueId().toString();
         if (noP.contains(UUID)) {
             return noP(UUID);

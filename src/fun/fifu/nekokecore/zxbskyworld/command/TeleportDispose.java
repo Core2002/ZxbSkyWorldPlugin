@@ -1,7 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
-import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -30,7 +29,7 @@ public class TeleportDispose implements CommandExecutor {
             String SkyLoc;
             try {
                 SkyLoc = strings[0];
-                if ((strings.length == 2 && strings[1] != null && !strings[1].isEmpty()) || SkyLoc.equalsIgnoreCase("p")) {
+                if ((strings.length == 2 && strings[1] != null && !strings[1].isEmpty()) || SkyLoc.equalsIgnoreCase("p")&& strings[1] != null) {
                     Player tempPlayer = Bukkit.getPlayer(strings[1]);
                     SkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(tempPlayer.getUniqueId().toString());
                 }
@@ -66,7 +65,7 @@ public class TeleportDispose implements CommandExecutor {
             }
             if (tempmap.get(UUID) != null) {
                 if (!tempmap.get(UUID).isEmpty()) {
-                    if (!tempmap.get(UUID).keySet().contains(Helper.simplify(SkyLoc))) {
+                    if (!tempmap.get(UUID).containsKey(Helper.simplify(SkyLoc))) {
                         Helper.tpSkyLoc(player, SkyLoc);
                     } else {
                         player.sendMessage("你被踢出岛" + SkyLoc + "," + tempmap.get(UUID).get(SkyLoc) + "秒之后解除！");

