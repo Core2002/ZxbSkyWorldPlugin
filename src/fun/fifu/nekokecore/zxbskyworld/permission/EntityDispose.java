@@ -43,6 +43,7 @@ public class EntityDispose implements Listener {
             return;
         }
         explodeEvent.blockList().clear();
+        explodeEvent.setCancelled(true);
     }
 
     /**
@@ -66,7 +67,7 @@ public class EntityDispose implements Listener {
         if ("Slimefun 指南".equals(title)) {
             return;
         }
-        if (title.contains("Slimefun") || title.contains("设置") || title.contains("設置") || title.contains("Settings") || title.contains("Searching")) {
+        if (title.contains("Slimefun") || title.contains("设置") || title.contains("設置") || title.contains("Settings") || title.contains("Searching") ||title.contains("搜索")) {
             return;
         }
         if (!Helper.havePermission(player)) {
@@ -89,20 +90,14 @@ public class EntityDispose implements Listener {
         }
         Entity entity = event.getEntity();
         if (entity instanceof LivingEntity) {
-            if (event.getDamager() instanceof Player) {
-                Player player = (Player) event.getDamager();
+            if (event.getDamager() instanceof Player player) {
                 Helper.showDamage(player, (LivingEntity) entity);
                 if (!(entity instanceof Monster) && !Helper.havePermission(player) && !Helper.inSpawn(Helper.toSkyLoc(entity.getLocation()))) {
                     player.sendMessage("你没权限伤害她！");
                     event.setCancelled(true);
                 }
             } else if (event.getDamager() instanceof Projectile) {
-                if (((Projectile) event.getDamager()).getShooter() instanceof Player) {
-                    Player player = (Player) ((Projectile) event.getDamager()).getShooter();
-                    if (player == null) {
-                        event.setCancelled(true);
-                        return;
-                    }
+                if (((Projectile) event.getDamager()).getShooter() instanceof Player player) {
                     Helper.showDamage(player, (LivingEntity) entity);
                     if (!(entity instanceof Monster) && !Helper.havePermission(player) && !Helper.inSpawn(Helper.toSkyLoc(entity.getLocation()))) {
                         player.sendMessage("你没权限伤害她！");

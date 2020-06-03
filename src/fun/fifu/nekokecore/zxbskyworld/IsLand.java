@@ -1,5 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld;
 
+import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import fun.fifu.nekokecore.zxbskyworld.utils.DateAdmin;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Bukkit;
@@ -19,35 +20,45 @@ import java.util.*;
  */
 public class IsLand extends BaseIsLand {
     public static DateAdmin dateAdmin;
+
     public static void main(String[] args) {
-       List aaa=new ArrayList();
-       aaa.add("qwer");
+        List aaa = new ArrayList();
+        aaa.add("qwer");
         System.out.println(aaa.contains("qwer"));
 
     }
 
-    public IsLand(String uuid) throws IOException{
+    public IsLand(String uuid) throws IOException {
         String SkyLoc = allocationIsLand(dateAdmin.getAllSkyLoc());
         buildSkyLoc(uuid, SkyLoc);
         Helper.tpSkyLoc(Bukkit.getPlayer(UUID.fromString(uuid)), dateAdmin.getDefaultSkyLoc(uuid));
     }
 
     public static void buildSkyLoc(String uuid, String SkyLoc) throws IOException {
-        int xxx = getrrForm(getSkyX(SkyLoc)) + 511 - 3;
-        int zzz = getrrForm(getSkyY(SkyLoc)) + 511 - 1;
-        World world = Bukkit.getWorld("world");
+        int xxx = getrrForm(getSkyX(SkyLoc)) + DynamicEternalMap.base_side / 2 + DynamicEternalMap.base_xx;
+        int yyy = 64 + DynamicEternalMap.base_yy;
+        int zzz = getrrForm(getSkyY(SkyLoc)) + DynamicEternalMap.base_side / 2 + DynamicEternalMap.base_zz;
+        World world = Bukkit.getWorld(DynamicEternalMap.base_sky_world);
         //生成执行命令
-        String Command = "clone 508 60 510 515 69 516 " + xxx + " " + (64 - 4) + " " + zzz;
+        String Command = DynamicEternalMap.base_build_sky_command.replace("${xxx}", xxx + "");
+        Command = Command.replace("${yyy}", yyy + "");
+        Command = Command.replace("${zzz}", zzz + "");
+        Command = Command.replace("${base_x1}", DynamicEternalMap.base_x1 + "");
+        Command = Command.replace("${base_y1}", DynamicEternalMap.base_y1 + "");
+        Command = Command.replace("${base_z1}", DynamicEternalMap.base_z1 + "");
+        Command = Command.replace("${base_x2}", DynamicEternalMap.base_x2 + "");
+        Command = Command.replace("${base_y2}", DynamicEternalMap.base_y2 + "");
+        Command = Command.replace("${base_z2}", DynamicEternalMap.base_z2 + "");
         //那个区块如果不存在，就自动生成
-        Main.logger.info("chunk.load:" + Objects.requireNonNull(world).getChunkAt(new Location(world, xxx, 64, zzz)).load(true));
-        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, 64, zzz)).load(true));
-        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx - 16, 64, zzz)).load(true));
-        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx, 64, zzz + 16)).load(true));
-        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx, 64, zzz - 16)).load(true));
-        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, 64, zzz + 16)).load(true));
-        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx - 16, 64, zzz - 16)).load(true));
-        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, 64, zzz + 16)).load(true));
-        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx - 16, 64, zzz - 16)).load(true));
+        Main.logger.info("chunk.load:" + Objects.requireNonNull(world).getChunkAt(new Location(world, xxx, yyy, zzz)).load(true));
+        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, yyy, zzz)).load(true));
+        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx - 16, yyy, zzz)).load(true));
+        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx, yyy, zzz + 16)).load(true));
+        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx, yyy, zzz - 16)).load(true));
+        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, yyy, zzz + 16)).load(true));
+        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx - 16, yyy, zzz - 16)).load(true));
+        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, yyy, zzz + 16)).load(true));
+        Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx - 16, yyy, zzz - 16)).load(true));
 
         Main.logger.info("chunk0.load:" + world.getChunkAt(new Location(world, 511, 64, 511)).load(true));
         Main.logger.info("chunk0.load:" + world.getChunkAt(new Location(world, 511 + 16, 64, 511)).load(true));
@@ -59,9 +70,10 @@ public class IsLand extends BaseIsLand {
         Main.logger.info("chunk0.load:" + world.getChunkAt(new Location(world, 511 + 16, 64, 511 + 16)).load(true));
         Main.logger.info("chunk0.load:" + world.getChunkAt(new Location(world, 511 - 16, 64, 511 - 16)).load(true));
         //开始拷贝初始空岛
+        String finalCommand = Command;
         Bukkit.getScheduler().runTask(Main.plugin, () -> {
-            Main.logger.info("开始拷贝初始空岛:" + Command);
-            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), Command);
+            Main.logger.info("开始拷贝初始空岛:" + finalCommand);
+            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), finalCommand);
         });
         JSONObject jsonObject = null;
         try {

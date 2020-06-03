@@ -26,7 +26,16 @@ public class DateAdmin {
     static final String playerInfoPATH = "./plugins/ZxbSkyWorld/playerInfo.json";
     public static JSONObject util_jsonObject = null;
     public static String spawnSkyLoc = "(0,0)";
-    public static String defaultJsonStr = "{\"Owners\":[],\"Members\":[],\"Others\":{}}";
+    public static String defaultJsonStr = """
+            {
+                "Owners":[],
+                "Members":[],
+                "Others":{}
+            }
+            """;
+
+    static final String baseConfigPATH = "./plugins/ZxbSkyWorld/base_config.json";
+    public static JSONObject base_jsonObject = null;
     //数据缓冲机制
     public static HashMap<String, JSONArray> OwnerMap = new HashMap<>();
     public static HashMap<String, JSONArray> MemberMap = new HashMap<>();
@@ -34,7 +43,16 @@ public class DateAdmin {
 
     public DateAdmin() {
         try {
-            String util_initStr = "{\"spawn_world\":\"world\",\"spawn_xx\":\"359\",\"spawn_yy\":\"109\",\"spawn_zz\":\"295\",\"spawn_yaw\":\"180\",\"spawn_pitch\":\"0\"}";
+            String util_initStr = """
+                    {
+                        "spawn_world":"world",
+                        "spawn_xx":"359",
+                        "spawn_yy":"109",
+                        "spawn_zz":"295",
+                        "spawn_yaw":"180",
+                        "spawn_pitch":"0"
+                    }
+                    """;
             util_jsonObject = initJson(utilConfigPATH, util_initStr);
             spawnSkyLoc = Helper.toSkyLoc(Integer.parseInt(Objects.requireNonNull(util_jsonObject).get("spawn_xx").toString()), Integer.parseInt(util_jsonObject.get("spawn_yy").toString()));
             spawnSkyLoc = Helper.simplify(spawnSkyLoc);
@@ -43,6 +61,28 @@ public class DateAdmin {
             initJson(datePATH + spawnSkyLoc + ".json", defaultJsonStr);
             initJson(playerHomeInfoPATH, "{}");
             initJson(playerInfoPATH, "{}");
+            String base_initStr = """
+                    {
+                        "base_sky_world":"world",
+                        "base_super_op_uuid":"3e79580d-cfdb-4b80-999c-99bc2740d194",
+                        "base_side":"1024",
+                        "base_max_skyLoc":"29296",
+                        "base_x1":"508",
+                        "base_y1":"60",
+                        "base_z1":"510",
+                        "base_x2":"515",
+                        "base_y2":"69",
+                        "base_z2":"516",
+                        "base_xx":"-3",
+                        "base_yy":"-4",
+                        "base_zz":"-1",
+                        "base_build_sky_command":"clone ${base_x1} ${base_y1} ${base_z1} ${base_x2} ${base_y2} ${base_z2} ${xxx} ${yyy} ${zzz}",
+                        "注意":"此配置文件为核心配置文件，不懂别乱改，改坏了是你自己的事",
+                        "注意1":"base_super_op_uuid项为腐竹uuid项，具有一定的跨权能力(仅在空岛世界内有效),默认为插件作者"
+                    }
+                     """;
+            base_jsonObject = initJson(baseConfigPATH, base_initStr);
+
             new Thread(() -> {
                 Main.plugin.getLogger().info("数据缓冲模块清理器已开始工作");
                 while (true) {
@@ -66,6 +106,87 @@ public class DateAdmin {
                 ex.printStackTrace();
             }
         }
+    }
+
+    public int getBase_x1() {
+        return Integer.parseInt(base_jsonObject.get("base_x1").toString());
+    }
+
+    public int getBase_y1() {
+        return Integer.parseInt(base_jsonObject.get("base_y1").toString());
+    }
+
+    public int getBase_z1() {
+        return Integer.parseInt(base_jsonObject.get("base_z1").toString());
+    }
+
+    public int getBase_x2() {
+        return Integer.parseInt(base_jsonObject.get("base_x2").toString());
+    }
+
+    public int getBase_y2() {
+        return Integer.parseInt(base_jsonObject.get("base_y2").toString());
+    }
+
+    public int getBase_z2() {
+        return Integer.parseInt(base_jsonObject.get("base_z2").toString());
+    }
+
+    public int getBase_xx() {
+        return Integer.parseInt(base_jsonObject.get("base_xx").toString());
+    }
+
+    public int getBase_yy() {
+        return Integer.parseInt(base_jsonObject.get("base_yy").toString());
+    }
+
+    public int getBase_zz() {
+        return Integer.parseInt(base_jsonObject.get("base_zz").toString());
+    }
+
+    /**
+     * 获取空岛世界的名称
+     *
+     * @return
+     */
+    public String getBase_sky_world() {
+        return base_jsonObject.get("base_sky_world").toString();
+    }
+
+    /**
+     * 获取超级辅助的uuid
+     *
+     * @return
+     */
+    public String getBase_super_op_uuid() {
+        return base_jsonObject.get("base_super_op_uuid").toString();
+    }
+
+    /**
+     * 获取一个岛的最大边长
+     *
+     * @return
+     */
+    public int getBase_side() {
+        return Integer.parseInt(base_jsonObject.get("base_side").toString());
+    }
+
+    /**
+     * 获取一个岛最大可以容纳根号下x个岛屿
+     *
+     * @return
+     */
+    public int getBase_max_skyLoc() {
+        return Integer.parseInt(base_jsonObject.get("base_max_skyLoc").toString());
+    }
+
+    /**
+     * 获取拷贝空岛所需要使用的命令
+     *
+     * @return
+     */
+    public String getBase_build_sky_command() {
+        return base_jsonObject.get("base_build_sky_command").toString();
     }
 
     /**
@@ -142,9 +263,9 @@ public class DateAdmin {
             World world = Bukkit.getWorld(world_str);
             return new Location(world, xx, yy, zz, yaw, pitch);
         } else {
-            World world = Bukkit.getWorld("world");
+            World world = Bukkit.getWorld(getBase_sky_world());
             String SkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(uuid);
-            Location location = new Location(world, Helper.getxxCentered(IsLand.getSkyX(SkyLoc)), 64, Helper.getyyCentered(IsLand.getSkyY(SkyLoc)));
+            Location location = new Location(world, Helper.getrrCentered(IsLand.getSkyX(SkyLoc)), 64, Helper.getrrCentered(IsLand.getSkyY(SkyLoc)));
             return location;
         }
     }
@@ -228,7 +349,7 @@ public class DateAdmin {
         for (String skyLoc : all) {
             for (Object own : getOwnersList(skyLoc)) {
                 if (uuid.equalsIgnoreCase((String) own)) {
-                    arrayList.add((String) skyLoc);
+                    arrayList.add(skyLoc);
                 }
             }
         }
@@ -247,7 +368,7 @@ public class DateAdmin {
         for (String skyLoc : all) {
             for (Object mem : getMembersList(skyLoc)) {
                 if (uuid.equalsIgnoreCase((String) mem)) {
-                    arrayList.add((String) skyLoc);
+                    arrayList.add(skyLoc);
                 }
             }
         }
@@ -370,7 +491,7 @@ public class DateAdmin {
     public void saveDefaultSkyLoc(String uuid, String SkyLoc) {
         JSONObject jsonObject = getIndexInfos();
         jsonObject.put(uuid, SkyLoc);
-        if (SkyLoc.equals("REMOVE")){
+        if (SkyLoc.equals("REMOVE")) {
             jsonObject.remove(uuid);
         }
         try {
@@ -401,7 +522,7 @@ public class DateAdmin {
      * @param SkyLoc
      */
     public void saveOwnerslist(JSONArray jsonArray, String SkyLoc) throws IOException {
-        JSONObject jso = null;
+        JSONObject jso;
         try {
             jso = (JSONObject) new JSONParser().parse("{}");
         } catch (ParseException e) {

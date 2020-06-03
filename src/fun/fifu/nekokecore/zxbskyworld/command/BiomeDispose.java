@@ -1,5 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
+import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -16,11 +17,12 @@ public class BiomeDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if ("Biome".equalsIgnoreCase(command.getName())) {
-            if (!(commandSender instanceof Player)) {
+            if (!(commandSender instanceof Player player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
-            Player player = (Player) commandSender;
+            if (!player.getWorld().getName().equals(DynamicEternalMap.base_sky_world))
+                return true;
             String uuid = player.getUniqueId().toString();
             World world = player.getWorld();
             if (strings == null || strings.length == 0) {

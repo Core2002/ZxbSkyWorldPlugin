@@ -1,6 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -20,6 +21,8 @@ public class InfoDispose implements CommandExecutor {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
+            if (!player.getWorld().getName().equals(DynamicEternalMap.base_sky_world))
+                return true;
             Location location = player.getLocation();
             int xx = location.getBlockX();
             int zz = location.getBlockZ();

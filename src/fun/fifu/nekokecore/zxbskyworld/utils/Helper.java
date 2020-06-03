@@ -29,8 +29,8 @@ public class Helper {
             player.sendMessage("坐标" + SkyLoc + "不合法！最大边界为+-" + IsLand.MAXSKYLOC + "，若有疑问，请联系服务器管理员。");
             return;
         }
-        World world = Bukkit.getWorld("world");
-        Location location = new Location(world, getxxCentered(IsLand.getSkyX(SkyLoc)), 64, getyyCentered(IsLand.getSkyY(SkyLoc)));
+        World world = Bukkit.getWorld(DynamicEternalMap.base_sky_world);
+        Location location = new Location(world, getrrCentered(IsLand.getSkyX(SkyLoc)), 64, getrrCentered(IsLand.getSkyY(SkyLoc)));
         Location location1 = new Location(location.getWorld(), location.getX(), location.getY() - 4, location.getZ());
         Block block = location1.getBlock();
         block.setType(Material.BEDROCK);
@@ -47,12 +47,8 @@ public class Helper {
         return Math.abs(SkyX) < IsLand.MAXSKYLOC && Math.abs(SkyY) < IsLand.MAXSKYLOC;
     }
 
-    public static int getxxCentered(int SkyX) {
-        return (IsLand.getrrEnd(SkyX) - IsLand.getrrForm(SkyX)) / 2 + IsLand.getrrForm(SkyX);
-    }
-
-    public static int getyyCentered(int SkyY) {
-        return (IsLand.getrrEnd(SkyY) - IsLand.getrrForm(SkyY)) / 2 + IsLand.getrrForm(SkyY);
+    public static int getrrCentered(int SkyR) {
+        return (IsLand.getrrEnd(SkyR) - IsLand.getrrForm(SkyR)) / 2 + IsLand.getrrForm(SkyR);
     }
 
     public static void goSpawn(Player player) {
@@ -133,6 +129,8 @@ public class Helper {
     }
 
     public static boolean havePermission(Player player) {
+        if (!player.getWorld().getName().equals(DynamicEternalMap.base_sky_world))
+            return true;
         if (DynamicEternalMap.opCanPermiss && (player.isOp() || player.getUniqueId().toString().equals(DynamicEternalMap.zxb)))
             return true;
         String UUID = player.getUniqueId().toString();

@@ -1,6 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.item;
 
 import fun.fifu.nekokecore.zxbskyworld.Main;
+import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,6 +21,8 @@ public class Honey implements Listener {
         ItemStack item = event.getItem();
         if (item.getType() == Material.HONEY_BOTTLE) {
             Player player = event.getPlayer();
+            if (!player.getWorld().getName().equals(DynamicEternalMap.base_sky_world))
+                return;
             String uuid = player.getUniqueId().toString();
             if (Honey.honeyPlayer.contains(uuid)) {
                 player.sendMessage("小蜜蜂~嗡嗡嗡~");

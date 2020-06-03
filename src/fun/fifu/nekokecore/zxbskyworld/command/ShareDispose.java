@@ -26,6 +26,8 @@ public class ShareDispose implements CommandExecutor {
             String sp = strings[0];
             Player sharePlayer = Bukkit.getPlayer(sp);
             Player player = (Player) commandSender;
+            if (!player.getWorld().getName().equals(DynamicEternalMap.base_sky_world))
+                return true;
             if (sharePlayer == null) {
                 player.sendMessage("玩家" + sp + "不在线，无法操作");
                 return true;
@@ -48,6 +50,7 @@ public class ShareDispose implements CommandExecutor {
                 e.printStackTrace();
             }
             player.sendMessage("他的UUID是：" + shareUuid);
+            player.sendMessage("如果操作错误，可以使用/unshare命令移除权限，使用/infos可查看岛员信息，/seclusion 可关闭/打开陌生人的传送权限");
             return true;
         }
         return false;

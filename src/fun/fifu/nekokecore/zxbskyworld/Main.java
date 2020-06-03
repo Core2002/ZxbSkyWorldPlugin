@@ -39,7 +39,7 @@ public class Main extends JavaPlugin {
         //注册命令
         Bukkit.getPluginCommand("s").setExecutor(new MainDispose());
         Bukkit.getPluginCommand("goto").setExecutor(new TeleportDispose());
-        Bukkit.getPluginCommand("help").setExecutor(new HelpDispose());
+        Bukkit.getPluginCommand("help_zxb").setExecutor(new HelpDispose());
         Bukkit.getPluginCommand("exple").setExecutor(new ExpleDispose());
         Bukkit.getPluginCommand("infos").setExecutor(new InfoDispose());
         Bukkit.getPluginCommand("uuid").setExecutor(new UUID());

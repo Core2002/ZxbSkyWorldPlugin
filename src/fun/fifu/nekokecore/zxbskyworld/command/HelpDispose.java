@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 public class HelpDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if ("help".equalsIgnoreCase(command.getName())) {
+        if ("help_zxb".equalsIgnoreCase(command.getName())) {
             if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
@@ -44,7 +44,7 @@ public class HelpDispose implements CommandExecutor {
                     player.sendMessage("|| /explosion 打开/关闭当前区块的爆炸");
                     player.sendMessage("|| /sethome 设置自己的家");
                     player.sendMessage("|| /giveup 放弃你所在的岛              [危]");
-                    player.sendMessage("|| /get 领取你所在的岛");
+                    player.sendMessage("|| /get 领取你所在的岛(废弃)");
                     player.sendMessage("|| /help 查看帮助                       [3/3]");
                     player.sendMessage("||=================================|");
                     break;

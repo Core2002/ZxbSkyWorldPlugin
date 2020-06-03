@@ -19,7 +19,7 @@ public class TeleportDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if ("goto".equalsIgnoreCase(command.getName())) {
-            if (!(commandSender instanceof Player)) {
+            if (!(commandSender instanceof Player player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
@@ -37,7 +37,6 @@ public class TeleportDispose implements CommandExecutor {
             } catch (Exception e) {
                 return false;
             }
-            Player player = (Player) commandSender;
             if (Helper.inSpawn(SkyLoc)) {
                 if (player.isOp()) {
                     Helper.tpSkyLoc(player, SkyLoc);

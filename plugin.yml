@@ -9,9 +9,9 @@ commands:
     goto:
         description: "去某个岛"
         usage: /goto <SkyLoc> 或者 /goto p <Player>去某个岛
-    help:
-        description: "帮助"
-        usage: /help 查看帮助
+    help_zxb:
+        description: "查看空岛插件的帮助"
+        usage: /help_zxb 查看帮助
     exple:
         description: "把玩家从你的岛踢出"
         usage: /exple <Player> 把玩家从你的岛踢出

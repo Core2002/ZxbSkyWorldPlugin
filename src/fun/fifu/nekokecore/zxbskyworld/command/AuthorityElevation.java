@@ -13,10 +13,9 @@ public class AuthorityElevation implements CommandExecutor {
         if (!"authority-elevation".equalsIgnoreCase(command.getName()))
             return false;
         if (commandSender instanceof Player && ((Player) commandSender).getUniqueId().toString().equals(DynamicEternalMap.zxb))
-            DynamicEternalMap.opCanPermiss = true;
+            DynamicEternalMap.opCanPermiss= !DynamicEternalMap.opCanPermiss;
         else
             commandSender.sendMessage("只有服主才可以用哦");
-
         return true;
     }
 }

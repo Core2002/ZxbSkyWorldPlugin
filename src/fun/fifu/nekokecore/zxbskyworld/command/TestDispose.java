@@ -11,11 +11,10 @@ public class TestDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if ("test".equalsIgnoreCase(command.getName())) {
-            if (!(commandSender instanceof Player)) {
+            if (!(commandSender instanceof Player player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
-            Player player = (Player) commandSender;
             String uuid = player.getUniqueId().toString();
             if (!DynamicEternalMap.zxb.equals(uuid)) {
                 player.sendMessage("只有小白才可以用哦");

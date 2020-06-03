@@ -29,7 +29,7 @@ public class BlockLucker {
                         if (luck >= 48 && luck < 50) {// 金
                             return Material.GOLD_ORE;
                         } else {
-                            if (luck >= 50 && luck < 51) {// 钻石
+                            if (luck == 50) {// 钻石
                                 return Material.DIAMOND_ORE;
                             } else {
                                 if (luck >= 51 && luck < 53) {// 青金石

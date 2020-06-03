@@ -1,5 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld;
 
+import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
+
 /**
  * @author NekokeCore
  */
@@ -7,8 +9,8 @@ public abstract class BaseIsLand {
     int SkyX;
     int SkyY;
 
-    public static final int SIDE = 1024;
-    public static final int MAXSKYLOC = 29296;
+    public static final int SIDE = DynamicEternalMap.base_side;
+    public static final int MAXSKYLOC = DynamicEternalMap.base_max_skyLoc;
 
     public static int getrrForm(int SkyX) {
         return SIDE * SkyX;
