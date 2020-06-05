@@ -4,7 +4,6 @@ import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.command.InfoDispose;
 import fun.fifu.nekokecore.zxbskyworld.command.SeclusionDispose;
 import fun.fifu.nekokecore.zxbskyworld.command.ShareDispose;
-import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.SoundPlayer;
 import org.bukkit.*;
@@ -148,7 +147,7 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onSwapHand(PlayerSwapHandItemsEvent event) {
         Player player = event.getPlayer();
-        if (!player.getWorld().getName().equals(DynamicEternalMap.base_sky_world))
+        if (!player.getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world))
             return;
         if (event.getOffHandItem() != null && event.getOffHandItem().getType().equals(Material.BUCKET) && player.isSneaking()) {
             if (Helper.havePermission(player)) {
@@ -174,7 +173,7 @@ public class PlayerListener implements Listener {
     public void onTP(PlayerTeleportEvent event) {
         Location from = event.getFrom();
         Location to = event.getTo();
-        if (!to.getWorld().getName().equals(DynamicEternalMap.base_sky_world))
+        if (!to.getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world))
             return;
         int fx = from.getBlockX();
         int fz = from.getBlockZ();

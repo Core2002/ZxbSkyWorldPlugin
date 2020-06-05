@@ -2,6 +2,7 @@ main: fun.fifu.nekokecore.zxbskyworld.Main
 version: 2.33
 name: ZxbSkyWorld
 author: NekokeCore
+api-version: 1.13
 commands:
     s:
         description: "回到自己的岛"

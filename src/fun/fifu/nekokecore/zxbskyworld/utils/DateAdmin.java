@@ -26,13 +26,11 @@ public class DateAdmin {
     static final String playerInfoPATH = "./plugins/ZxbSkyWorld/playerInfo.json";
     public static JSONObject util_jsonObject = null;
     public static String spawnSkyLoc = "(0,0)";
-    public static String defaultJsonStr = """
-            {
-                "Owners":[],
-                "Members":[],
-                "Others":{}
-            }
-            """;
+    public static String defaultJsonStr = "{\n" +
+            "\"Owners\":[],\n" +
+            "\"Members\":[],\n" +
+            "\"Others\":{}\n" +
+            "}";
 
     static final String baseConfigPATH = "./plugins/ZxbSkyWorld/base_config.json";
     public static JSONObject base_jsonObject = null;
@@ -43,16 +41,33 @@ public class DateAdmin {
 
     public DateAdmin() {
         try {
-            String util_initStr = """
-                    {
-                        "spawn_world":"world",
-                        "spawn_xx":"359",
-                        "spawn_yy":"109",
-                        "spawn_zz":"295",
-                        "spawn_yaw":"180",
-                        "spawn_pitch":"0"
-                    }
-                    """;
+            String base_initStr = "{\n" +
+                    "\"base_sky_world\":\"world\",\n" +
+                    "\"base_super_op_uuid\":\"3e79580d-cfdb-4b80-999c-99bc2740d194\",\n" +
+                    "\"base_side\":\"1024\",\n" +
+                    "\"base_max_skyLoc\":\"29296\",\n" +
+                    "\"base_x1\":\"508\",\n" +
+                    "\"base_y1\":\"60\",\n" +
+                    "\"base_z1\":\"510\",\n" +
+                    "\"base_x2\":\"515\",\n" +
+                    "\"base_y2\":\"69\",\n" +
+                    "\"base_z2\":\"516\",\n" +
+                    "\"base_xx\":\"-3\",\n" +
+                    "\"base_yy\":\"-4\",\n" +
+                    "\"base_zz\":\"-1\",\n" +
+                    "\"base_build_sky_command\":\"clone ${base_x1} ${base_y1} ${base_z1} ${base_x2} ${base_y2} ${base_z2} ${xxx} ${yyy} ${zzz}\",\n" +
+                    "\"注意\":\"此配置文件为核心配置文件，不懂别乱改，改坏了是你自己的事\",\n" +
+                    "\"注意1\":\"base_super_op_uuid项为腐竹uuid项，具有一定的跨权能力(仅在空岛世界内有效),默认为插件作者\"\n" +
+                    "}";
+            base_jsonObject = initJson(baseConfigPATH, base_initStr);
+            String util_initStr = "{\n" +
+                    "\"spawn_world\":\"world\",\n" +
+                    "\"spawn_xx\":\"359\",\n" +
+                    "\"spawn_yy\":\"109\",\n" +
+                    "\"spawn_zz\":\"295\",\n" +
+                    "\"spawn_yaw\":\"180\",\n" +
+                    "\"spawn_pitch\":\"0\"\n" +
+                    "}";
             util_jsonObject = initJson(utilConfigPATH, util_initStr);
             spawnSkyLoc = Helper.toSkyLoc(Integer.parseInt(Objects.requireNonNull(util_jsonObject).get("spawn_xx").toString()), Integer.parseInt(util_jsonObject.get("spawn_yy").toString()));
             spawnSkyLoc = Helper.simplify(spawnSkyLoc);
@@ -61,27 +76,6 @@ public class DateAdmin {
             initJson(datePATH + spawnSkyLoc + ".json", defaultJsonStr);
             initJson(playerHomeInfoPATH, "{}");
             initJson(playerInfoPATH, "{}");
-            String base_initStr = """
-                    {
-                        "base_sky_world":"world",
-                        "base_super_op_uuid":"3e79580d-cfdb-4b80-999c-99bc2740d194",
-                        "base_side":"1024",
-                        "base_max_skyLoc":"29296",
-                        "base_x1":"508",
-                        "base_y1":"60",
-                        "base_z1":"510",
-                        "base_x2":"515",
-                        "base_y2":"69",
-                        "base_z2":"516",
-                        "base_xx":"-3",
-                        "base_yy":"-4",
-                        "base_zz":"-1",
-                        "base_build_sky_command":"clone ${base_x1} ${base_y1} ${base_z1} ${base_x2} ${base_y2} ${base_z2} ${xxx} ${yyy} ${zzz}",
-                        "注意":"此配置文件为核心配置文件，不懂别乱改，改坏了是你自己的事",
-                        "注意1":"base_super_op_uuid项为腐竹uuid项，具有一定的跨权能力(仅在空岛世界内有效),默认为插件作者"
-                    }
-                     """;
-            base_jsonObject = initJson(baseConfigPATH, base_initStr);
 
             new Thread(() -> {
                 Main.plugin.getLogger().info("数据缓冲模块清理器已开始工作");

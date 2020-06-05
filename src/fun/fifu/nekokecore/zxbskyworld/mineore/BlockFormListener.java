@@ -1,5 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.mineore;
 
+import fun.fifu.nekokecore.zxbskyworld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -9,7 +11,7 @@ import org.bukkit.event.block.BlockFormEvent;
 public class BlockFormListener implements Listener {
 	@EventHandler
 	public void onBlockCanBuild(BlockFormEvent event) {
-		if (!event.getBlock().getLocation().getWorld().getName().equals(DynamicEternalMap.base_sky_world))
+		if (!event.getBlock().getLocation().getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world))
 			return;
 		// System.out.println("试图放置的方块的X" + block2.getX() + "y" + block2.getY() + "Z" +
 		// block2.getZ());

@@ -2,7 +2,6 @@ package fun.fifu.nekokecore.zxbskyworld.utils;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.Main;
-import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.LivingEntity;
@@ -29,7 +28,7 @@ public class Helper {
             player.sendMessage("坐标" + SkyLoc + "不合法！最大边界为+-" + IsLand.MAXSKYLOC + "，若有疑问，请联系服务器管理员。");
             return;
         }
-        World world = Bukkit.getWorld(DynamicEternalMap.base_sky_world);
+        World world = Bukkit.getWorld(IsLand.dynamicEternalMap.base_sky_world);
         Location location = new Location(world, getrrCentered(IsLand.getSkyX(SkyLoc)), 64, getrrCentered(IsLand.getSkyY(SkyLoc)));
         Location location1 = new Location(location.getWorld(), location.getX(), location.getY() - 4, location.getZ());
         Block block = location1.getBlock();
@@ -129,9 +128,9 @@ public class Helper {
     }
 
     public static boolean havePermission(Player player) {
-        if (!player.getWorld().getName().equals(DynamicEternalMap.base_sky_world))
+        if (!player.getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world))
             return true;
-        if (DynamicEternalMap.opCanPermiss && (player.isOp() || player.getUniqueId().toString().equals(DynamicEternalMap.zxb)))
+        if (IsLand.dynamicEternalMap.opCanPermiss && (player.isOp() || player.getUniqueId().toString().equals(IsLand.dynamicEternalMap.zxb)))
             return true;
         String UUID = player.getUniqueId().toString();
         if (noP.contains(UUID)) {

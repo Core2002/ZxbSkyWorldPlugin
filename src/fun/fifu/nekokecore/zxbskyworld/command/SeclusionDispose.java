@@ -1,7 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
-import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,11 +17,12 @@ public class SeclusionDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if ("seclusion".equalsIgnoreCase(command.getName())) {
-            if (!(commandSender instanceof Player player)) {
+            if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
-            if (!player.getWorld().getName().equals(DynamicEternalMap.base_sky_world))
+            Player player=(Player)commandSender;
+            if (!player.getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world))
                 return true;
             String uuid = player.getUniqueId().toString();
             String SkyLoc = Helper.toSkyLoc(player.getLocation());

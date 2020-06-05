@@ -19,10 +19,11 @@ public class TeleportDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if ("goto".equalsIgnoreCase(command.getName())) {
-            if (!(commandSender instanceof Player player)) {
+            if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
+            Player player=(Player)commandSender;
             if (strings == null || strings.length < 1) {
                 return false;
             }

@@ -20,11 +20,9 @@ import java.util.*;
  */
 public class IsLand extends BaseIsLand {
     public static DateAdmin dateAdmin;
+    public static DynamicEternalMap dynamicEternalMap;
 
     public static void main(String[] args) {
-        List aaa = new ArrayList();
-        aaa.add("qwer");
-        System.out.println(aaa.contains("qwer"));
 
     }
 
@@ -35,20 +33,20 @@ public class IsLand extends BaseIsLand {
     }
 
     public static void buildSkyLoc(String uuid, String SkyLoc) throws IOException {
-        int xxx = getrrForm(getSkyX(SkyLoc)) + DynamicEternalMap.base_side / 2 + DynamicEternalMap.base_xx;
-        int yyy = 64 + DynamicEternalMap.base_yy;
-        int zzz = getrrForm(getSkyY(SkyLoc)) + DynamicEternalMap.base_side / 2 + DynamicEternalMap.base_zz;
-        World world = Bukkit.getWorld(DynamicEternalMap.base_sky_world);
+        int xxx = getrrForm(getSkyX(SkyLoc)) + IsLand.dynamicEternalMap.base_side / 2 + IsLand.dynamicEternalMap.base_xx;
+        int yyy = 64 + IsLand.dynamicEternalMap.base_yy;
+        int zzz = getrrForm(getSkyY(SkyLoc)) + IsLand.dynamicEternalMap.base_side / 2 + IsLand.dynamicEternalMap.base_zz;
+        World world = Bukkit.getWorld(IsLand.dynamicEternalMap.base_sky_world);
         //生成执行命令
-        String Command = DynamicEternalMap.base_build_sky_command.replace("${xxx}", xxx + "");
+        String Command = IsLand.dynamicEternalMap.base_build_sky_command.replace("${xxx}", xxx + "");
         Command = Command.replace("${yyy}", yyy + "");
         Command = Command.replace("${zzz}", zzz + "");
-        Command = Command.replace("${base_x1}", DynamicEternalMap.base_x1 + "");
-        Command = Command.replace("${base_y1}", DynamicEternalMap.base_y1 + "");
-        Command = Command.replace("${base_z1}", DynamicEternalMap.base_z1 + "");
-        Command = Command.replace("${base_x2}", DynamicEternalMap.base_x2 + "");
-        Command = Command.replace("${base_y2}", DynamicEternalMap.base_y2 + "");
-        Command = Command.replace("${base_z2}", DynamicEternalMap.base_z2 + "");
+        Command = Command.replace("${base_x1}", IsLand.dynamicEternalMap.base_x1 + "");
+        Command = Command.replace("${base_y1}", IsLand.dynamicEternalMap.base_y1 + "");
+        Command = Command.replace("${base_z1}", IsLand.dynamicEternalMap.base_z1 + "");
+        Command = Command.replace("${base_x2}", IsLand.dynamicEternalMap.base_x2 + "");
+        Command = Command.replace("${base_y2}", IsLand.dynamicEternalMap.base_y2 + "");
+        Command = Command.replace("${base_z2}", IsLand.dynamicEternalMap.base_z2 + "");
         //那个区块如果不存在，就自动生成
         Main.logger.info("chunk.load:" + Objects.requireNonNull(world).getChunkAt(new Location(world, xxx, yyy, zzz)).load(true));
         Main.logger.info("chunk.load:" + world.getChunkAt(new Location(world, xxx + 16, yyy, zzz)).load(true));

@@ -8,6 +8,7 @@ import fun.fifu.nekokecore.zxbskyworld.listener.ChairStairsListener;
 import fun.fifu.nekokecore.zxbskyworld.listener.TestListener;
 import fun.fifu.nekokecore.zxbskyworld.mineore.BlockFormListener;
 import fun.fifu.nekokecore.zxbskyworld.permission.BlockDispose;
+import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import fun.fifu.nekokecore.zxbskyworld.permission.EntityDispose;
 import fun.fifu.nekokecore.zxbskyworld.listener.PlayerListener;
 import fun.fifu.nekokecore.zxbskyworld.utils.DateAdmin;
@@ -74,6 +75,9 @@ public class Main extends JavaPlugin {
         pluginManager = getServer().getPluginManager();
         logger = getLogger();
         IsLand.dateAdmin = new DateAdmin();
+        IsLand.dynamicEternalMap=new DynamicEternalMap();
+        BaseIsLand.SIDE=IsLand.dynamicEternalMap.base_side;
+        BaseIsLand.MAXSKYLOC=IsLand.dynamicEternalMap.base_max_skyLoc;
     }
 
 

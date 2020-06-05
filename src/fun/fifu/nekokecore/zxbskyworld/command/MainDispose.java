@@ -21,10 +21,11 @@ public class MainDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if ("s".equalsIgnoreCase(command.getName())) {
-            if (!(commandSender instanceof Player player)) {
+            if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
+            Player player=(Player)commandSender;
             new SoundPlayer().playCat(player);
             //获取UUID
             String UUID = player.getUniqueId().toString();

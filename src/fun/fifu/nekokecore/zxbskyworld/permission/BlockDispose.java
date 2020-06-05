@@ -1,5 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.permission;
 
+import fun.fifu.nekokecore.zxbskyworld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -105,7 +107,7 @@ public class BlockDispose implements Listener {
      */
     @EventHandler
     public void onBlockIgnite(BlockIgniteEvent event) {
-        if (event.getBlock().getLocation().getWorld().getName().equals(DynamicEternalMap.base_sky_world) && event.getCause() != BlockIgniteEvent.IgniteCause.FLINT_AND_STEEL) {
+        if (event.getBlock().getLocation().getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world) && event.getCause() != BlockIgniteEvent.IgniteCause.FLINT_AND_STEEL) {
             event.setCancelled(true);
             return;
         }

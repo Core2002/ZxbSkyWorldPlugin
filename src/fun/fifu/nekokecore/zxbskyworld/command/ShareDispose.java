@@ -1,6 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Bukkit;
@@ -26,7 +27,7 @@ public class ShareDispose implements CommandExecutor {
             String sp = strings[0];
             Player sharePlayer = Bukkit.getPlayer(sp);
             Player player = (Player) commandSender;
-            if (!player.getWorld().getName().equals(DynamicEternalMap.base_sky_world))
+            if (!player.getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world))
                 return true;
             if (sharePlayer == null) {
                 player.sendMessage("玩家" + sp + "不在线，无法操作");
@@ -81,7 +82,7 @@ public class ShareDispose implements CommandExecutor {
      * @return
      */
     public static boolean isRepetition(String uuid, String SkyLoc) {
-        if (DynamicEternalMap.opCanPermiss && uuid.equals(DynamicEternalMap.zxb))
+        if (IsLand.dynamicEternalMap.opCanPermiss && uuid.equals(IsLand.dynamicEternalMap.zxb))
             return true;
         try {
             JSONArray jsonArray = IsLand.dateAdmin.getMembersList(SkyLoc);
@@ -108,7 +109,7 @@ public class ShareDispose implements CommandExecutor {
      * @return
      */
     public static boolean isOwner(String uuid, String SkyLoc) {
-        if (DynamicEternalMap.opCanPermiss && uuid.equals(DynamicEternalMap.zxb))
+        if (IsLand.dynamicEternalMap.opCanPermiss && uuid.equals(IsLand.dynamicEternalMap.zxb))
             return true;
         try {
             for (Object obj : IsLand.dateAdmin.getOwnersList(SkyLoc)) {

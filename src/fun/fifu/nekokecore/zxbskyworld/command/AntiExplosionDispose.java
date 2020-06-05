@@ -1,6 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Chunk;
@@ -15,11 +16,12 @@ public class AntiExplosionDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if ("explosion".equalsIgnoreCase(command.getName())) {
-            if (!(commandSender instanceof Player player)) {
+            if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
-            if (!player.getWorld().getName().equals(DynamicEternalMap.base_sky_world))
+            Player player = (Player)commandSender;
+            if (!player.getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world))
                 return true;
             if (!isOwner(player.getUniqueId().toString(), Helper.toSkyLoc(player.getLocation()))) {
                 player.sendMessage("你似乎不是这个岛的主人，不可以这么做哦");

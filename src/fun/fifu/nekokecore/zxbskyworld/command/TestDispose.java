@@ -1,5 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
+import fun.fifu.nekokecore.zxbskyworld.IsLand;
+import fun.fifu.nekokecore.zxbskyworld.Main;
 import fun.fifu.nekokecore.zxbskyworld.item.Lcarus;
 import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import org.bukkit.command.Command;
@@ -11,12 +13,13 @@ public class TestDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if ("test".equalsIgnoreCase(command.getName())) {
-            if (!(commandSender instanceof Player player)) {
+            if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
+            Player player=(Player)commandSender;
             String uuid = player.getUniqueId().toString();
-            if (!DynamicEternalMap.zxb.equals(uuid)) {
+            if (!IsLand.dynamicEternalMap.zxb.equals(uuid)) {
                 player.sendMessage("只有小白才可以用哦");
                 return true;
             }

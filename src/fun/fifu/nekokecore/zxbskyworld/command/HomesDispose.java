@@ -1,7 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
-import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,11 +13,12 @@ public class HomesDispose implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if ("homes".equalsIgnoreCase(command.getName())) {
-            if (!(commandSender instanceof Player player)) {
+            if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
-            if (!player.getWorld().getName().equals(DynamicEternalMap.base_sky_world))
+            Player player=(Player)commandSender;
+            if (!player.getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world))
                 return true;
             String uuid = player.getUniqueId().toString();
             ArrayList<String> Owners = new ArrayList<String>();
