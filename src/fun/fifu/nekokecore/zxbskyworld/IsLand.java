@@ -23,6 +23,10 @@ public class IsLand extends BaseIsLand {
     public static DynamicEternalMap dynamicEternalMap;
 
     public static void main(String[] args) {
+        Map tpa = new HashMap<String, String>();
+        tpa.put("a","b");
+
+        System.out.println(tpa.remove("a"));
 
     }
 

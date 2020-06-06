@@ -56,6 +56,7 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginCommand("guess").setExecutor(new GuessGame());
         Bukkit.getPluginCommand("test").setExecutor(new TestDispose());
         Bukkit.getPluginCommand("authority-elevation").setExecutor(new AuthorityElevation());
+        Bukkit.getPluginCommand("tpa").setExecutor(new TPADispose());
         getLogger().info("完毕。");
         getLogger().info("开始注册监听器。");
         //注册监听器

@@ -58,3 +58,6 @@ commands:
     authority-elevation:
         description: "提权"
         usage: /authority-elevation
+    tpa:
+        description: "传送请求"
+        usage: /tpa <player>
