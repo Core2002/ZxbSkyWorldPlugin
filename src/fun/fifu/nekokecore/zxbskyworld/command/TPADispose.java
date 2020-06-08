@@ -1,7 +1,7 @@
 package fun.fifu.nekokecore.zxbskyworld.command;
 
-import com.sun.deploy.security.SelectableSecurityManager;
 import fun.fifu.nekokecore.zxbskyworld.Main;
+import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,6 +15,7 @@ import java.util.Map;
 public class TPADispose implements CommandExecutor {
 
     public static Map tpa = new HashMap<String, String>();
+    public static Map temp = new HashMap<String, String>();
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
@@ -32,7 +33,9 @@ public class TPADispose implements CommandExecutor {
                         Player player1 = Bukkit.getPlayer((String) o);
                         if (player1 != null && player1.isOnline()) {
                             player1.teleport(player);
+                            temp.put(player.getName(), Helper.toSkyLoc(player.getLocation()));
                             player.sendMessage("已传送" + player1.getName());
+                            temp.remove(player.getName());
                         }
                     }
                 }

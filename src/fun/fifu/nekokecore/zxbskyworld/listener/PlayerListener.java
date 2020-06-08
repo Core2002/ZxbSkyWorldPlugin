@@ -4,6 +4,7 @@ import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.command.InfoDispose;
 import fun.fifu.nekokecore.zxbskyworld.command.SeclusionDispose;
 import fun.fifu.nekokecore.zxbskyworld.command.ShareDispose;
+import fun.fifu.nekokecore.zxbskyworld.command.TPADispose;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.SoundPlayer;
 import org.bukkit.*;
@@ -50,14 +51,16 @@ public class PlayerListener implements Listener {
         if (!player.getGameMode().equals(GameMode.SURVIVAL)) {
             player.setGameMode(GameMode.SURVIVAL);
         }
-        Helper.goSpawn(player);
-        player.sendMessage(player.getName() + "欢迎来到主城!");
         new SoundPlayer().playCat(player);
+        if (Helper.footVoid(playerJoinEvent.getPlayer().getLocation()))
+            Helper.goSpawn(player);
+        player.sendMessage(player.getName() + "欢迎来到FiFu!");
         //获取UUID
         String UUID = player.getUniqueId().toString();
         String SkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(UUID);
         //如果玩家没有岛屿，给他显示帮助
         if (SkyLoc == null) {
+            Helper.goSpawn(player);
             player.sendTitle("§a欢迎新人owo" + player.getDisplayName(), "§a使用/s以开始你的空岛生涯", 10, 20 * 60 * 60 * 24, 20);
         }
     }
@@ -70,7 +73,8 @@ public class PlayerListener implements Listener {
     public void onPlayerRespawn(PlayerRespawnEvent event) {
         event.getPlayer().setFlying(false);
         event.getPlayer().setAllowFlight(false);
-        event.setRespawnLocation(Helper.getSpawnLocation());
+        if (Helper.footVoid(event.getRespawnLocation()))
+            event.setRespawnLocation(Helper.getSpawnLocation());
     }
 
     public int inventorySize(ItemStack[] contents) {
@@ -173,6 +177,12 @@ public class PlayerListener implements Listener {
     public void onTP(PlayerTeleportEvent event) {
         Location from = event.getFrom();
         Location to = event.getTo();
+        String o = (String) TPADispose.temp.get(event.getPlayer().getName());
+        if (o != null && o.length() != 0 && o.equals(Helper.toSkyLoc(event.getPlayer().getLocation()))) {
+            TPADispose.temp.remove(event.getPlayer().getName());
+            return;
+        }
+
         if (!to.getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world))
             return;
         int fx = from.getBlockX();

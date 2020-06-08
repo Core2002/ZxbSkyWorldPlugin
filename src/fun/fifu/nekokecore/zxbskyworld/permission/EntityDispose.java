@@ -101,7 +101,7 @@ public class EntityDispose implements Listener {
                 if (((Projectile) event.getDamager()).getShooter() instanceof Player) {
                     Player player = (Player) ((Projectile) event.getDamager()).getShooter();
                     Helper.showDamage(player, (LivingEntity) entity);
-                    if (!(entity instanceof Monster) && !Helper.havePermission(player) && !Helper.inSpawn(Helper.toSkyLoc(entity.getLocation()))) {
+                    if (!(entity instanceof Monster) && player != null && !Helper.havePermission(player) && !Helper.inSpawn(Helper.toSkyLoc(entity.getLocation()))) {
                         player.sendMessage("你没权限伤害她！");
                         event.setCancelled(true);
                     }

@@ -240,4 +240,22 @@ public class Helper {
 
         return l < 4;
     }
+
+    /**
+     * 判断脚下是否踩空
+     *
+     * @param location
+     * @return
+     */
+    public static boolean footVoid(Location location) {
+        int blockX = location.getBlockX();
+        int blockY = location.getBlockY();
+        int blockZ = location.getBlockZ();
+
+        for (int i = 1; i < 6; i++) {
+            if (!new Location(location.getWorld(), blockX, blockY - i, blockZ).getBlock().getState().getType().equals(Material.AIR))
+                return false;
+        }
+        return true;
+    }
 }
