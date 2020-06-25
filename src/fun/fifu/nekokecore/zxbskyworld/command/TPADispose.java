@@ -32,8 +32,8 @@ public class TPADispose implements CommandExecutor {
                     if (Pn != null && Pn.isOnline() && pn.equals(Pn.getName())) {
                         Player player1 = Bukkit.getPlayer((String) o);
                         if (player1 != null && player1.isOnline()) {
+                            temp.put(player1.getName(), Helper.toSkyLoc(player.getLocation()));
                             player1.teleport(player);
-                            temp.put(player.getName(), Helper.toSkyLoc(player.getLocation()));
                             player.sendMessage("已传送" + player1.getName());
                             temp.remove(player.getName());
                         }

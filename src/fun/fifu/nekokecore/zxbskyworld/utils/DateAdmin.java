@@ -215,10 +215,10 @@ public class DateAdmin {
         String uuid = player.getUniqueId().toString();
         JSONObject object = IOTools.getJSONObject(playerInfoPATH);
         object.put("总人数", object.size() - 1 + "");
-        JSONObject jsonObject = new JSONObject();
+        JSONObject jsonObject = (JSONObject) object.get(uuid);
         jsonObject.put("name", player.getName());
-        JSONArray jsonArray;
-        if ((jsonArray = (JSONArray) jsonObject.get("ip")) == null) {
+        JSONArray jsonArray = (JSONArray) jsonObject.get("ip");
+        if (jsonArray == null) {
             jsonArray = new JSONArray();
         }
         String address = player.getAddress().getAddress().getHostAddress();

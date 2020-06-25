@@ -178,7 +178,7 @@ public class PlayerListener implements Listener {
         Location from = event.getFrom();
         Location to = event.getTo();
         String o = (String) TPADispose.temp.get(event.getPlayer().getName());
-        if (o != null && o.length() != 0 && o.equals(Helper.toSkyLoc(event.getPlayer().getLocation()))) {
+        if (o != null && o.length() != 0 && o.equals(Helper.toSkyLoc(to))) {
             TPADispose.temp.remove(event.getPlayer().getName());
             return;
         }
