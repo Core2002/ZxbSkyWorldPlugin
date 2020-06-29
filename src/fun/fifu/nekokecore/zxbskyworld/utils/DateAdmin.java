@@ -198,9 +198,9 @@ public class DateAdmin {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        JSONObject Object = (JSONObject) jsonObject.get(uuid);
-        if (Object != null) {
-            return Object.get("name").toString();
+        String name = (String) jsonObject.get(uuid);
+        if (name != null) {
+            return name;
         } else {
             return uuid + "(UUID)";
         }
