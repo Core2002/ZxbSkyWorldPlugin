@@ -35,15 +35,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="tpa可以跨权使用了，重生的设置的更自由了">
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了tpa权限问题，修复了ip列表不能收集的bug">
+      <change afterPath="$PROJECT_DIR$/plugins/ZxbSkyWorld/playerIP.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TPADispose$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TPADispose$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TPADispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/command/TPADispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/IsLand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/Helper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/Helper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TPADispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TPADispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/ZxbSkyWorld/playerInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/ZxbSkyWorld/playerInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/IsLand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" afterDir="false" />
     </list>
@@ -402,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591634161431</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="修复了tpa权限问题，修复了ip列表不能收集的bug">
+      <created>1593104944762</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1593104944762</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -481,7 +488,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="部分功能微调" />
     <MESSAGE value="做了些调整" />
     <MESSAGE value="修复了空指针异常" />
     <MESSAGE value="加入了新功能/goto p &lt;Player&gt;传送到玩家的岛" />
@@ -506,7 +512,8 @@
     <MESSAGE value="退回岛了jdk8（还没测试）" />
     <MESSAGE value="加入了tpa命令" />
     <MESSAGE value="tpa可以跨权使用了，重生的设置的更自由了" />
-    <option name="LAST_COMMIT_MESSAGE" value="tpa可以跨权使用了，重生的设置的更自由了" />
+    <MESSAGE value="修复了tpa权限问题，修复了ip列表不能收集的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复了tpa权限问题，修复了ip列表不能收集的bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="804" y="241" key="#Custom_Plugin_Repositories" timestamp="1587135772727">
@@ -517,10 +524,6 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="703" y="215" key="#HTTP_Proxy/62.0.1858.1080@62.0.1858.1080" timestamp="1587135916979" />
-    <state x="583" y="181" key="#Plugins" timestamp="1583952587081">
-      <screen x="62" y="0" width="1858" height="1080" />
-    </state>
-    <state x="583" y="181" key="#Plugins/62.0.1858.1080@62.0.1858.1080" timestamp="1583952587081" />
     <state x="435" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585847160190">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
@@ -537,50 +540,30 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="779" y="444" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1588527313623" />
-    <state width="1815" height="295" key="GridCell.Tab.0.bottom" timestamp="1591454304825">
+    <state width="1815" height="295" key="GridCell.Tab.0.bottom" timestamp="1593457530495">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="295" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1591454304825" />
-    <state width="1815" height="295" key="GridCell.Tab.0.center" timestamp="1591454304824">
+    <state width="1815" height="295" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1593457530495" />
+    <state width="1815" height="295" key="GridCell.Tab.0.center" timestamp="1593457530494">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="295" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1591454304824" />
-    <state width="1815" height="295" key="GridCell.Tab.0.left" timestamp="1591454304824">
+    <state width="1815" height="295" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1593457530494" />
+    <state width="1815" height="295" key="GridCell.Tab.0.left" timestamp="1593457530494">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="295" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1591454304824" />
-    <state width="1815" height="295" key="GridCell.Tab.0.right" timestamp="1591454304825">
+    <state width="1815" height="295" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1593457530494" />
+    <state width="1815" height="295" key="GridCell.Tab.0.right" timestamp="1593457530494">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="295" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1591454304825" />
-    <state width="1814" height="362" key="GridCell.Tab.1.bottom" timestamp="1584558433781">
-      <screen x="62" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1814" height="362" key="GridCell.Tab.1.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1584558433781" />
-    <state width="1814" height="362" key="GridCell.Tab.1.center" timestamp="1584558433747">
-      <screen x="62" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1814" height="362" key="GridCell.Tab.1.center/62.0.1858.1080@62.0.1858.1080" timestamp="1584558433747" />
-    <state width="1814" height="362" key="GridCell.Tab.1.left" timestamp="1584558433747">
-      <screen x="62" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1814" height="362" key="GridCell.Tab.1.left/62.0.1858.1080@62.0.1858.1080" timestamp="1584558433747" />
-    <state width="1814" height="362" key="GridCell.Tab.1.right" timestamp="1584558433747">
-      <screen x="62" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1814" height="362" key="GridCell.Tab.1.right/62.0.1858.1080@62.0.1858.1080" timestamp="1584558433747" />
-    <state x="571" y="274" key="IDE.errors.dialog" timestamp="1584271152793">
-      <screen x="62" y="0" width="1858" height="1080" />
-    </state>
-    <state x="571" y="274" key="IDE.errors.dialog/62.0.1858.1080@62.0.1858.1080" timestamp="1584271152793" />
+    <state width="1815" height="295" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1593457530494" />
     <state x="478" y="123" width="1118" height="852" key="SettingsEditor" timestamp="1591243148337">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="478" y="123" width="1118" height="852" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1591243148337" />
-    <state x="556" y="414" width="816" height="552" key="Vcs.Push.Dialog.v2" timestamp="1591634164947">
+    <state x="556" y="414" width="816" height="552" key="Vcs.Push.Dialog.v2" timestamp="1593104950522">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="556" y="414" width="816" height="552" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1591634164947" />
+    <state x="556" y="414" width="816" height="552" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1593104950522" />
     <state x="664" y="142" width="653" height="795" key="find.popup" timestamp="1589032480217">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

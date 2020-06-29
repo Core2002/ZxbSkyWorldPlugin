@@ -13,9 +13,9 @@ import org.json.simple.parser.ParseException;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DateAdmin {
     static final String datePATH = "./plugins/ZxbSkyWorld/date/";
@@ -23,7 +23,8 @@ public class DateAdmin {
     static final String unAntiExplosion = "./plugins/ZxbSkyWorld/unAntiExplosion.json";
     static final String indexInfosPATH = "./plugins/ZxbSkyWorld/index.json";
     static final String playerHomeInfoPATH = "./plugins/ZxbSkyWorld/playerHomeInfoPATH.json";
-    static final String playerInfoPATH = "./plugins/ZxbSkyWorld/playerInfo.json";
+    static final String playerNamePATH = "./plugins/ZxbSkyWorld/playerName.json";
+    static final String playerIPPATH = "./plugins/ZxbSkyWorld/playerIP.json";
     public static JSONObject util_jsonObject = null;
     public static String spawnSkyLoc = "(0,0)";
     public static String defaultJsonStr = "{\n" +
@@ -75,7 +76,8 @@ public class DateAdmin {
             initJson(unAntiExplosion, "{}");
             initJson(datePATH + spawnSkyLoc + ".json", defaultJsonStr);
             initJson(playerHomeInfoPATH, "{}");
-            initJson(playerInfoPATH, "{}");
+            initJson(playerNamePATH, "{}");
+            initJson(playerIPPATH, "{}");
 
             new Thread(() -> {
                 Main.plugin.getLogger().info("数据缓冲模块清理器已开始工作");
@@ -192,46 +194,49 @@ public class DateAdmin {
     public String getUuidName(String uuid) {
         JSONObject jsonObject = null;
         try {
-            jsonObject = IOTools.getJSONObject(playerInfoPATH);
+            jsonObject = IOTools.getJSONObject(playerNamePATH);
         } catch (IOException e) {
             e.printStackTrace();
         }
         JSONObject Object = (JSONObject) jsonObject.get(uuid);
         if (Object != null) {
-            String name = Object.get("name").toString();
-            return name;
+            return Object.get("name").toString();
         } else {
             return uuid + "(UUID)";
         }
     }
 
     /**
-     * 存储玩家信息
+     * 存储玩家名字
      *
      * @param player
      * @throws IOException
      */
-    public void savePlayerInfo(Player player) throws IOException {
+    public void savePlayerName(Player player) throws IOException {
         String uuid = player.getUniqueId().toString();
-        JSONObject object = IOTools.getJSONObject(playerInfoPATH);
-        object.put("总人数", object.size() - 1 + "");
-        JSONObject jsonObject = (JSONObject) object.get(uuid);
-        jsonObject.put("name", player.getName());
-        JSONArray jsonArray = (JSONArray) jsonObject.get("ip");
-        if (jsonArray == null) {
-            jsonArray = new JSONArray();
-        }
-        String address = player.getAddress().getAddress().getHostAddress();
-        ArrayList<String> ipList = jsonArray;
-        ipList.addAll(jsonArray);
-        if (!ipList.contains(address)) {
-            ipList.add(address);
-        }
-        jsonObject.put("ip", ipList);
-        object.put(uuid, jsonObject);
-        IOTools.writeJsonFile(object, playerInfoPATH);
+        String name = player.getName();
+        JSONObject object = IOTools.getJSONObject(playerNamePATH);
+        object.put(uuid, name);
+        IOTools.writeJsonFile(object, playerNamePATH);
     }
 
+    /**
+     * 保存玩家IP
+     *
+     * @param player
+     * @throws IOException
+     */
+    public void savePlayerIP(Player player) throws IOException {
+        String uuid = player.getUniqueId().toString();
+        String ip = player.getAddress().getHostName();
+        JSONObject object = IOTools.getJSONObject(playerIPPATH);
+        Set<String> ipSet = Stream.of(ip).collect(Collectors.toSet());
+        List<String> temp = (List) object.get(uuid);
+        if (temp != null)
+            ipSet.addAll(temp);
+        object.put(uuid, ipSet);
+        IOTools.writeJsonFile(object, playerIPPATH);
+    }
 
     /**
      * 尝试获取玩家的家的坐标

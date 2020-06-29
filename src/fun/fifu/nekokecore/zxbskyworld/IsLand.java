@@ -3,6 +3,7 @@ package fun.fifu.nekokecore.zxbskyworld;
 import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import fun.fifu.nekokecore.zxbskyworld.utils.DateAdmin;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
+import fun.fifu.nekokecore.zxbskyworld.utils.IOTools;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -13,6 +14,8 @@ import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 /**
@@ -22,12 +25,18 @@ public class IsLand extends BaseIsLand {
     public static DateAdmin dateAdmin;
     public static DynamicEternalMap dynamicEternalMap;
 
-    public static void main(String[] args) {
-        Map tpa = new HashMap<String, String>();
-        tpa.put("a","b");
-
-        System.out.println(tpa.remove("a"));
-
+    public static void main(String[] args) throws Exception {
+        System.out.println("开始");
+        String uuid = "UUID2";
+        String ip = "127.0.5.4";
+        JSONObject object = IOTools.getJSONObject("./plugins/ZxbSkyWorld/playerIP.json");
+        Set<String> ipSet = Stream.of(ip).collect(Collectors.toSet());
+        List<String> temp = (List) object.get(uuid);
+        if (temp != null)
+            ipSet.addAll(temp);
+        object.put(uuid, ipSet);
+        IOTools.writeJsonFile(object, "./plugins/ZxbSkyWorld/playerIP.json");
+        System.out.println("完毕");
     }
 
     public IsLand(String uuid) throws IOException {

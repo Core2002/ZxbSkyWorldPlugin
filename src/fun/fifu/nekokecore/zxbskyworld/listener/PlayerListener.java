@@ -7,25 +7,25 @@ import fun.fifu.nekokecore.zxbskyworld.command.ShareDispose;
 import fun.fifu.nekokecore.zxbskyworld.command.TPADispose;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import fun.fifu.nekokecore.zxbskyworld.utils.SoundPlayer;
-import org.bukkit.*;
+import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.io.BukkitObjectOutputStream;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
-
-import org.bukkit.util.io.BukkitObjectOutputStream;
 
 
 /**
@@ -44,7 +44,8 @@ public class PlayerListener implements Listener {
         playerJoinEvent.getPlayer().setAllowFlight(false);
         player.leaveVehicle();
         try {
-            IsLand.dateAdmin.savePlayerInfo(player);
+            IsLand.dateAdmin.savePlayerName(player);
+            IsLand.dateAdmin.savePlayerIP(player);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -243,6 +244,8 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
         Entity entity = event.getRightClicked();
+//        if ((entity instanceof ArmorStand || entity instanceof ItemFrame) && !Helper.havePermission(event.getPlayer()))
+//            event.setCancelled(true);
         if (!(entity instanceof LivingEntity)) {
             return;
         }
