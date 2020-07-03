@@ -22,6 +22,8 @@ public class EntityDispose implements Listener {
      */
     @EventHandler
     public void onCreatureSpawn(CreatureSpawnEvent creatureSpawnEvent) {
+        if (!creatureSpawnEvent.getLocation().getWorld().getName().equalsIgnoreCase(IsLand.dynamicEternalMap.base_sky_world))
+            return;
         int xx = (int) creatureSpawnEvent.getLocation().getX();
         int zz = (int) creatureSpawnEvent.getLocation().getZ();
         if (Helper.inSkyWrold(xx, zz, DateAdmin.spawnSkyLoc) && (creatureSpawnEvent.getEntity() instanceof Monster)) {
@@ -37,6 +39,8 @@ public class EntityDispose implements Listener {
      */
     @EventHandler(ignoreCancelled = true)
     public void onEntityExplode(EntityExplodeEvent explodeEvent) {
+        if (!explodeEvent.getLocation().getWorld().getName().equalsIgnoreCase(IsLand.dynamicEternalMap.base_sky_world))
+            return;
         Chunk chunk = explodeEvent.getLocation().getChunk();
         String CLoc = Helper.toCLoc(chunk);
         if (IsLand.dateAdmin.getCanExplosion(CLoc)) {
@@ -53,6 +57,8 @@ public class EntityDispose implements Listener {
      */
     @EventHandler
     public void onOpen(InventoryOpenEvent event) {
+        if (!event.getPlayer().getLocation().getWorld().getName().equalsIgnoreCase(IsLand.dynamicEternalMap.base_sky_world))
+            return;
         Inventory inventory = event.getInventory();
         if (inventory instanceof PlayerInventory || inventory instanceof MerchantInventory || inventory instanceof CraftingInventory || inventory instanceof EnchantingInventory) {
             return;

@@ -228,6 +228,8 @@ public class PlayerListener implements Listener {
      */
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
+        if (!event.getEntity().getWorld().getName().equalsIgnoreCase(IsLand.dynamicEternalMap.base_sky_world))
+            return;
         if (Helper.inSpawn(Helper.toSkyLoc(event.getEntity().getLocation()))) {
             if (event.getEntity().getLocation().getBlockY() < -150) {
                 event.getEntity().sendMessage("这个世界虽然不完美，我们仍可以治愈自己");

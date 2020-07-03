@@ -23,14 +23,14 @@ public class TeleportDispose implements CommandExecutor {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
-            Player player=(Player)commandSender;
+            Player player = (Player) commandSender;
             if (strings == null || strings.length < 1) {
                 return false;
             }
             String SkyLoc;
             try {
                 SkyLoc = strings[0];
-                if ((strings.length == 2 && strings[1] != null && !strings[1].isEmpty()) || SkyLoc.equalsIgnoreCase("p")&& strings[1] != null) {
+                if ((strings.length == 2 && strings[1] != null && !strings[1].isEmpty()) || SkyLoc.equalsIgnoreCase("p") && strings[1] != null) {
                     Player tempPlayer = Bukkit.getPlayer(strings[1]);
                     SkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(tempPlayer.getUniqueId().toString());
                 }
@@ -47,6 +47,8 @@ public class TeleportDispose implements CommandExecutor {
                 return true;
 
             }
+            if (IsLand.dynamicEternalMap.opCanPermiss && (player.isOp() || player.getUniqueId().toString().equals(IsLand.dynamicEternalMap.zxb)))
+                Helper.tpSkyLoc(player, SkyLoc);
             if (!IsLand.dateAdmin.isExist(SkyLoc)) {
                 player.sendMessage("您输入的岛屿" + SkyLoc + "不存在，请检查输入！");
                 return true;

@@ -36,7 +36,7 @@ public class BlockDispose implements Listener {
      */
     @EventHandler
     public void onBlockBurn(BlockBurnEvent event) {
-        if (event.getBlock().getLocation().getWorld().getName().equals("world")) {
+        if (event.getBlock().getLocation().getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world)) {
             event.setCancelled(true);
         }
     }
@@ -92,6 +92,8 @@ public class BlockDispose implements Listener {
      */
     @EventHandler
     public void onLeavesDecay(LeavesDecayEvent event) {
+        if (!event.getBlock().getWorld().getName().equalsIgnoreCase(IsLand.dynamicEternalMap.base_sky_world))
+            return;
         int xx = (int) event.getBlock().getLocation().getX();
         int zz = (int) event.getBlock().getLocation().getZ();
         if (Helper.inSpawn(xx, zz)) {
@@ -107,6 +109,8 @@ public class BlockDispose implements Listener {
      */
     @EventHandler
     public void onBlockIgnite(BlockIgniteEvent event) {
+        if (!event.getBlock().getWorld().getName().equalsIgnoreCase(IsLand.dynamicEternalMap.base_sky_world))
+            return;
         if (event.getBlock().getLocation().getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world) && event.getCause() != BlockIgniteEvent.IgniteCause.FLINT_AND_STEEL) {
             event.setCancelled(true);
             return;

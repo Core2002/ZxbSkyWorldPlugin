@@ -35,10 +35,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了上一个提交把存ip，玩家名的方法改bug了的bug">
+    <list default="true" id="74719d67-5d1a-464a-9b1c-71f588d44991" name="Default Changelist" comment="修复了上一个因为修复修复bug而产生的bug的bug而产生的bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ZxbSkyWorldPlugin_jar/ZxbSkyWorldPlugin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/BlockDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/BlockDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ZxbSkyWorldPlugin/fun/fifu/nekokecore/zxbskyworld/utils/DateAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/command/TeleportDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/listener/PlayerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/BlockDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/BlockDispose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fun/fifu/nekokecore/zxbskyworld/permission/EntityDispose.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -409,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593457847260</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="修复了上一个因为修复修复bug而产生的bug的bug而产生的bug">
+      <created>1593459172336</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1593459172336</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -488,8 +502,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修复了空指针异常" />
-    <MESSAGE value="加入了新功能/goto p &lt;Player&gt;传送到玩家的岛" />
     <MESSAGE value="修复了转换异常的bug" />
     <MESSAGE value="加入了牌子命令功能" />
     <MESSAGE value="修复了无权限时，锄头，铲子，斧头可以更改方块的bug和权限管理机制优化：若玩家被检测无权限，则在接下来的5秒也不会有权限，无论他是否真的有权限。" />
@@ -513,7 +525,9 @@
     <MESSAGE value="tpa可以跨权使用了，重生的设置的更自由了" />
     <MESSAGE value="修复了tpa权限问题，修复了ip列表不能收集的bug" />
     <MESSAGE value="修复了上一个提交把存ip，玩家名的方法改bug了的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复了上一个提交把存ip，玩家名的方法改bug了的bug" />
+    <MESSAGE value="修复了上一个因为修复上一个因修复bug而产生的bug的bug而产生的bug" />
+    <MESSAGE value="修复了上一个因为修复修复bug而产生的bug的bug而产生的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复了上一个因为修复修复bug而产生的bug的bug而产生的bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="804" y="241" key="#Custom_Plugin_Repositories" timestamp="1587135772727">
@@ -560,14 +574,14 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="478" y="123" width="1118" height="852" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1591243148337" />
-    <state x="556" y="414" width="816" height="552" key="Vcs.Push.Dialog.v2" timestamp="1593457904417">
+    <state x="556" y="414" width="816" height="552" key="Vcs.Push.Dialog.v2" timestamp="1593459190917">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="556" y="414" width="816" height="552" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1593457904417" />
-    <state x="664" y="142" width="653" height="795" key="find.popup" timestamp="1589032480217">
+    <state x="556" y="414" width="816" height="552" key="Vcs.Push.Dialog.v2/62.0.1858.1080@62.0.1858.1080" timestamp="1593459190917" />
+    <state x="664" y="142" width="653" height="795" key="find.popup" timestamp="1593739687560">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="664" y="142" width="653" height="795" key="find.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1589032480217" />
+    <state x="664" y="142" width="653" height="795" key="find.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1593739687560" />
     <state x="187" y="246" width="1251" height="642" key="new project wizard" timestamp="1588137741673">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
