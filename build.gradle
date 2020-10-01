@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group 'fun.fifu.nekokecore'
+version '1.0-SNAPSHOT'
+repositories {
+    mavenLocal()
+    jcenter()
+    google()
+    mavenCentral()
+    //国内镜像源
+    maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+    maven { url 'https://mirrors.huaweicloud.com/repository/maven' }
+    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    //Minecraft
+    maven { url 'http://crystal.lss233.com.aslf.top/repositories/minecraft' }
+    maven { url 'https://lss233.com/artifactory/minecraft' }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+}
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.bukkit:bukkit:1.16.2-R0.1-SNAPSHOT'
+    implementation 'org.yaml:snakeyaml:1.17'
+    implementation 'com.google.code.gson:gson:2.7'
+    implementation 'com.googlecode.json-simple:json-simple:1.1'
+    //implementation "org.spigotmc:spigot-api:1.16.1-R0.1-SNAPSHOT"
+}
+
+//编译groovy代码时采用 UTF-8
+tasks.withType(GroovyCompile) {
+    groovyOptions.encoding = "UTF-8"
+}
+
+//编译JAVA文件时采用UTF-8
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
