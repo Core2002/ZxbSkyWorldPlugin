@@ -78,7 +78,7 @@ public class Main extends JavaPlugin {
         IsLand.dateAdmin = new DateAdmin();
         IsLand.dynamicEternalMap=new DynamicEternalMap();
         BaseIsLand.SIDE=IsLand.dynamicEternalMap.base_side;
-        BaseIsLand.MAXSKYLOC=IsLand.dynamicEternalMap.base_max_skyLoc;
+        BaseIsLand.MAX_SKY_LOC =IsLand.dynamicEternalMap.base_max_skyLoc;
     }
 
 

@@ -46,9 +46,9 @@ public class IsLand extends BaseIsLand {
     }
 
     public static void buildSkyLoc(String uuid, String SkyLoc) throws IOException {
-        int xxx = getrrForm(getSkyX(SkyLoc)) + IsLand.dynamicEternalMap.base_side / 2 + IsLand.dynamicEternalMap.base_xx;
+        int xxx = getRRForm(getSkyX(SkyLoc)) + IsLand.dynamicEternalMap.base_side / 2 + IsLand.dynamicEternalMap.base_xx;
         int yyy = 64 + IsLand.dynamicEternalMap.base_yy;
-        int zzz = getrrForm(getSkyY(SkyLoc)) + IsLand.dynamicEternalMap.base_side / 2 + IsLand.dynamicEternalMap.base_zz;
+        int zzz = getRRForm(getSkyY(SkyLoc)) + IsLand.dynamicEternalMap.base_side / 2 + IsLand.dynamicEternalMap.base_zz;
         World world = Bukkit.getWorld(IsLand.dynamicEternalMap.base_sky_world);
         //生成执行命令
         String Command = IsLand.dynamicEternalMap.base_build_sky_command.replace("${xxx}", xxx + "");
@@ -118,8 +118,8 @@ public class IsLand extends BaseIsLand {
         int SkyX;
         int SkyY;
         do {
-            SkyX = random.nextInt(MAXSKYLOC) - random.nextInt(MAXSKYLOC);
-            SkyY = random.nextInt(MAXSKYLOC) - random.nextInt(MAXSKYLOC);
+            SkyX = random.nextInt(MAX_SKY_LOC) - random.nextInt(MAX_SKY_LOC);
+            SkyY = random.nextInt(MAX_SKY_LOC) - random.nextInt(MAX_SKY_LOC);
             tempSkyLoc = "(" + SkyX + "," + SkyY + ")";
         } while (nowSkyLocs.contains(tempSkyLoc) || Helper.simplify(tempSkyLoc).equalsIgnoreCase(DateAdmin.spawnSkyLoc) || !Helper.skyLocValidity(tempSkyLoc));
         return tempSkyLoc;

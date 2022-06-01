@@ -10,10 +10,10 @@ public class ShardProcessing implements Runnable{
         World world = Bukkit.getWorld("world");
         int SkyX = IsLand.getSkyX(SkyLoc);
         int SkyY = IsLand.getSkyY(SkyLoc);
-        int xxfrom = IsLand.getrrForm(SkyX);
-        int zzfrom = IsLand.getrrForm(SkyY);
-        int xxend = IsLand.getrrEnd(SkyX);
-        int zzend = IsLand.getrrEnd(SkyY);
+        int xxfrom = IsLand.getRRForm(SkyX);
+        int zzfrom = IsLand.getRRForm(SkyY);
+        int xxend = IsLand.getRREnd(SkyX);
+        int zzend = IsLand.getRREnd(SkyY);
 
         for (int zz = zzfrom; zz <= zzend; zz++) {
             for (int xx = xxfrom; xx <= xxend; xx++) {

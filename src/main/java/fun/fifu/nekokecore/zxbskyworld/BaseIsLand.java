@@ -7,13 +7,13 @@ package fun.fifu.nekokecore.zxbskyworld;
 public abstract class BaseIsLand {
 
     public static int SIDE = 1024;
-    public static int MAXSKYLOC = 29296;
+    public static int MAX_SKY_LOC = 29296;
 
-    public static int getrrForm(int SkyX) {
+    public static int getRRForm(int SkyX) {
         return SIDE * SkyX;
     }
 
-    public static int getrrEnd(int SkyX) {
+    public static int getRREnd(int SkyX) {
         return (SIDE * (SkyX + 1)) - 1;
     }
 

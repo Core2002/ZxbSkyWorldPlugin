@@ -11,6 +11,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static org.bukkit.attribute.Attribute.GENERIC_MAX_HEALTH;
 
@@ -26,11 +27,11 @@ public class Helper {
      */
     public static void tpSkyLoc(Player player, String SkyLoc) {
         if (!skyLocValidity(SkyLoc)) {
-            player.sendMessage("坐标" + SkyLoc + "不合法！最大边界为+-" + IsLand.MAXSKYLOC + "，若有疑问，请联系服务器管理员。");
+            player.sendMessage("坐标" + SkyLoc + "不合法！最大边界为+-" + IsLand.MAX_SKY_LOC + "，若有疑问，请联系服务器管理员。");
             return;
         }
         World world = Bukkit.getWorld(IsLand.dynamicEternalMap.base_sky_world);
-        Location location = new Location(world, getrrCentered(IsLand.getSkyX(SkyLoc)), 64, getrrCentered(IsLand.getSkyY(SkyLoc)));
+        Location location = new Location(world, getRRCentered(IsLand.getSkyX(SkyLoc)), 64, getRRCentered(IsLand.getSkyY(SkyLoc)));
         Location location1 = new Location(location.getWorld(), location.getX(), location.getY() - 4, location.getZ());
         Block block = location1.getBlock();
         block.setType(Material.BEDROCK);
@@ -44,11 +45,11 @@ public class Helper {
         }
         int SkyX = IsLand.getSkyX(SkyLoc);
         int SkyY = IsLand.getSkyY(SkyLoc);
-        return Math.abs(SkyX) < IsLand.MAXSKYLOC && Math.abs(SkyY) < IsLand.MAXSKYLOC;
+        return Math.abs(SkyX) < IsLand.MAX_SKY_LOC && Math.abs(SkyY) < IsLand.MAX_SKY_LOC;
     }
 
-    public static int getrrCentered(int SkyR) {
-        return (IsLand.getrrEnd(SkyR) - IsLand.getrrForm(SkyR)) / 2 + IsLand.getrrForm(SkyR);
+    public static int getRRCentered(int SkyR) {
+        return (IsLand.getRREnd(SkyR) - IsLand.getRRForm(SkyR)) / 2 + IsLand.getRRForm(SkyR);
     }
 
     public static void goSpawn(Player player) {
@@ -67,7 +68,7 @@ public class Helper {
     }
 
     public static boolean inSpawn(int xx, int zz) {
-        return inSkyWrold(xx, zz, "(0,0)");
+        return inSkyWorld(xx, zz, "(0,0)");
     }
 
     public static boolean inSpawn(String SkyLoc) {
@@ -78,14 +79,14 @@ public class Helper {
         return now >= from && now <= end;
     }
 
-    public static boolean inSkyWrold(int xx, int zz, String SkyLoc) {
+    public static boolean inSkyWorld(int xx, int zz, String SkyLoc) {
         int SkyX = IsLand.getSkyX(SkyLoc);
         int SkyY = IsLand.getSkyY(SkyLoc);
-        return in(xx, IsLand.getrrForm(SkyX), IsLand.getrrEnd(SkyX)) && in(zz, IsLand.getrrForm(SkyY), IsLand.getrrEnd(SkyY));
+        return in(xx, IsLand.getRRForm(SkyX), IsLand.getRREnd(SkyX)) && in(zz, IsLand.getRRForm(SkyY), IsLand.getRREnd(SkyY));
     }
 
-    public static boolean inSkyWrold(int xx, int zz, int SkyX, int SkyY) {
-        return in(xx, IsLand.getrrForm(SkyX), IsLand.getrrEnd(SkyX)) && in(zz, IsLand.getrrForm(SkyY), IsLand.getrrEnd(SkyY));
+    public static boolean inSkyWorld(int xx, int zz, int SkyX, int SkyY) {
+        return in(xx, IsLand.getRRForm(SkyX), IsLand.getRREnd(SkyX)) && in(zz, IsLand.getRRForm(SkyY), IsLand.getRREnd(SkyY));
     }
 
     public static String toSkyLoc(int xx, int zz) {
@@ -189,7 +190,7 @@ public class Helper {
             @Override
             public void run() {
                 int i = (int) livingEntity.getHealth();
-                int j = (int) livingEntity.getAttribute(GENERIC_MAX_HEALTH).getValue();
+                int j = (int) Objects.requireNonNull(livingEntity.getAttribute(GENERIC_MAX_HEALTH)).getValue();
                 String color = "§f";
                 double c = i / 1.0 / j;
                 if (c <= 1.0 && c >= 0.825) {

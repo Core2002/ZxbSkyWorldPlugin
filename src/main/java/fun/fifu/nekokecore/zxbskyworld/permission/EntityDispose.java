@@ -26,7 +26,7 @@ public class EntityDispose implements Listener {
             return;
         int xx = (int) creatureSpawnEvent.getLocation().getX();
         int zz = (int) creatureSpawnEvent.getLocation().getZ();
-        if (Helper.inSkyWrold(xx, zz, DateAdmin.spawnSkyLoc) && (creatureSpawnEvent.getEntity() instanceof Monster)) {
+        if (Helper.inSkyWorld(xx, zz, DateAdmin.spawnSkyLoc) && (creatureSpawnEvent.getEntity() instanceof Monster)) {
             creatureSpawnEvent.setCancelled(true);
         }
 

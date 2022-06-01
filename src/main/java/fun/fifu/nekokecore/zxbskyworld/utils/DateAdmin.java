@@ -264,7 +264,7 @@ public class DateAdmin {
         } else {
             World world = Bukkit.getWorld(getBase_sky_world());
             String SkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(uuid);
-            Location location = new Location(world, Helper.getrrCentered(IsLand.getSkyX(SkyLoc)), 64, Helper.getrrCentered(IsLand.getSkyY(SkyLoc)));
+            Location location = new Location(world, Helper.getRRCentered(IsLand.getSkyX(SkyLoc)), 64, Helper.getRRCentered(IsLand.getSkyY(SkyLoc)));
             return location;
         }
     }
