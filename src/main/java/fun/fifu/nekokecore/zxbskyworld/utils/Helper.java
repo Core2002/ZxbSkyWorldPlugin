@@ -1,5 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.utils;
 
+import fun.fifu.nekokecore.zxbskyworld.BaseIsLand;
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.Main;
 import org.bukkit.*;
@@ -98,23 +99,8 @@ public class Helper {
     }
 
     public static int getSkyR(int rr) {
-        int SkyR = 0;
-        if (rr > 0) {
-            while (!in(rr, IsLand.getrrForm(SkyR), IsLand.getrrEnd(SkyR))) {
-                if (Math.abs(SkyR) > IsLand.MAXSKYLOC) {
-                    throw new RuntimeException("R轴SkyLoc正越界！rr=" + rr);
-                }
-                SkyR++;
-            }
-        } else if (rr < 0) {
-            while (!in(rr, IsLand.getrrForm(SkyR), IsLand.getrrEnd(SkyR))) {
-                if (Math.abs(SkyR) > IsLand.MAXSKYLOC) {
-                    throw new RuntimeException("R轴SkyLoc负越界！rr=" + rr);
-                }
-                SkyR--;
-            }
-        }
-        return SkyR;
+        if (rr >= 0) return rr / BaseIsLand.SIDE;
+        else return -((-rr + BaseIsLand.SIDE - 1) / BaseIsLand.SIDE);
     }
 
     public static String simplify(String SkyLoc) {
@@ -128,8 +114,7 @@ public class Helper {
     }
 
     public static boolean havePermission(Player player) {
-        if (!player.getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world))
-            return true;
+        if (!player.getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world)) return true;
         if (IsLand.dynamicEternalMap.opCanPermiss && (player.isOp() || player.getUniqueId().toString().equals(IsLand.dynamicEternalMap.zxb)))
             return true;
         String UUID = player.getUniqueId().toString();
