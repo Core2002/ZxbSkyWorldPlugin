@@ -1,8 +1,6 @@
 package fun.fifu.nekokecore.zxbskyworld.mineore;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
-import fun.fifu.nekokecore.zxbskyworld.Main;
-import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

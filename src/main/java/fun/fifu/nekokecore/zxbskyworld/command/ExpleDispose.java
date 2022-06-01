@@ -2,12 +2,12 @@ package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
 import fun.fifu.nekokecore.zxbskyworld.Main;
-import fun.fifu.nekokecore.zxbskyworld.permission.DynamicEternalMap;
 import fun.fifu.nekokecore.zxbskyworld.utils.Helper;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
 import java.util.HashMap;
 
 /**
