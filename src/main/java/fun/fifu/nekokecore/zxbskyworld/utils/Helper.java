@@ -22,8 +22,8 @@ public class Helper {
     /**
      * 把玩家传送到岛上，脚下第四格永远是基岩
      *
-     * @param player
-     * @param SkyLoc
+     * @param player 要传送的玩家
+     * @param SkyLoc 岛的坐标
      */
     public static void tpSkyLoc(Player player, String SkyLoc) {
         if (!skyLocValidity(SkyLoc)) {
@@ -230,8 +230,8 @@ public class Helper {
     /**
      * 判断脚下是否踩空
      *
-     * @param location
-     * @return
+     * @param location 玩家所在坐标
+     * @return True:踩空 False:不踩空
      */
     public static boolean footVoid(Location location) {
         int blockX = location.getBlockX();
