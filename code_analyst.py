@@ -75,7 +75,7 @@ def print_result():
 
 
 if __name__ == '__main__':
-    if (len(sys.argv) != 2):
+    if len(sys.argv) != 2:
         print("Usage : python3 code_analyst.py project_path")
     else:
         project_path = sys.argv[1]

@@ -32,8 +32,7 @@ public class IsLand extends BaseIsLand {
         JSONObject object = IOTools.getJSONObject("./plugins/ZxbSkyWorld/playerIP.json");
         Set<String> ipSet = Stream.of(ip).collect(Collectors.toSet());
         List<String> temp = (List) object.get(uuid);
-        if (temp != null)
-            ipSet.addAll(temp);
+        if (temp != null) ipSet.addAll(temp);
         object.put(uuid, ipSet);
         IOTools.writeJsonFile(object, "./plugins/ZxbSkyWorld/playerIP.json");
         System.out.println("完毕");
