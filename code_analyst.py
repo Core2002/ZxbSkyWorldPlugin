@@ -1,6 +1,5 @@
 # code_analyst.py
-
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import os
@@ -20,22 +19,22 @@ total_lines = 0
 
 
 def list_files(path):
-    '''
+    """
     遍历工程路径path，如果遇到文件则统计其行数，如果遇到目录则进行递归
-    '''
+    """
     filenames = os.listdir(path)
     for f in filenames:
         fpath = os.path.join(path, f)
-        if (os.path.isfile(fpath)):
+        if os.path.isfile(fpath):
             count_lines(fpath)
-        if (os.path.isdir(fpath)):
+        if os.path.isdir(fpath):
             list_files(fpath)
 
 
 def count_lines(fpath):
-    '''
+    """
     对于文件fpath，计算它的行数，然后根据其后缀将它的行数加到相应的全局变量当中
-    '''
+    """
     global CPP_SUFFIX_SET, PYTHON_SUFFIX_SET, JAVA_SUFFIX_SET
     global cpp_lines, python_lines, java_lines, total_lines
 
@@ -65,9 +64,9 @@ def count_lines(fpath):
 
 
 def print_result():
-    '''
+    """
     本函数依赖库prettytable，请使用sudo pip3 install prettytable进行安装
-    '''
+    """
     tb = pt.PrettyTable()
     tb.field_names = ['CPP', 'PYTHON', 'JAVA', 'TOTAL']
     tb.add_row([cpp_lines, python_lines, java_lines, total_lines])
@@ -83,4 +82,3 @@ if __name__ == '__main__':
 
         total_lines = cpp_lines + python_lines + java_lines
         print_result()
-        
