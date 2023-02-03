@@ -1,3 +1,15 @@
+/*
+ * Copyright (c) 2020 Core2002
+ * ZxbSkyWorldPlugin is licensed under Mulan PSL v2.
+ * You can use this software according to the terms and conditions of the Mulan PSL v2.
+ * You may obtain a copy of Mulan PSL v2 at:
+ *          http://license.coscl.org.cn/MulanPSL2
+ * THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND,
+ * EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT,
+ * MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
+ * See the Mulan PSL v2 for more details.
+ */
+
 package fun.fifu.nekokecore.zxbskyworld.command;
 
 import fun.fifu.nekokecore.zxbskyworld.IsLand;
@@ -21,7 +33,7 @@ public class GiveupDispose implements CommandExecutor {
                 commandSender.sendMessage("你必须是一名玩家!");
                 return true;
             }
-            Player player=(Player)commandSender;
+            Player player = (Player) commandSender;
             if (!player.getWorld().getName().equals(IsLand.dynamicEternalMap.base_sky_world))
                 return true;
             if (strings != null && strings.length > 0) {
@@ -32,7 +44,7 @@ public class GiveupDispose implements CommandExecutor {
                     String DefSkyLoc = IsLand.dateAdmin.getDefaultSkyLoc(uuid);
                     try {
                         IsLand.dateAdmin.saveOwnerslist(new JSONArray(), DefSkyLoc);
-                        IsLand.dateAdmin.saveDefaultSkyLoc(uuid,"REMOVE");
+                        IsLand.dateAdmin.saveDefaultSkyLoc(uuid, "REMOVE");
                     } catch (IOException e) {
                         long time = System.nanoTime();
                         player.sendMessage("操作过程貌似出错了，如果有问题，请拿着下面这串数字找服务器管理员" + time);
